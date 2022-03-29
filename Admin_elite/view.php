@@ -153,7 +153,13 @@ table>tbody>tr>th{
                  $id=$_GET['id'];
                  echo  $sql1 ="select attach_images from doc_attachment where img_id ='$id'";
                  $result1=mysqli_query($conn,$sql1);
-                 $row1=mysqli_fetch_assoc($result1);
+                 
+                 $i="0";
+                 while($row=mysql_fetch_array($result1))
+                 {
+                 
+                     $image=$row['attach_images'];
+                 }
                  $img=array();
                  foreach($row1 as $res){
                   $img[]=$res['attach_images'];

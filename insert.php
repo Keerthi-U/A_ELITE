@@ -131,8 +131,9 @@ if($lastid > 0){
         array_push($images_names,$imageName4);
         }
         }
+     
       for($i=0; $i<count($images_names);$i++){
-      echo $query1 = "INSERT into `doc_attachment`(`img_id`,`attach_images`) VALUES ('$lastid','$images_names[$i]')";
+      echo $query1 = "INSERT into `doc_attachment`(`img_id`,`attach_images`,`created_at`, `updated_at`) VALUES ('$lastid','$images_names[$i]','$created_at','$updated_at')";
       $result1 = mysqli_query($conn,$query1);
       }
       
@@ -155,7 +156,7 @@ if($lastid > 0){
         $occupation=$_POST['occupation'][$i];
         $annual_income=$_POST['annual_income'][$i];
           
-        echo $sql="INSERT INTO `family_information`(`student_id`,`name`,`age`,`genders`,`relation`,`martial_status`,`qualification`,`occupation`,`annual_income`) VALUES ('$lastid','$name','$age','$genders','$relation','$martial_status','$qualification','$occupation','$annual_income')";
+        echo $sql="INSERT INTO `family_information`(`student_id`,`name`,`age`,`genders`,`relation`,`martial_status`,`qualification`,`occupation`,`annual_income`,`created_at`, `updated_at`) VALUES ('$lastid','$name','$age','$genders','$relation','$martial_status','$qualification','$occupation','$annual_income','$created_at','$updated_at')";
         $total = mysqli_query($conn,$sql);
         $income="500";
          // relation
@@ -207,29 +208,11 @@ if($lastid > 0){
       echo $g;
       echo $c = $a+$b+$ra+$s+$m+$g+$sd+$or;
       
-        
           echo $sql="UPDATE  `scholarship_table` set ratings='$c' WHERE id ='$lastid'";
-          
           $total = mysqli_query($conn,$sql);
+ }
 
 
 
 
-      }
-
-
-
-//    $lastid = mysqli_insert_id($conn); 
-
-
-// echo "last id : ".$lastid; 
-// if($lastid > 0){
-
-
-
-
-
-  
-
-// }
 ?>
