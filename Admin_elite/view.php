@@ -106,6 +106,10 @@ table>tbody>tr>th{
                 <th >District</th>
                 <td><?php echo $row['district']; ?></td>
                 </tr>
+                <tr>
+                <th>Pincode</th>
+                <td><?php echo $row['pincode']; ?></td>
+                </tr>
               </table>
              </div>
          </div>
@@ -145,7 +149,18 @@ table>tbody>tr>th{
                 </tr>
                 <tr>
                  <th>Pervious Marksheet</th>
-                 <td><?php echo $row['previous_marksheet']; ?></td>
+                 <td><?php 
+                 $id=$_GET['id'];
+                 echo  $sql1 ="select attach_images from doc_attachment where img_id ='$id'";
+                 $result1=mysqli_query($conn,$sql1);
+                 $row1=mysqli_fetch_assoc($result1);
+                 $img=array();
+                 foreach($row1 as $res){
+                  $img[]=$res['attach_images'];
+                 }
+                 print_r($img);
+
+                 ?></td>
                 </tr>
                  <tr>
                  <th>Term/Semester</th>
@@ -305,6 +320,10 @@ table>tbody>tr>th{
                <div class="table_content">
                <div class="th_heading"><h2>C.Family Information</h2></div>
                 <table  style="width:100%">
+                <tr>
+                 <th>First Graduate</th>
+                 <td><?php echo $row['graduate']; ?></td>
+                </tr>
                  <tr>
                  <th>Orphan</th>
                  <td><?php echo $row['orphan'];   ?></td>
@@ -318,7 +337,7 @@ table>tbody>tr>th{
                 
                 {
                     ?>
- <table id="myTable" class="table table-bordered">
+                    <table id="myTable" class="table table-bordered">
                                         <th width="26%">Name</th>
                                         <th  width="7%">Age</th>
                                         <th  width="12%">Gender</th>
@@ -327,25 +346,45 @@ table>tbody>tr>th{
                                         <th  width="6%">Qualification</th>
                                         <th  width="11%"> Occupation</th>
                                         <th width="12%">Annual Income</th>
-                    <?php
-
-
-                 include_once('db.php');
-                 $id=$_GET['id'];
-                 $sqll="select * from family_information  where student_id = '$id'";
-                 $result1=mysqli_query($conn,$sqll);
-                 while($rows = mysqli_fetch_assoc($result1)){
-               ?>
-               
-                                      
-                                      
-                                        <tr id='row_0'>
-                                     
+                                        <?php
+                                        include_once('db.php');
+                                        $id=$_GET['id'];
+                                        $sqll="select * from family_information  where student_id = '$id'";
+                                        $result1=mysqli_query($conn,$sqll);
+                                        while($rows = mysqli_fetch_assoc($result1)){
+                                        ?>
+                                         <tr id='row_0'>
                                         <td><?php echo $rows['name']; ?></td>
                                         <td><?php echo $rows['age']; ?></td>
-                                        <td><?php echo $rows['genders']; ?></td>
-                                        <td><?php echo $rows['relation']; ?></td>
-                                        <td><?php echo $rows['martial_status']; ?></td>
+                                        <td><?php  $rows['genders'];
+                                        if($rows['genders'] == '1'){
+                                            echo "Male";
+                                        }else{
+                                            echo "Female";
+                                        }
+                                        ?></td>
+                                        <td><?php  $rows['relation']; 
+                                        if($rows['relation'] == '1'){
+                                            echo "Father";
+                                        }elseif($rows['relation'] == '2'){
+                                            echo "Mother";
+                                        }elseif($rows['relation'] == '3'){
+                                            echo "Sister";
+                                        }else{
+                                            echo "Brother";
+                                        }
+                                        ?></td>
+                                        <td><?php  $rows['martial_status'];
+                                            if($rows['martial_status'] == '1'){
+                                                echo "Married";
+                                            }elseif($rows['martial_status'] == '2'){
+                                                echo "Unmarried";
+                                            }elseif($rows['martial_status'] == '3'){
+                                                echo "Widow/Widowar";
+                                            }else{
+                                                echo "Single Parent";
+                                            }
+                                        ?></td>
                                         <td><?php echo $rows['qualification']; ?></td>
                                         <td><?php echo $rows['occupation']; ?></td>
                                         <td><?php echo $rows['annual_income']; ?></td>

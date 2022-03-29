@@ -146,8 +146,8 @@
                                 <div class="form-group col-lg-6">
                                     <label for="exampleFormControlFile1">Pervious Marksheet</label>
                                     <div class="d-flex">
-                                    <input type="text" id="file-name" name="previous_marksheet" class="choose-txt form-control" >
-                                    <input id="file-upload" class="file-up"  name="previous_marksheet"  type="file"  >
+                                    <input type="text" id="file-name" name="previous_marksheet" class="choose-txt form-control">
+                                    <input id="file-upload" class="file-up"  name="previous_marksheet[]"  type="file" multiple >
                                 </div>
                                 </div>
                                 <div class="h_admitted col-lg-6">
@@ -202,7 +202,7 @@
                                     <label for="exampleFormControlFile1">Attachement</label>
                                     <div class="d-flex">
                                     <input type="text" name="bank_attachment" id="file-name1" class=" choose-txt form-control" >
-                                    <input id="file-upload1" class="file-up" name="bank_attachment1" type="file">
+                                    <input id="file-upload1" class="file-up" name="bank_attachment1[]" type="file" multiple>
                                     </div>
                                   </div>
                                 </div>
@@ -261,14 +261,14 @@
                                 <label for="exampleFormControlFile1"> Hospital Report/LOR </label>
                              <div class="d-flex">
                                 <input type="text" name="hospital_report" id="file-name3" class=" choose-txt form-control" >
-                                <input id="file-upload3" class="file-up" name="hospital_report" type="file">
+                                <input id="file-upload3" class="file-up" name="hospital_report[]" type="file" multiple>
                              </div>
                         </div> 
                          <div class="form-group col-lg-4">
                                 <label for="exampleFormControlFile1">Pervious Medical Report</label>
                                 <div class="d-flex">
                                <input type="text" name="previous_medical_report" id="file-name4" class=" choose-txt form-control" >
-                                <input id="file-upload4" class="file-up" name="previous_medical_report" type="file">
+                                <input id="file-upload4" class="file-up" name="previous_medical_report[]" type="file" multiple>
                                 </div>
                              </div> 
                         </div>
@@ -327,7 +327,7 @@
                                     <label for="exampleFormControlFile1">Attachement</label>
                                     <div class="d-flex">
                                         <input type="text" name="bank_attachment" id="file-name2" class="choose-txt form-control" >
-                                        <input id="file-upload2" class="file-up" name='bank_attachment' type="file"  >
+                                        <input id="file-upload2" class="file-up" name='bank_attachment[]' type="file"  multiple >
                                     </div>
                                    </div>
                              </div>

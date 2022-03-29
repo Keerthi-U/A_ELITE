@@ -8,7 +8,11 @@ include_once('sidebar.php');
 <!-- fetch data from table  -->
 <?php  
 include_once('db.php');
-$query ="SELECT c.id,c.fullname,c.form_type,c.fathername,c.gender  ,c.contactnumber,c.created_by,c.approved_status, COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information p ON c.id = p.student_id GROUP BY c.id;
+
+$query ="SELECT c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender  ,c.contactnumber,c.created_by,c.approved_status, COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information 
+p ON c.id = p.student_id GROUP BY c.id 
+ORDER BY c.ratings DESC;
+ ;
 ";
 $result = mysqli_query($conn,$query);
 ?>
@@ -255,16 +259,16 @@ $result = mysqli_query($conn,$query);
             margin: 1px;
         }
         .fac-icon1 {
-        background: #e1e16d;
+        background: #efefef;
         color: black;
         }
         .fac-icon2 {
-        background: green;
-        color: white;
+        background: #efefef;
+        color: black;
         }
        .fac-icon3 {
-        background: #c90707;
-        color: white;
+        background: #efefef;
+        color: black;
         }
      </style>
 
@@ -285,12 +289,13 @@ $result = mysqli_query($conn,$query);
             <caption>Bootstrap 3 Table - SPLessons.com</caption>
             <thead>
                 <tr>
-                <th>id</th>
+                <th>Id</th>
                 <th>Form Type</th>
                 <th>Family-Members</th>
                 <th>Full Name</th>
                 <th>Father Name</th>
                 <th>Gender</th>
+                <th>Ratings</th>
                 <th>Contact Num</th>
                 <th>Created By</th>
                 <th>Status</th>
@@ -299,19 +304,21 @@ $result = mysqli_query($conn,$query);
             </thead>
             <tbody >
                 <?php
+                $counter="0";
                 while($row=mysqli_fetch_assoc($result)){
                 ?>
                 <tr>
-                <td><?php echo $row['id'] ?></td>
+                <td><?php echo ++$counter; ?></td>
                 <td><?php echo $row['form_type'] ?></td>
                 <td><?php echo $row['number_of_student'] ?></td>
                 <td><?php echo $row['fullname'] ?></td>
                 <td><?php echo $row['fathername'] ?></td>
                 <td><?php echo $row['gender'] ?></td>
+                <td><?php echo $row['ratings'] ?></td>
                 <td><?php echo $row['contactnumber'] ?></td>
                 <td><?php echo $row['created_by']?></td>
                 <td><?php if($row['approved_status'] === NULL){ echo 'Pending';}?></td>
-                <td><a href="view.php?id=<?php echo $row['id'];?>"  class="fa fa-eye fac-icon1"> </a>
+                <td><a href="view.php?id=<?php echo $row['id'];?>" class="fa fa-eye fac-icon1"> </a>
                 <button class="fa fa-pencil fac-icon2"></button>
                 <button class="fa fa-trash-o fac-icon3"></button>
                </td>
@@ -323,23 +330,10 @@ $result = mysqli_query($conn,$query);
             </table>
          </div>
        </div>
-
-
-    <div class="name">
-        <div id="name">
-
-        </div>
-    </div>
- 
         <?php
         include_once('footer.php');
         ?>
      
 
-        <script>
-
-
-
-
-</script>
+  
     

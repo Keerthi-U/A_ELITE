@@ -3,13 +3,6 @@ include_once('db.php');
 include('header.php');
 
 ?>
-
-   
-<style>
-
-
-       </style>
-
 <div class="error-pagewrap">
 		<div class="error-page-int">
 			<div class="text-center custom-login">
@@ -57,46 +50,18 @@ include('header.php');
                     </div>
                 </div>
 			</div>
-   <!-- <form action="" method="post" id="myform">
-       
-        <fieldset>
-          
-          <legend><span class="number">1</span> Your Basic Info</legend>
-        
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="first_name">
 
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="last_name">
-        
-          <label for="email">Email:</label>
-          <input type="email" id="mail" name="email">
-       
-          <label for="password">Password:</label>
-          <input type="password" id="password"  name="password">
-        
-       
-          
-        </fieldset>
-      
-         <div class="bt_div">
-         <button type="submit" name="submit" id="submit" >Sign Up</button>
-         </div>
-      
-        
-       </form> -->
 
-       <?php
-include_once('db.php');
-include('footer.php');
+        <?php
+        include_once('db.php');
+        include('footer.php');
 
-?>
+        ?>
        <script>
          
 
        $(document).ready(function(){
-
-        $('#submit').click(function(e){
+       $('#submit').click(function(e){
             e.preventDefault();
             alert('insert');
             var formdata =new FormData(document.getElementById('myform'));

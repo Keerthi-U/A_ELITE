@@ -81,7 +81,7 @@
 		============================================ -->
     <!-- <script src="js/tawk-chat.js"></script> -->
 
-    <script>
+<script>
   $(document).ready(function() {
     $('#example').DataTable();
 });
