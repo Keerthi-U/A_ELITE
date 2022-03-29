@@ -13,22 +13,15 @@ if (isset($_POST['submit']))
  
   
     $password=$_POST['password'];
-   echo  $query = "SELECT * FROM `admin_register` WHERE   email='".($email)."'";
-  
+    echo  $query = "SELECT * FROM `admin_register` WHERE   email='".($email)."'";
     $result = mysqli_query($conn,$query) or die(mysqli_error());
     $row = mysqli_fetch_assoc($result);
     $rows = mysqli_num_rows($result);
-
-
-    if($rows==1)
+   if($rows==1)
     {
-
-$first_name = $row['first_name'];
-// echo $first_name;
-// exit();
-   $_SESSION['first_name']=$first_name;
-  
-   header("Location: index.php");
+     $first_name = $row['first_name'];
+     $_SESSION['first_name']=$first_name;
+     header("Location: index.php");
      }
      else
      {
@@ -40,35 +33,7 @@ echo "
 
 
 ?>
-
-
-       
-   <!-- <form action="login.php" method="post" id="myform">
-       
-        <fieldset>
-          
-          <legend><span class="number">1</span> Your Basic Info</legend>
-        
-          <label for="email">Name:</label>
-          <input type="text" id="mail" name="name">
-        
-          <label for="email">Email:</label>
-          <input type="email" id="mail" name="email">
-       
-          <label for="password">Password:</label>
-          <input type="password" id="password"  name="password">
-        
-       
-          
-        </fieldset>
-      
-         <div class="bt_div">
-         <button type="submit" name="submit" id="submit" >Sign Up</button>
-         </div>
-      
-        
-       </form> -->
-       <div class="error-pagewrap">
+ <div class="error-pagewrap">
 		<div class="error-page-int">
 			<div class="text-center m-b-md custom-login">
 				<h3>PLEASE LOGIN TO APP</h3>
@@ -103,35 +68,7 @@ echo "
 		
 		</div>   
     </div>
-
-
-       <script>
-         
-
-    //    $(document).ready(function(){
-
-    //     $('#submit').click(function(e){
-    //         e.preventDefault();
-    //         alert('insert');
-    //         var formdata =new FormData(document.getElementById('myform'));
-    
-    //        alert(formdata);
-    //       $.ajax({
-    //       url: 'login_insert.php',
-    //       data: formdata,
-    //       processData: false,
-    //       contentType: false,
-    //       type: 'POST',
-    //       success: function(data){
-    //           header("Location:index.php");
-    //       }
-    //       });
-
-    //     });
-    //    });
-       </script>
-       <?php
+ <?php
 include_once('db.php');
 include('footer.php');
-
 ?>
