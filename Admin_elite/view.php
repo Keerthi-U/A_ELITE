@@ -4,24 +4,13 @@ include_once('sidebar.php');
 include_once('db.php');
 
 $id=$_GET['id'];
-
-
 $sql="select * from scholarship_table  where id = '$id'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($result);
-
 $form_type = $row['form_type'];
 echo $form_type;
-
-
-
 ?>
-<?php
 
-
-
-
-?>
 <style>
 .table_main {
     margin-top: 31px;
@@ -142,10 +131,9 @@ table>tbody>tr>th{
                  <th>School/College Address</th>
                  <td><?php echo $row['school_address']; ?></td>
                 </tr>
-               
-                 <tr>
-                 <th>Marks/Percentage</th>
-                 <td><?php echo $row['mark_percentage']; ?></td>
+                <tr>
+                <th>Marks/Percentage</th>
+                <td><?php echo $row['mark_percentage']; ?></td>
                 </tr>
                 <tr>
                  <th>Pervious Marksheet</th>
@@ -153,20 +141,17 @@ table>tbody>tr>th{
                  $id=$_GET['id'];
                  echo  $sql1 ="select attach_images from doc_attachment where img_id ='$id'";
                  $result1=mysqli_query($conn,$sql1);
-                 
-                 $i="0";
-                 while($row=mysql_fetch_array($result1))
-                 {
-                 
-                     $image=$row['attach_images'];
-                 }
                  $img=array();
-                 foreach($row1 as $res){
-                  $img[]=$res['attach_images'];
+                 foreach($result1 as $image){
+                    $img[] = $image['attach_images'];
                  }
+                 echo "<pre>";
                  print_r($img);
-
-                 ?></td>
+                 echo "<pre>";
+                 foreach($img as $image1){
+                    echo "<img src='../previous_marksheet/".$image1."'  >";  
+                }
+                ?></td>
                 </tr>
                  <tr>
                  <th>Term/Semester</th>
@@ -211,7 +196,20 @@ table>tbody>tr>th{
                 </tr>
                  <tr>
                  <th>Attachement</th>
-                 <td><?php echo $row['bank_attachment']; ?></td>
+                 <td><?php 
+               
+                //   $img=array();
+
+                //   foreach($result2 as $image){
+                //      $img[] = $image['attach_images'];
+                //   }
+                //   echo "<pre>";
+                //   print_r($img);
+                //   echo "<pre>";
+                  foreach($img as $ban_image){
+                     echo "<img src='../bank_attachment/".$ban_image."'  >";  
+                 }
+                 ?></td>
                 </tr>
                
               
@@ -263,11 +261,37 @@ table>tbody>tr>th{
                 </tr>
                 <tr>
                  <th>Hospital Report/LOR</th>
-                 <td><?php echo $row['hospital_report']; ?></td>
+                 <td><?php 
+                    $id=$_GET['id'];
+                    echo  $sql3 ="select attach_images from doc_attachment where img_id ='$id'";
+                    $result3=mysqli_query($conn,$sql3);
+                    $img1=array();
+                    foreach($result3 as $image){
+                    $img1[] = $image['attach_images'];
+                    }
+                    $path = '../hospital_report/'.$hospital_image;     
+                    $filenames = glob($path);
+                    foreach ($filenames as $filename) {
+                        echo "<img src='".$filename."'  >"; 
+                    }
+// foreach($img1 as $hospital_image){
+
+// if (file_exists('../hospital_report/'.$hospital_image)) {
+
+//     echo "<img src='".$file."'  >";  
+    
+//  }    
+  
+// }
+                 ?></td>
                 </tr>
                  <tr>
                  <th>Pervious Medical Report</th>
-                 <td><?php echo $row['previous_medical_report']; ?></td>
+                 <td><?php
+                     foreach($img1 as $medical_image){
+                     echo "<img src='../previous_medical_report/".$medical_image."'  >";  
+                    }
+                 ?></td>
                 </tr>
                  <tr>
                  <th>Do you have Insurance scheme?</th>
@@ -284,7 +308,7 @@ table>tbody>tr>th{
                  <th>Private</th>
                  <td><?php echo $row['private']; ?></td>
                 </tr>
-              <?php } else {} ?>
+                 <?php } else {} ?>
                 <tr>
                 <th class="th_heading"><h3>Bank AccountDetails:-</h3></th>
                 </tr >
@@ -307,7 +331,11 @@ table>tbody>tr>th{
                 </tr>
                  <tr>
                  <th>Attachement</th>
-                 <td><?php echo $row['bank_attachment']; ?></td>
+                 <td><?php 
+                         foreach($img1 as $ban_image){
+                            echo "<img src='../bank_attachment/".$ban_image."'  >";  
+                        }
+                 ?></td>
                 </tr>
                
               

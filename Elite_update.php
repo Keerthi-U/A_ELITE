@@ -1,36 +1,27 @@
+
 <?php
 include("header.php");
 ?>
 <?php
 include("db.php");
-error_reporting(0);
+
 $id=$_GET['id'];
 $sql="select * from scholarship_table  where id = '$id'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($result);
 $form_type = $row['form_type'];
-// $gender = $row['gender'];
-// echo $gender;
 echo $form_type;
-if($id>0){
-    $form_name="edit_form";
-}else{
-    $form_name="add_form";
-}
 ?>
-
   <div class="container">
      <div class="main">
       <h1 class="text-center sc-heading">Scholarship Form</h1>
           <form class="form" action="" name="myform" method="post" id="myform" onsubmit="return medical()" enctype="multipart/form-data">
-                <input type="text" name="form_name"class="txtField" value="<?php echo $form_name; ?>"; ?>
-                <input type="text" name="edit_form"  class="txtField" value="<?php echo $id; ?>"; ?>
-                <input type="hidden" name="id" id="id" class="txtField" value="<?php echo $row['id']; ?>";?>
+
               <div class="form-group row choose-frm">
                         <label for="inputEmail3" class=" choose_form  col-sm-4 col-form-label">Choose form Type</label>
                         <div class="col-sm-8">
-                        <select id="flip" name="form_type" value="<?php echo $row['form_type']; ?>" class="form-control">
-                             <option selected = 'selected' value="<?php echo $row['form_type']; ?>"><?php echo $row['form_type']; ?></option>  
+                        <select id="flip" name="form_type" class="form-control">
+                             <option value="">Select</option>  
                             <option value="1">Student Form</option>
                             <option value="2">Medical Form</option>
                             <option value="3">Third Form</option>
@@ -48,34 +39,21 @@ if($id>0){
                          <div class="fullname col-lg-4">
                             <input id="id" type="hidden" class="form-control" name="">
                                 <label for="fullname" class="text-dark">Full Name</label>
-                                <input id="fullname" type="text" class="form-control" name="fullname" value="<?php echo $row['fullname']; ?>">
+                                <input id="fullname" type="text" class="form-control" name="fullname">
                             </div>  
                             <div class="dob col-md-12 col-lg-4 col-xl-4">
                                 <label for="d_o_admission">Date Of Birth</label>
-                                <input id="d_o_admission" type="date" class="form-control date" name="dob" value="<?php echo $row['dob']; ?>"  placeholder="Select date...">
+                                <input id="d_o_admission" type="date" class="form-control date" name="dob"  placeholder="Select date...">
                              </div>
                             <div class="gender col-lg-4">
                                 <label for="gender">Gender</label>
                                 <div class="row">
                                 <div class="custom-control custom-radio" id="gender">
-                                    <input type="radio" class="custom-control-input" id="stu_customRadio1" name="gender" value="Male"
-                                    <?php if($row['gender'] =='Male')
-                                        {
-                                            echo 'checked';
-                                        }
-                                        ?>
-                                        >
+                                    <input type="radio" class="custom-control-input" id="stu_customRadio1" name="gender" value="Male">
                                     <label class="custom-control-label lab" for="stu_customRadio1">Male</label>
                                 </div>
                                 <div class="custom-control custom-radio female" id="gender">
-                                    <input type="radio" class="custom-control-input" id="stu_customRadio2" name="gender" value="Female" 
-                                    <?php if($row['gender'] =='Female')
-                                        {
-                                            echo 'checked';
-                                        }
-
-                                    ?>
-                                    >
+                                    <input type="radio" class="custom-control-input" id="stu_customRadio2" name="gender" value="Female">
                                     <label class="custom-control-label lab" for="stu_customRadio2">Female</label>
                                 </div>
                                 </div>
@@ -86,68 +64,56 @@ if($id>0){
                                 <label for="gender">Disability</label>
                                 <div class="row">
                                 <div class="custom-control custom-radio" id="disablity">
-                                    <input type="radio" class="custom-control-input" id="disablity_yes" name="disablity" value="yes"
-                                    <?php if($row['disablity'] =='yes')
-                                        {
-                                            echo 'checked';
-                                        }
-                                    ?>
-                                     >
+                                    <input type="radio" class="custom-control-input" id="disablity_yes" name="disablity" value="yes">
                                     <label class="custom-control-label lab" for="disablity_yes">Yes</label>
                                 </div>
                                 <div class="custom-control custom-radio female" id="disablity">
-                                    <input type="radio" class="custom-control-input" id="disablity_no" name="disablity" value="no"
-                                    <?php if($row['disablity'] =='no')
-                                        {
-                                            echo 'checked';
-                                        }
-                                    ?>
-                                    >
+                                    <input type="radio" class="custom-control-input" id="disablity_no" name="disablity" value="no">
                                     <label class="custom-control-label lab" for="disablity_no">No</label>
                                 </div>
                                 </div>
                             </div>  
                             <div class="fathername col-lg-4" id="disablit">
                                 <label for="fathername">Type of disability</label>
-                                <input id="fathername" type="text" class="form-control input-sm" name="type_of_disability" value="<?php echo $row['type_of_disability']; ?>" >
+                                <input id="fathername" type="text" class="form-control input-sm" name="type_of_disability">
                             </div> 
                             <div class="fathername col-lg-4">
                                 <label for="fathername">Father Name</label>
-                                <input id="fathername" type="text" class="form-control input-sm" name="fathername" value="<?php echo $row['fathername']; ?>">
+                                <input id="fathername" type="text" class="form-control input-sm" name="fathername">
                             </div> 
                             <div class="mothername col-lg-4">
                                 <label for="mothername">Mother Name</label>
-                                <input id="mothername" type="text" class="form-control input-sm" name="mothername" value="<?php echo $row['mothername']; ?>">
+                                <input id="mothername" type="text" class="form-control input-sm" name="mothername">
                             </div>  
                              <div class="contact col-lg-4">
                                 <label for="contact">Contact Number</label>
-                                <input id="contact" type="number" class="form-control input-sm" name="contactnumber" value="<?php echo $row['contactnumber']; ?>">
+                                <input id="contact" type="number" class="form-control input-sm" name="contactnumber">
                              </div>
                             <div class="email col-lg-4">
                                 <label for="email">Email</label>
-                                <input id="email" type="text" class="form-control input-sm" name="email" value="<?php echo $row['email']; ?>">
+                                <input id="email" type="text" class="form-control input-sm" name="email">
                             </div> 
                             <div class="col-lg-4">
                             <div class="address">
                                 <label for="address">Address/Correspondance</label>
-                                <textarea class="form-control input-sm" id="address" name="address" rows="2" value=""><?php echo $row['address']; ?> </textarea>
+                                <textarea class="form-control input-sm" id="address" name="address" rows="2"></textarea>
                             </div>  
                             </div>
                             <div class="state col-lg-4">
                                 <label for="state">State</label>
-                                <input id="state" type="text" class="form-control input-sm" name="state" value="<?php echo $row['state']; ?>">
+                                <input id="state" type="text" class="form-control input-sm" name="state">
                             </div>
                             <div class="district col-lg-4">
                                     <label for="district">District</label>
-                                    <input id="district" type="text" class="form-control input-sm" name="district" value="<?php echo $row['district']; ?>">
+                                    <input id="district" type="text" class="form-control input-sm" name="district">
                             </div>
                            <div class="City col-lg-4">
                                 <label for="City">City</label>
-                                <input id="City" type="text" class="form-control input-sm" name="city" value="<?php echo $row['city']; ?>">
+                                <input id="City" type="text" class="form-control input-sm" name="city">
                             </div>
                             <div class="state col-lg-4">
                                     <label for="state">Pincode</label>
-                                    <input id="state" type="text" class="form-control input-sm" name="pincode" value="<?php echo $row['pincode']; ?>">
+                                    <input id="state" type="text" class="form-control input-sm" name="pincode">
                             </div> 
                          </div>
                      </div>
@@ -160,59 +126,59 @@ if($id>0){
                       <div class="row">
                         <div class="h_admitted col-lg-4">
                             <label for="h_admitted">Name of School/ College</label>
-                            <input id="h_admitted" type="text" class="form-control input-sm" name="school_name" value="<?php echo $row['school_name']; ?>">
+                            <input id="h_admitted" type="text" class="form-control input-sm" name="school_name">
                         </div> 
                         <div class="h_admitted col-lg-4">
                             <label for="h_admitted">Enrollment/Register Number</label>
-                            <input id="h_admitted" type="text" class="form-control input-sm" name="reg_no" value="<?php echo $row['reg_no']; ?>">
+                            <input id="h_admitted" type="text" class="form-control input-sm" name="reg_no">
                         </div>  
                     
                         <div class="h_admitted col-lg-4">
                             <label for="h_admitted">Class/Department</label>
-                            <input id="h_admitted" type="text" class="form-control input-sm" name="department" value="<?php echo $row['department']; ?>">
+                            <input id="h_admitted" type="text" class="form-control input-sm" name="department">
                         </div>  
                         <div class="h_admitted col-lg-4">
                             <label for="h_admitted">School/College Address</label>
-                            <textarea class="form-control input-sm" id="s_c_address" name="school_address"rows="5" value=""><?php echo $row['school_address']; ?></textarea>
+                            <textarea class="form-control input-sm" id="s_c_address" name="school_address"rows="5"></textarea>
                         </div> 
                         <div class="col-lg-8">
                             <div class="row">
                                 <div class="h_admitted col-lg-6">
                                     <label for="h_admitted">Marks/Percentage</label>
-                                    <input id="h_admitted" type="text" class="form-control input-sm" name="mark_percentage" value="<?php echo $row['mark_percentage']; ?>">
+                                    <input id="h_admitted" type="text" class="form-control input-sm" name="mark_percentage" >
                                 </div> 
                                 <div class="form-group col-lg-6">
                                     <label for="exampleFormControlFile1">Pervious Marksheet</label>
                                     <div class="d-flex">
-                                    <input type="text" id="file-name" name="previous_marksheet" class="choose-txt form-control"  >
+                                    <input type="text" id="file-name" name="previous_marksheet" class="choose-txt form-control">
                                     <input id="file-upload" class="file-up"  name="previous_marksheet[]"  type="file" multiple >
                                 </div>
                                 </div>
                                 <div class="h_admitted col-lg-6">
                                     <label for="h_admitted" class="lab">Term/Semester</label>
-                                    <input id="h_admitted" type="text" class="form-control input-sm" name="term_semester"  value="<?php echo $row['term_semester']; ?>">
+                                    <input id="h_admitted" type="text" class="form-control input-sm" name="term_semester">
                                 </div> 
                                 <div class="h_admitted col-lg-6">
                                     <label for="h_admitted"  class="lab">Acadamic Year</label>
-                                    <input id="h_admitted" type="text" class="form-control input-sm" name="academic_year"  value="<?php echo $row['academic_year']; ?>">
+                                    <input id="h_admitted" type="text" class="form-control input-sm" name="academic_year">
                                 </div> 
                             </div>
                          </div>
                          <div class="t_o_disease col-lg-4">
                             <label for="t_o_disease">Scholarship category</label>
-                            <select class="custom-select" id="t_o_disease" name="scholarship_select" value="<?php echo $row['scholarship_select'];?>"> 
-                                <option value="expert<?php echo $row['scholarship_select'];?>"><?php echo $row['scholarship_select'];?></option>
-                                <option value="Premetric">Premetric</option>
-                                <option value="Post metric">Post metric</option>
+                            <select class="custom-select" id="t_o_disease" name="scholarship_select"> 
+                                <option value="expert">Scholarship...</option>
+                                <option value="1">Premetric</option>
+                                <option value="2">Post metric</option>
                             </select>
                          </div> 
                          <div class="h_admitted col-lg-4">
                             <label for="h_admitted"> Phone Number</label>
-                            <input id="h_admitted" type="text" class="form-control input-sm" name="phone_no"  value="<?php echo $row['phone_no']; ?>">
+                            <input id="h_admitted" type="text" class="form-control input-sm" name="phone_no">
                          </div>
                          <div class="h_admitted col-lg-4">
                                 <label for="h_admitted"> Email</label>
-                                <input id="h_admitted" type="text" class="form-control input-sm" name="student_email"  value="<?php echo $row['student_email']; ?>">
+                                <input id="h_admitted" type="text" class="form-control input-sm" name="student_email">
                          </div>
                        </div>
                       <div class="heading2_1 mt-5">Bank AccountDetails:-</div>
@@ -220,21 +186,21 @@ if($id>0){
                             <div class="row">
                                <div class="a_number col-lg-4">
                                     <label for="a_number">Account Number</label>
-                                    <input id="a_number" type="number" class="form-control" name="account_no1" value="<?php echo $row['account_no']; ?>">
+                                    <input id="a_number" type="number" class="form-control" name="account_no1">
                                 </div>
                                 <div class="n_o_bank col-lg-4">
                                     <label for="n_o_bank">Name Of Bank</label>
-                                    <input id="n_o_bank" type="text" class="form-control" name="bank_name1" value="<?php echo $row['bank_name']; ?>">
+                                    <input id="n_o_bank" type="text" class="form-control" name="bank_name1">
                                 </div>   
                                 <div class="ifsc_code col-lg-4">
                                     <label for="ifsc_code">IFSC Code</label>
-                                    <input id="ifsc_code" type="text" class="form-control" name="ifsc_code1" value="<?php echo $row['ifsc_code']; ?>">
+                                    <input id="ifsc_code" type="text" class="form-control" name="ifsc_code1">
                                 </div>  
                             </div>
                           <div class="row">
                                 <div class="aa_number col-lg-4">
                                     <label for="aa_number">Aadhar Number</label>
-                                    <input id="aa_number" type="number" class="form-control" name="aadhar_number1" value="<?php echo $row['aadhar_number']; ?>">
+                                    <input id="aa_number" type="number" class="form-control" name="aadhar_number1">
                                  </div>  
                                  <div class="form-group col-lg-4">
                                     <label for="exampleFormControlFile1">Attachement</label>
@@ -258,42 +224,42 @@ if($id>0){
                       <div class="row">
                          <div class="h_admitted col-lg-4">
                             <label for="h_admitted">Name Of Hospital Admitted</label>
-                            <input id="h_admitted" type="text" class="form-control input-sm" name="hospital_name" value="<?php echo $row['hospital_name']; ?>">
+                            <input id="h_admitted" type="text" class="form-control input-sm" name="hospital_name">
                          </div>  
                         <div class="t_o_disease col-lg-4">
                             <label for="t_o_disease">Type Of Disease</label>
-                            <select class="custom-select" id="t_o_disease" name="disease_select" value="<?php echo $row['disease_select']; ?>">
-                                <option value="expert <?php echo $row['disease_select']; ?>"><?php echo $row['disease_select']; ?>Affected by...</option>
-                                <option value="Injury">Injury</option>
-                                <option value="Maternity">Maternity</option>
-                                <option value="Illness">Illness</option>
+                            <select class="custom-select" id="t_o_disease" name="disease_select">
+                                <option value="expert">Affected by...</option>
+                                <option value="1">Injury</option>
+                                <option value="2">Maternity</option>
+                                <option value="3">Illness</option>
                             </select>
                         </div> 
                         <div class="n_o_disease col-lg-4">
                             <label for="n_o_disease">Name Of Disease</label>
-                            <input id="n_o_disease" type="text" class="form-control input-sm" name="disease_name" value="<?php echo $row['disease_name']; ?>">
+                            <input id="n_o_disease" type="text" class="form-control input-sm" name="disease_name">
                         </div>  
                         <div class="t_o_disease col-lg-4">
                             <label for="t_o_disease">Severity Of Disease</label>
-                            <select class="custom-select form-control" id="t_o_disease" name="severity_disease" value="<?php echo $row['severity_disease']; ?>">
-                                <option value="expert<?php echo $row['severity_disease']; ?>"><?php echo $row['severity_disease']; ?></option>
-                                <option value="Minor">Minor</option>
-                                <option value="Moderate">Moderate</option>
-                                <option value="Major">Major</option>
-                                <option value="Extreme">Extreme</option>
+                            <select class="custom-select form-control" id="t_o_disease" name="severity_disease">
+                                <option value="expert">Please select ...</option>
+                                <option value="1">Minor</option>
+                                <option value="2">Moderate</option>
+                                <option value="3">Major</option>
+                                <option value="4">Extreme</option>
                             </select>
                         </div> 
                          <div class="d_o_admission col-lg-4">
                                 <label for="d_o_admission">Date Of Admission</label>
-                                <input type="date" id="d_o_admission" class="form-control date" name="admission_date" value="<?php echo $row['admission_date']; ?>">
+                                <input type="date"  class="form-control date" name="admission_date" >
                          </div>  
                          <div class="a_expense col-lg-4">
                                 <label for="a_expense">Approximate Expenses</label>
-                                <input id="a_expense" type="text" class="form-control" name="approximate_expense" value="<?php echo $row['approximate_expense']; ?>">
+                                <input id="a_expense" type="text" class="form-control" name="approximate_expense">
                         </div>  
                          <div class="r_amount col-lg-4">
                                 <label for="r_amount">Requested Amount</label>
-                                <input id="r_amount" type="text" class="form-control" name="request_amount" value="<?php echo $row['request_amount']; ?>">
+                                <input id="r_amount" type="text" class="form-control" name="request_amount">
                          </div> 
                          <div class="form-group col-lg-4">
                                 <label for="exampleFormControlFile1"> Hospital Report/LOR </label>
@@ -314,35 +280,23 @@ if($id>0){
                             <div class="row orphan_1">
                                 <label for="orphan" class="orphan1">Do you have Insurance scheme?</label>
                             <div class="custom-control custom-radio" id="in_orphan">
-                                <input type="radio" class="custom-control-input" id="customRadio5" name="insurance_scheme" value="yes" 
-                                <?php if($row['insurance_scheme'] =='yes')
-                                        {
-                                            echo 'checked';
-                                        }
-                                    ?>
-                                >
+                                <input type="radio" class="custom-control-input" id="customRadio5" name="insurance_scheme" value="yes">
                                 <label class="custom-control-label" for="customRadio5">Yes</label>
                             </div>
                             <div class="custom-control custom-radio" id="in_orphan">
-                                <input type="radio" class="custom-control-input" id="customRadio6" name="insurance_scheme" value="no"
-                                <?php if($row['insurance_scheme'] =='no')
-                                        {
-                                            echo 'checked';
-                                        }
-                                    ?>
-                                >
-                                 <label class="custom-control-label" for="customRadio6">No</label>
+                                <input type="radio" class="custom-control-input" id="customRadio6" name="insurance_scheme" value="no">
+                                <label class="custom-control-label" for="customRadio6">No</label>
                             </div> 
                             </div>
                             <div class="gov" id="in_yes">
                              <div class="row orphan_1">
                                 <div class="a_expense col-lg-4">
                                     <label for="a_expense">Goverment</label>
-                                    <input id="a_expense" type="text" class="form-control" name="government" placeholder=" Enter Insurance Id" value="<?php echo $row['government']; ?>">
+                                    <input id="a_expense" type="text" class="form-control" name="government" placeholder=" Enter Insurance Id">
                                 </div> 
                                 <div class="a_expense col-lg-4">
                                     <label for="a_expense">Private</label>
-                                    <input id="a_expense" type="text" class="form-control" name="private" placeholder=" Enter Insurance Id" value="<?php echo $row['private']; ?>">
+                                    <input id="a_expense" type="text" class="form-control" name="private" placeholder=" Enter Insurance Id">
                                 </div> 
                                 </div>
                             </div> 
@@ -354,23 +308,23 @@ if($id>0){
                             <div class="row">
                                 <div class="a_number col-lg-4">
                                     <label for="a_number">Account Number</label>
-                                    <input id="a_number" type="text" class="form-control" name="account_no" value="<?php echo $row['account_no']; ?>">
+                                    <input id="a_number" type="text" class="form-control" name="account_no">
                                 </div> 
                            
                                 <div class="n_o_bank col-lg-4">
                                     <label for="n_o_bank">Name Of Bank</label>
-                                    <input id="n_o_bank" type="text" class="form-control" name="bank_name" value="<?php echo $row['bank_name']; ?>">
+                                    <input id="n_o_bank" type="text" class="form-control" name="bank_name">
                                 </div>  
                                 <div class="ifsc_code col-lg-4">
                                     <label for="ifsc_code">IFSC Code</label>
-                                    <input id="ifsc_code" type="text" class="form-control" name="ifsc_code" value="<?php echo $row['ifsc_code']; ?>">
+                                    <input id="ifsc_code" type="text" class="form-control" name="ifsc_code">
                                 </div> 
                             </div>
 
                             <div class="row">
                                 <div class="aa_number col-lg-4">
                                     <label for="aa_number">Aadhar Number</label>
-                                    <input id="aa_number" type="text" class="form-control" name="aadhar_number" value="<?php echo $row['aadhar_number']; ?>">
+                                    <input id="aa_number" type="text" class="form-control" name="aadhar_number">
                                 </div>  
                                 <div class="form-group col-lg-4">
                                     <label for="exampleFormControlFile1">Attachement</label>
@@ -393,22 +347,11 @@ if($id>0){
                             <div class="row Graduate">
                                 <label for="Graduate" class="Graduate">Graduate</label>
                             <div class="custom-control custom-radio" id="Graduates">
-                                <input type="radio" class="custom-control-input" id="Graduate1" name="graduate" value="yes"
-                                <?php if($row['graduate'] =='yes')
-                                        {
-                                            echo 'checked';
-                                        }
-                                    ?>>
+                                <input type="radio" class="custom-control-input" id="Graduate1" name="graduate" value="yes">
                                 <label class="custom-control-label" for="Graduate1">Yes</label>
                             </div>
                            <div class="custom-control custom-radio" id="Graduates">
-                                <input type="radio" class="custom-control-input" id="Graduate2" name="graduate" value="no"
-                                <?php if($row['graduate'] =='no')
-                                        {
-                                            echo 'checked';
-                                        }
-                                    ?>
-                                 >
+                                <input type="radio" class="custom-control-input" id="Graduate2" name="graduate" value="no">
                                 <label class="custom-control-label" for="Graduate2">No</label>
                             </div>
                             </div>
@@ -418,24 +361,12 @@ if($id>0){
                             <div class="row orphan_1">
                                 <label for="orphan" class="orphan">Orphan</label>
                             <div class="custom-control custom-radio" id="orphan">
-                                <input type="radio" class="custom-control-input" id="stu_customRadio3" name="orphan" value="yes"
-                                <?php if($row['orphan'] =='yes')
-                                        {
-                                            echo 'checked';
-                                        }
-                                    ?>
-                                >
+                                <input type="radio" class="custom-control-input" id="stu_customRadio3" name="orphan" value="yes">
                                 <label class="custom-control-label" for="stu_customRadio3">Yes</label>
                             </div>
                 
                             <div class="custom-control custom-radio" id="orphan">
-                                <input type="radio" class="custom-control-input" id="stu_customRadio4" name="orphan" value="no"
-                                <?php if($row['orphan'] =='no')
-                                        {
-                                            echo 'checked';
-                                        }
-                                    ?>
-                                >
+                                <input type="radio" class="custom-control-input" id="stu_customRadio4" name="orphan" value="no">
                                 <label class="custom-control-label" for="stu_customRadio4">No</label>
                             </div>
                             </div>
@@ -461,7 +392,7 @@ if($id>0){
                                         <tr id='row_0'>
                                        <!-- <input type="hidden" name="cntr" value="'.$_POST['counters'].'" /> -->
                                        <input type="hidden" id="txtfirst" name="student_id" class="form-control input-sm ">
-                                            <td><input type="text" id="txtfirst" name="name[]" class="form-control input-sm " value="<?php echo $row['name']  ?>" /></td>
+                                            <td><input type="text" id="txtfirst" name="name[]" class="form-control input-sm " /></td>
                                             <td><input type="text" id="txtsecond" name="age[]" class="form-control input-sm " /></td>
                                             <td><select id="txtthird" name="genders[]"  class="form-control input-sm " >
                                                 <option value="1">Male</option>
@@ -503,23 +434,8 @@ if($id>0){
                           </div>
                         </div>
                         </div>
-
-
                         <div class="submit">
-                        <?php 
-                     
-                       if($id>0)
-                        { 
-                       ?>
-                       <button type="submit"  class="btn btn-primary bclose" id="update"  name="update" value="update">Update</button>
-                       <?php
-                        } else {
-                        ?>
-                        <button type="submit" name="submit"  class="btn btn-primary" id="submit">Submit</button>
-                        <?php 
-                        } 
-                       ?>
-                           
+                            <button type="submit" name="submit"  class="btn btn-primary" id="submit">Submit</button>
                         </div>
                     </div>
                 </div>

@@ -113,15 +113,15 @@ i.fa.fa-plus {
 }
 
 #toggle1{
-    display:none;
+    /* display:none; */
     padding:2rem;
 }
 #toggle2{
-    display:none;
+    /* display:none; */
     padding:2rem;
 }
 #toggle3{
-    display:none;
+    /* display:none; */
     padding:2px;
 }
 #o_yes{

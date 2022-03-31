@@ -165,10 +165,10 @@ h1.text-center.sc-heading {
     font-family: verdana,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: rgb(0 123 255 / 50%);
 }
-.wrapperhide {
+/* .wrapperhide {
   pointer-events: none;
   opacity: 0.4;
-}
+} */
 label.f_btn {
     margin-top: 0px;
     padding: 7px 12px;

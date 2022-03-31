@@ -319,7 +319,7 @@ $result = mysqli_query($conn,$query);
                 <td><?php echo $row['created_by']?></td>
                 <td><?php if($row['approved_status'] === NULL){ echo 'Pending';}?></td>
                 <td><a href="view.php?id=<?php echo $row['id'];?>" class="fa fa-eye fac-icon1"> </a>
-                <button class="fa fa-pencil fac-icon2"></button>
+                <a href="../Elite.php?id=<?php echo $row['id'];?>" class="fa fa-pencil fac-icon2"></a>
                 <button class="fa fa-trash-o fac-icon3"></button>
                </td>
                </tr>
