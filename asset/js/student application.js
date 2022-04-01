@@ -347,7 +347,7 @@ var index = 0;
     $("#md_toggle5").hide();
      $('#flip').change(function(){
         // alert('hi');
-          alert($(this).val());
+          // alert($(this).val());
          $select =$(this).val();
        if($select == '1'){
      
@@ -358,7 +358,7 @@ var index = 0;
         }
         else if ($select == '2') {
         $('.wrapper').removeClass('wrapperhide');
-        alert('hi');
+        // alert('hi');
         $("#toggle1").show(1000);
         $("#md_toggle5").show();
         $("#stu_toggle2").hide();
@@ -367,10 +367,10 @@ var index = 0;
    
   
     $multipleValues = $("#flip").val()
-    alert($multipleValues);
+    // alert($multipleValues);
     if($multipleValues == '2'){
       $('.wrapper').removeClass('wrapperhide');
-      alert('hi');
+      // alert('hi');
       $("#toggle1").show(1000);
       $("#md_toggle5").show();
       $("#stu_toggle2").hide();
@@ -381,22 +381,36 @@ var index = 0;
         $("#md_toggle5").hide();
     }
  
-    $disablity1 = $("#disablity_no").val()
-    alert($disablity1);
-    if($disablity1 == 'no'){
-      $("#disablit").hide();
-      $("#in_no").slideToggle(1000);
-   }
-   $disablity = $("#disablity_yes").val()
-   if($disablity == 'yes'){
-   $("#disablit").show(function(){
-   $("#in_no").slideUp(1000);
-   });
-   }
-    // }else{
-    //   $("#disablit").hide();
-    //   $("#in_no").slideToggle(1000);
-    // }
+
+
+   if($('#disablity_yes').is(':checked')) 
+    {   $("#disablit").show(function(){
+      $("#in_no").slideUp(1000);
+      });
+    }
+    if($('#disablity_no').is(':checked')) 
+    {  
+        $("#disablit").hide();
+        $("#in_no").slideToggle(1000);
+    }
+  if($('#stu_customRadio3').is(':checked')) 
+    {  $("#o_yes").show(function(){
+      $("#o_no").slideUp(1000);
+  });
+    }
+    if($('#stu_customRadio4').is(':checked')) 
+    {  $("#o_yes").hide();
+    $("#o_no").slideToggle(1000);
+    }
+    if($('#customRadio5').is(':checked')) 
+    {  $("#in_yes").show(function(){
+      $("#in_no").slideUp(1000);
+  });
+    }
+    if($('#customRadio6').is(':checked')) 
+    {   $("#in_yes").hide();
+        $("#in_no").slideToggle(1000);
+    }
     
 
 // image upload

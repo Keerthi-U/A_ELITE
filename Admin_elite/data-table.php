@@ -290,16 +290,17 @@ $result = mysqli_query($conn,$query);
             <thead>
                 <tr>
                 <th>Id</th>
-                <th>Form Type</th>
-                <th>Family-Members</th>
-                <th>Full Name</th>
-                <th>Father Name</th>
+                <th>Form</th>
+                <th>F-Members</th>
+                <th>Name</th>
+                <th>Father </th>
                 <th>Gender</th>
                 <th>Ratings</th>
-                <th>Contact Num</th>
-                <th>Created By</th>
+                <th>Contact </th>
+                
                 <th>Status</th>
                 <th>Action</th>
+             
                 </tr>
             </thead>
             <tbody >
@@ -316,11 +317,16 @@ $result = mysqli_query($conn,$query);
                 <td><?php echo $row['gender'] ?></td>
                 <td><?php echo $row['ratings'] ?></td>
                 <td><?php echo $row['contactnumber'] ?></td>
-                <td><?php echo $row['created_by']?></td>
+           
                 <td><?php if($row['approved_status'] === NULL){ echo 'Pending';}?></td>
                 <td><a href="view.php?id=<?php echo $row['id'];?>" class="fa fa-eye fac-icon1"> </a>
-                <a href="../Elite.php?id=<?php echo $row['id'];?>" class="fa fa-pencil fac-icon2"></a>
+                <a href="./Elite_Update.php?id=<?php echo $row['id'];?>" class="fa fa-pencil fac-icon2"></a>
                 <button class="fa fa-trash-o fac-icon3"></button>
+                <select>
+                    <option value="1">pending</option>
+                    <option value="1">Approve</option>
+                    <option value="1">Reject</option>
+                </select>
                </td>
                </tr>
               <?php

@@ -280,7 +280,7 @@ var index = 0;
 
     $('#flip').change(function(){
         // alert('hi');
-          alert($(this).val());
+          // alert($(this).val());
          $select =$(this).val();
       if($select == '1'){
      

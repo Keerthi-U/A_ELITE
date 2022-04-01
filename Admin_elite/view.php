@@ -139,18 +139,19 @@ table>tbody>tr>th{
                  <th>Pervious Marksheet</th>
                  <td><?php 
                  $id=$_GET['id'];
-                 echo  $sql1 ="select attach_images from doc_attachment where img_id ='$id'";
+                 $sql1 ="select attach_images from doc_attachment where img_id ='$id'";
                  $result1=mysqli_query($conn,$sql1);
                  $img=array();
-                 foreach($result1 as $image){
-                    $img[] = $image['attach_images'];
-                 }
-                 echo "<pre>";
-                 print_r($img);
-                 echo "<pre>";
-                 foreach($img as $image1){
-                    echo "<img src='../previous_marksheet/".$image1."'  >";  
-                }
+                  while($result=mysqli_fetch_assoc($result1)){
+                      $img[] = $result['attach_images'];
+                     }
+                     for($ik=0; $ik<count($img); $ik++){
+                     if (file_exists("../previous_marksheet/".$img[$ik])) {
+                        echo "<img src='../previous_marksheet/".$img[$ik]."'  >";
+                      }
+                     }
+                
+               
                 ?></td>
                 </tr>
                  <tr>
@@ -196,20 +197,34 @@ table>tbody>tr>th{
                 </tr>
                  <tr>
                  <th>Attachement</th>
-                 <td><?php 
-               
-                //   $img=array();
+                 <td>
 
-                //   foreach($result2 as $image){
-                //      $img[] = $image['attach_images'];
-                //   }
-                //   echo "<pre>";
-                //   print_r($img);
-                //   echo "<pre>";
-                  foreach($img as $ban_image){
-                     echo "<img src='../bank_attachment/".$ban_image."'  >";  
-                 }
-                 ?></td>
+                 <i class="fa fa-eye btn" aria-hidden="true">
+                
+                 </i>
+              
+               
+                 <div id="myModal" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modal Title</h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                            <?php 
+                            for($ik=0; $ik<count($img); $ik++){
+                            if (file_exists("../bank_attachment/".$img[$ik])) {
+                            echo "<img src='../bank_attachment/".$img[$ik]."'  >";
+                            
+                             }
+                             }
+                             ?>
+                            </div>
+                          </div>
+                    </div>
+                 </div>
+                 </td>
                 </tr>
                
               
@@ -262,35 +277,36 @@ table>tbody>tr>th{
                 <tr>
                  <th>Hospital Report/LOR</th>
                  <td><?php 
-                    $id=$_GET['id'];
-                    echo  $sql3 ="select attach_images from doc_attachment where img_id ='$id'";
-                    $result3=mysqli_query($conn,$sql3);
-                    $img1=array();
-                    foreach($result3 as $image){
-                    $img1[] = $image['attach_images'];
-                    }
-                    $path = '../hospital_report/'.$hospital_image;     
-                    $filenames = glob($path);
-                    foreach ($filenames as $filename) {
-                        echo "<img src='".$filename."'  >"; 
-                    }
-// foreach($img1 as $hospital_image){
-
-// if (file_exists('../hospital_report/'.$hospital_image)) {
-
-//     echo "<img src='".$file."'  >";  
-    
-//  }    
-  
-// }
+                  
+                        $id=$_GET['id'];
+                        echo  $sql1 ="select attach_images from doc_attachment where img_id ='$id'";
+                        $result1=mysqli_query($conn,$sql1);
+                        $img=array();
+                       //  foreach($result1 as $image){
+       
+                           while($result=mysqli_fetch_assoc($result1)){
+                               
+                           $img[] = $result['attach_images'];
+                            }
+                            for($ik=0; $ik<count($img); $ik++){
+                            if (file_exists("../hospital_report/".$img[$ik])) {
+                               echo "<img src='../hospital_report/".$img[$ik]."'  >";
+                              
+                             }
+                            }
+                       
                  ?></td>
                 </tr>
                  <tr>
                  <th>Pervious Medical Report</th>
                  <td><?php
-                     foreach($img1 as $medical_image){
-                     echo "<img src='../previous_medical_report/".$medical_image."'  >";  
-                    }
+                  
+                    for($ik=0; $ik<count($img); $ik++){
+                        if (file_exists("../previous_medical_report/".$img[$ik])) {
+                           echo "<img src='../previous_medical_report/".$img[$ik]."'  >";
+                          
+                         }
+                        }
                  ?></td>
                 </tr>
                  <tr>
@@ -332,9 +348,12 @@ table>tbody>tr>th{
                  <tr>
                  <th>Attachement</th>
                  <td><?php 
-                         foreach($img1 as $ban_image){
-                            echo "<img src='../bank_attachment/".$ban_image."'  >";  
-                        }
+                         for($ik=0; $ik<count($img); $ik++){
+                            if (file_exists("../bank_attachment/".$img[$ik])) {
+                               echo "<img src='../bank_attachment/".$img[$ik]."'  >";
+                              
+                             }
+                            }
                  ?></td>
                 </tr>
                
@@ -424,17 +443,9 @@ table>tbody>tr>th{
                                         <td><?php echo $rows['annual_income']; ?></td>
 
                                         </tr>
-                                    
-                                   
-
-                          
-                     <?php }
+                              <?php }
                     } ?>
-                 
-
-                
-                
-              </table>
+                 </table>
              </div>
          </div>
       </div>
@@ -449,3 +460,10 @@ table>tbody>tr>th{
 <?php
 include_once('footer.php');
 ?>
+<script>
+    $(document).ready(function(){
+        $(".btn").click(function(){
+            $("#myModal").modal('show');
+        });
+    });
+</script>
