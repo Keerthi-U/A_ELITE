@@ -337,7 +337,7 @@ $result = mysqli_query($conn,$query);
               
               "
                >
-             <option value="<?php echo $row['approved_status'];?>"><?php echo $row['approved_status'];
+             <option value="<?php echo $row['approved_status'];?>"><?php  $row['approved_status'];
              if($row['approved_status'] =='1'){
                  echo "pending";
              }elseif($row['approved_status'] =='2'){
