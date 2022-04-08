@@ -334,11 +334,11 @@ $result = mysqli_query($conn,$query);
              <div class="sel" id="<?php echo $row['id'];?>">
              <select class="drop-d" id="statuss" name="statuss" value="<?php echo $row['approved_status'];?>" >
              <option value="<?php echo $row['approved_status'];?>"><?php $row['approved_status'];
-             if($row['approved_status'] ='1'){
+             if($row['approved_status'] =='1'){
                  echo "pending";
-             }elseif($row['approved_status'] ='2'){
+             }elseif($row['approved_status'] =='2'){
                 echo "approved";
-             }elseif($row['approved_status'] ='3'){
+             }elseif($row['approved_status'] =='3'){
                 echo "rejected";
              }
              ?></option>

@@ -331,8 +331,21 @@ $result = mysqli_query($conn,$query);
                 <td><a href="view.php?id=<?php echo $row['id'];?>" class="fa fa-eye fac-icon1"> </a>
                 <a href="./Elite_Update.php?id=<?php echo $row['id'];?>" class="fa fa-pencil fac-icon2"></a>
                 <button class="fa fa-trash-o fac-icon3"  data-id="<?php echo $row['id'];?>"></button>
-             <div class="sel" id="<?php echo $row['id'];?>">
-             <select class="drop-d" id="statuss" name="statuss" >
+              <div class="sel" id="<?php echo $row['id'];?>">
+              <select class="drop-d" id="statuss" name="statuss" value="<?php echo $row['approved_status'];?>
+              
+              
+              "
+               >
+             <option value="<?php echo $row['approved_status'];?>"><?php echo $row['approved_status'];
+             if($row['approved_status'] =='1'){
+                 echo "pending";
+             }elseif($row['approved_status'] =='2'){
+                echo "approved";
+             }elseif($row['approved_status'] =='3'){
+                echo "rejected";
+             }
+             ?></option>
                     <option value="1">pending</option>
                     <option value="2">Approve</option>
                     <option value="3">Reject</option>
