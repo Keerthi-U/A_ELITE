@@ -52,10 +52,10 @@ if($form_type == '1'){
   $ifsc_code=$_POST['ifsc_code'];
   $aadhar_number=$_POST['aadhar_number'];
 
-  $bank_attachment = $_FILES["bank_attachment"]["name"];
-  $tempname = $_FILES["bank_attachment"]["tmp_name"];	
-  $folder = "bank_attachment/".$bank_attachment;
-  echo $bank_attachment;
+  // $bank_attachment = $_FILES["bank_attachment"]["name"];
+  // $tempname = $_FILES["bank_attachment"]["tmp_name"];	
+  // $folder = "bank_attachment/".$bank_attachment;
+  // echo $bank_attachment;
 }
 
 // / Medical form  
@@ -211,8 +211,10 @@ if($lastid > 0){
           echo $sql="UPDATE  `scholarship_table` set ratings='$c' WHERE id ='$lastid'";
           $total = mysqli_query($conn,$sql);
  }
+          
+ if(isset($_POST['valueSelected'])){
+          echo $sql="UPDATE  `scholarship_table` set ratings='$c' WHERE id ='$lastid'";
+          $total = mysqli_query($conn,$sql);
 
-
-
-
+ }
 ?>

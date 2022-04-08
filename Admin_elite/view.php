@@ -32,7 +32,81 @@ table>tbody>tr>th{
     padding-top: 19px;
     
 }
+.view_imag >img {
+    width: 126px;
+    height: 126px;
+    padding: 6px;
+}
+.eye {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    position: relative;
+    top: 50%;
+    left: 4%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border: 1px solid black;
+    border-radius: 82% 0;
+    overflow: hidden;
+}
 
+.pupil {
+    width: 37px;
+    height: 37px;
+    background-color: black;
+    border-radius: 50%;
+    border: 15px solid #589167;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.eyelid {
+    width: 102px;
+    height: 48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    z-index: 1;
+}
+.eyelid span {
+  width: 100%;
+  height: 15%;
+  display: block;
+  background-color: #f2a365;
+  border-bottom: 2px solid black;
+  border-radius: 0 0 60% 60%;
+  animation: blink 2s ease infinite;
+}
+
+@keyframes blink {
+  0% {
+    height: 15%;
+  }
+  30% {
+    height: 15%;
+  }
+  40% {
+    height: 100%;
+  }
+  50% {
+    height: 15%;
+  }
+  60% {
+    height: 15%;
+  }
+  70% {
+    height: 100%;
+  }
+  80% {
+    height: 15%;
+  }
+  100% {
+    height: 15%;
+  }
+}
 </style>
 <div class="all-content-wrapper">
         <div class="container-fluid">
@@ -137,22 +211,10 @@ table>tbody>tr>th{
                 </tr>
                 <tr>
                  <th>Pervious Marksheet</th>
-                 <td><?php 
-                 $id=$_GET['id'];
-                 $sql1 ="select attach_images from doc_attachment where img_id ='$id'";
-                 $result1=mysqli_query($conn,$sql1);
-                 $img=array();
-                  while($result=mysqli_fetch_assoc($result1)){
-                      $img[] = $result['attach_images'];
-                     }
-                     for($ik=0; $ik<count($img); $ik++){
-                     if (file_exists("../previous_marksheet/".$img[$ik])) {
-                        echo "<img src='../previous_marksheet/".$img[$ik]."'  >";
-                      }
-                     }
-                
-               
-                ?></td>
+                 <td>
+                 <i class="fa fa-eye btn" id="previouss" data-id= <?php echo $row['id'];?> aria-hidden="true"> 
+                 <span id="span" style="display:none;">1</span> 
+                </td>
                 </tr>
                  <tr>
                  <th>Term/Semester</th>
@@ -164,7 +226,13 @@ table>tbody>tr>th{
                 </tr>
                 <tr>
                 <th>Scholarship category</th>
-                <td><?php echo $row['scholarship_select']; ?></td>
+                <td><?php  $row['scholarship_select'];
+                 if( $row['scholarship_select'] = '1'){
+                     echo "Premetric";
+                 }else{
+                    echo "Post metric";
+                 }
+                ?></td>
                 </tr>
           
                  <th>Phone Number</th>
@@ -199,32 +267,11 @@ table>tbody>tr>th{
                  <th>Attachement</th>
                  <td>
 
-                 <i class="fa fa-eye btn" aria-hidden="true">
-                
+                 <i class="fa fa-eye btn "  id="bank_att" data-id= <?php echo $row['id'];?> aria-hidden="true">
+                 <span id="span" style="display:none;">2</span>
                  </i>
-              
-               
-                 <div id="myModal" class="modal fade" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Modal Title</h5>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                            <?php 
-                            for($ik=0; $ik<count($img); $ik++){
-                            if (file_exists("../bank_attachment/".$img[$ik])) {
-                            echo "<img src='../bank_attachment/".$img[$ik]."'  >";
-                            
-                             }
-                             }
-                             ?>
-                            </div>
-                          </div>
-                    </div>
-                 </div>
-                 </td>
+                
+                </td>
                 </tr>
                
               
@@ -276,38 +323,15 @@ table>tbody>tr>th{
                 </tr>
                 <tr>
                  <th>Hospital Report/LOR</th>
-                 <td><?php 
-                  
-                        $id=$_GET['id'];
-                        echo  $sql1 ="select attach_images from doc_attachment where img_id ='$id'";
-                        $result1=mysqli_query($conn,$sql1);
-                        $img=array();
-                       //  foreach($result1 as $image){
-       
-                           while($result=mysqli_fetch_assoc($result1)){
-                               
-                           $img[] = $result['attach_images'];
-                            }
-                            for($ik=0; $ik<count($img); $ik++){
-                            if (file_exists("../hospital_report/".$img[$ik])) {
-                               echo "<img src='../hospital_report/".$img[$ik]."'  >";
-                              
-                             }
-                            }
-                       
-                 ?></td>
+                 <td>
+                 <i class="fa fa-eye btn" id="hos_att" data-id= <?php echo $row['id'];?> aria-hidden="true">  
+                </td>
                 </tr>
                  <tr>
                  <th>Pervious Medical Report</th>
-                 <td><?php
-                  
-                    for($ik=0; $ik<count($img); $ik++){
-                        if (file_exists("../previous_medical_report/".$img[$ik])) {
-                           echo "<img src='../previous_medical_report/".$img[$ik]."'  >";
-                          
-                         }
-                        }
-                 ?></td>
+                 <td> 
+                 <i class="fa fa-eye btn" id="medical_report_att" data-id= <?php echo $row['id'];?> aria-hidden="true">  
+              </td>
                 </tr>
                  <tr>
                  <th>Do you have Insurance scheme?</th>
@@ -347,14 +371,15 @@ table>tbody>tr>th{
                 </tr>
                  <tr>
                  <th>Attachement</th>
-                 <td><?php 
-                         for($ik=0; $ik<count($img); $ik++){
-                            if (file_exists("../bank_attachment/".$img[$ik])) {
-                               echo "<img src='../bank_attachment/".$img[$ik]."'  >";
-                              
-                             }
-                            }
-                 ?></td>
+                 <td>
+                 <div class="eye">
+                <div class="eyelid" id="mbank_attachment" data-id= <?php echo $row['id'];?>>
+                    <span></span>
+                </div>
+                <div class="pupil"></div>
+                </div>    
+                 <!-- <i class="fa fa-eye btn"  aria-hidden="true">     -->
+               </td>
                 </tr>
                
               
@@ -375,7 +400,7 @@ table>tbody>tr>th{
                 <table  style="width:100%">
                 <tr>
                  <th>First Graduate</th>
-                 <td><?php echo $row['graduate']; ?></td>
+                 <td width="50%"><?php echo $row['graduate']; ?></td>
                 </tr>
                  <tr>
                  <th>Orphan</th>
@@ -456,14 +481,118 @@ table>tbody>tr>th{
 
 
 </div>
+                  <div id="myModal" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modal Title</h5>
+                                <button type="button" id="modalclose" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                          
 
+                            </div>
+                          </div>
+                    </div>
+  </div>
 <?php
 include_once('footer.php');
 ?>
 <script>
-    $(document).ready(function(){
-        $(".btn").click(function(){
-            $("#myModal").modal('show');
-        });
+    $('#modalclose').click(function(){
+        alert("hi");
+        $("#bank_att").removeClass('active');
     });
+    $('').click(function(){
+
+    })
+        $(".fa-eye").click(function(){
+            if($("#bank_att").hasClass('active')){
+               var eye_click_id = $("#bank_att #span").text();
+               //alert("faeye"+eye_click_id);
+            }else if($("#previouss").hasClass('active')){
+                var eye_click_id = $("#previouss #span").text();
+                  alert("faeye"+eye_click_id);
+            }
+            var eye_id =$(this).data('id');
+            var form_name = "all_attachment";
+            // alert(eye_id);
+            $.ajax({
+                url:"update.php",
+                type:"post",
+                data:{eye_id:eye_id,form_name:form_name,eye_click_id:eye_click_id},
+                success:function(data){
+                   console.log(data);
+                   $(".modal-body").html(data);
+                   $("#myModal").modal('show');                    // window.location = 'new.php' + data;
+                },
+            })
+            });
+ 
+        // $("#bank_att").click(function(){
+        //     var eye_id =$(this).data('id');
+        //     var form_name = "bank_attachment";
+
+        //     alert(eye_id);
+        //     $.ajax({
+        //         url:"update.php",
+        //         type:"post",
+        //         data:{eye_id:eye_id,form_name:form_name},
+        //         success:function(data){
+        //            console.log(data);
+        //            $(".modal-body").html(data);
+        //            $("#myModal").modal('show');                    // window.location = 'new.php' + data;
+        //         },
+        //     })
+        //    });
+
+        $("#hos_att").click(function(){
+            var eye_id =$(this).data('id');
+            var form_name = "hospital_attachment";
+
+            alert(eye_id);
+            $.ajax({
+                url:"update.php",
+                type:"post",
+                data:{eye_id:eye_id,form_name:form_name},
+                success:function(data){
+                   console.log(data);
+                   $(".modal-body").html(data);
+                   $("#myModal").modal('show');                    // window.location = 'new.php' + data;
+                },
+            })
+           });
+
+           $("#medical_report_att").click(function(){
+            var eye_id =$(this).data('id');
+            var form_name = "previous_medical_report";
+
+            alert(eye_id);
+            $.ajax({
+                url:"update.php",
+                type:"post",
+                data:{eye_id:eye_id,form_name:form_name},
+                success:function(data){
+                   console.log(data);
+                   $(".modal-body").html(data);
+                   $("#myModal").modal('show');                    // window.location = 'new.php' + data;
+                },
+            })
+           });
+           $("#mbank_attachment").click(function(){
+            var eye_id =$(this).data('id');
+            var form_name = "medical_bank_attachment";
+            alert(eye_id);
+            $.ajax({
+                url:"update.php",
+                type:"post",
+                data:{eye_id:eye_id,form_name:form_name},
+                success:function(data){
+                   console.log(data);
+                   $(".modal-body").html(data);
+                   $("#myModal").modal('show');                    // window.location = 'new.php' + data;
+                },
+            })
+           });
+
 </script>

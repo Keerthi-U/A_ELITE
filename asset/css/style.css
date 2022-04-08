@@ -161,7 +161,7 @@ label.orphan1 {
 h1.text-center.sc-heading {
     text-transform: uppercase;
     font-size: 29px;
-    text-shadow: 2px 7px 5px rgb(0 0 0 / 30%), 0px -4px 10px rgb(255 255 255 / 30%);
+    /* text-shadow: 2px 7px 5px rgb(0 0 0 / 30%), 0px -4px 10px rgb(255 255 255 / 30%); */
     font-family: verdana,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: rgb(0 123 255 / 50%);
 }

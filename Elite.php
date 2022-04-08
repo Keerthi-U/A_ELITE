@@ -338,7 +338,7 @@ include("db.php");
                     <div id="toggle3">
                        <div class="Graduate col-lg-12">
                             <div class="row Graduate">
-                                <label for="Graduate" class="Graduate">Graduate</label>
+                                <label for="Graduate" class="Graduate"> First Graduate</label>
                             <div class="custom-control custom-radio" id="Graduates">
                                 <input type="radio" class="custom-control-input" id="Graduate1" name="graduate" value="yes">
                                 <label class="custom-control-label" for="Graduate1">Yes</label>

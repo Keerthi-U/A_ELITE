@@ -11,8 +11,8 @@ $('#submit').click(function(e){
     //   alert(file_image);
       var formdata = new FormData(document.getElementById('myform'));
     //   formdata.append('file',file_image);
-      alert(formdata);
-     $.ajax({
+        alert(formdata);
+        $.ajax({
           url: 'insert.php',
           data: formdata,
           processData: false,

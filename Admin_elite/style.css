@@ -4931,6 +4931,36 @@ li.log {
 .ac2 {
     color: #da0828!important;
 }
+.formss{
+    font-size: 19px;
+    width: 16px;
+    margin-right: 15px;
+    vertical-align: bottom;
+    float: none;
+    stroke-width: 2.5px
+}
+.fa-clock-o.formss,.fa-ban.formss,.fa-check.formss  {
+    font-size: 19px;
+    width: 16px;
+    margin-right: 15px;
+    vertical-align: bottom;
+    float: none;
+    stroke-width: 2.5px;
+}
+
+.fa-wpforms.formss{
+    font-size: 19px;
+}
+.elite {
+    text-transform: uppercase;
+    font-size: 29px;
+    text-shadow: 2px 7px 5px rgb(0 0 0 / 30%), 0px -4px 10px rgb(255 255 255 / 30%);
+    /* font-family: verdana,"Helvetica Neue",Helvetica,Arial,sans-serif; */
+    color: rgb(169 137 189);
+    font-family: 'Beau Rivage', cursive;
+    font-family: 'Rubik Moonrocks', cursive;
+    /* font-family: 'Rubik Moonrocks', cursive; */
+}
 /*----------------------------------------*/
 /*  23. footer
 /*----------------------------------------*/

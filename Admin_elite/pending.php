@@ -9,11 +9,14 @@ include_once('sidebar.php');
 <?php  
 include_once('db.php');
 
-$query ="SELECT c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender  ,c.contactnumber,c.created_by,c.approved_status, COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information 
-p ON c.id = p.student_id GROUP BY c.id 
-ORDER BY c.ratings DESC;
- ;
-";
+// // $query ="SELECT c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender  ,c.contactnumber,c.created_by,c.approved_status, COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information 
+// // p ON c.id = p.student_id GROUP BY c.id 
+// // ORDER BY c.ratings DESC;
+//  ;
+// ";
+$query = "SELECT c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender  ,c.contactnumber,c.created_by,c.approved_status, COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information 
+p ON  c.id  = p.student_id WHERE c.approved_status='1' GROUP BY c.id 
+ORDER BY c.ratings DESC;";
 $result = mysqli_query($conn,$query);
 ?>
 <style>
@@ -322,16 +325,24 @@ $result = mysqli_query($conn,$query);
                 <td><?php echo $row['gender'] ?></td>
                 <td><?php echo $row['ratings'] ?></td>
                 <td><?php echo $row['contactnumber'] ?></td>
+             
+              
            
                 <td><?php if($row['approved_status'] === NULL){ echo 'Pending';}?></td>
                 <td><a href="view.php?id=<?php echo $row['id'];?>" class="fa fa-eye fac-icon1"> </a>
                 <a href="./Elite_Update.php?id=<?php echo $row['id'];?>" class="fa fa-pencil fac-icon2"></a>
                 <button class="fa fa-trash-o fac-icon3"  data-id="<?php echo $row['id'];?>"></button>
-                <select class="drop-d ">
+             <div class="sel" id="<?php echo $row['id'];?>">
+             <select class="drop-d" id="statuss" name="statuss" value="<?php echo $row['approved_status'];?>" >
+             <option value="<?php echo $row['approved_status'];?>"><?php echo $row['approved_status'];?></option>
                     <option value="1">pending</option>
-                    <option value="1">Approve</option>
-                    <option value="1">Reject</option>
+                    <option value="2">Approve</option>
+                    <option value="3">Reject</option>
                 </select>
+             </div>
+            
+               
+              
                </td>
                </tr>
               <?php
@@ -344,7 +355,9 @@ $result = mysqli_query($conn,$query);
         <?php
         include_once('footer.php');
         ?>
+       
      <script>
+        //   <!-- normal delete  -->
             $(".fa-trash-o").click(function(){
             var del_id =$(this).data('id');
             alert(del_id);
@@ -353,12 +366,29 @@ $result = mysqli_query($conn,$query);
                 type:"post",
                 data:{del_id:del_id},
                 success:function(data){
-                    // window.location = 'new.php' + data;
+                   alert(data);
                 },
             })
-           
+            });
+             
+        
+ 
 
-        });
+$('select').on('change', function (e) {
+    var optionSelected = $("option:selected", this);
+    var valueSelected = this.value;
+     var rowid=($(this).parent()[0].id);
+    alert(valueSelected);
+    $.ajax({
+                url:"status.php",
+                type:"post",
+                data:{valueSelected:valueSelected,rowid:rowid},
+                success:function(data){
+                   alert(data);
+                   
+                },
+            })
+});
      </script>
 
   

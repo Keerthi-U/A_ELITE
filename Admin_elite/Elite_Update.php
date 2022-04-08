@@ -60,6 +60,10 @@ $form_type = $row['form_type'];
         .edit_image1 {
         position: relative;
          }
+         .orh{
+            padding-top: 30px;
+       padding-left: 16px;
+         }
 </style>
   <div class="container">
      <div class="main">
@@ -232,7 +236,7 @@ $form_type = $row['form_type'];
                                 <div class="t_o_disease col-lg-6">
                                     <label for="t_o_disease">Scholarship category</label>
                                     <select class="custom-select" id="t_o_disease" name="scholarship_select" value="<?php echo $row['scholarship_select'];?>"> 
-                                    <option value="expert<?php echo $row['scholarship_select'];?>"><?php echo $row['scholarship_select'];?></option>
+                                    <option value="<?php echo $row['scholarship_select'];?>"><?php echo $row['scholarship_select'];?></option>
                                     <option value="Premetric">Premetric</option>
                                     <option value="Post metric">Post metric</option>
                                     </select>
@@ -267,18 +271,7 @@ $form_type = $row['form_type'];
                                     while($result=mysqli_fetch_assoc($result1)){
                                         $img[] = array("id" => $result['id'], "attach_images"=> $result['attach_images']);
                                     }
-                                    // echo "<pre>";
-                                    //     print_r($img);
-                                    //     echo "<pre>";
-                                        // for($ik=0; $ik<count($img); $ik++){
-                                        // if (file_exists("../previous_marksheet/".$img[$ik])) {
-                                        // echo "
-                                        // <div class='edit_image'>
-                                        // <img src='../previous_marksheet/".$img[$ik]."'  >
-                                        // <button class='remove_btnn'>x</button> 
-                                        // </div>";
-                                        // }
-                                        // }
+                               
                                         asort($img);
                                         $i=0;    
                                         foreach($img as $item) {
@@ -320,7 +313,7 @@ $form_type = $row['form_type'];
                                     <input id="ifsc_code" type="text" class="form-control" name="ifsc_code1" value="<?php echo $row['ifsc_code']; ?>">
                                 </div>  
                             </div>
-                          <div class="row">
+                             <div class="row">
                                 <div class="aa_number col-lg-4">
                                     <label for="aa_number">Aadhar Number</label>
                                     <input id="aa_number" type="number" class="form-control" name="aadhar_number1" value="<?php echo $row['aadhar_number']; ?>">
@@ -340,11 +333,11 @@ $form_type = $row['form_type'];
                                     <?php
                                     $id=$_GET['id'];
                                     $sql1 ="select attach_images, id from doc_attachment where img_id ='$id'";
-                                    $result1=mysqli_query($conn,$sql1);
+                                    $resultB=mysqli_query($conn,$sql1);
                                     // $img=array();
                                     // $img_id=array();
-                                    while($result=mysqli_fetch_assoc($result1)){
-                                        $img2[] = array("id" => $result['id'], "attach_images"=> $result['attach_images']);
+                                    while($resultA=mysqli_fetch_assoc($resultB)){
+                                        $img2[] = array("id" => $resultA['id'], "attach_images"=> $resultA['attach_images']);
                                     }
                                        asort($img2);
                                         $i1=0;    
@@ -360,7 +353,7 @@ $form_type = $row['form_type'];
                                         <img src='../bank_attachment/". $image1."' id='removee'>
                                         <button class='remove_btnnn' data-id=$image_id2></button> 
                                         </div>";
-                                        //plus up the variable for each loop item
+                                       
                                         }
                                         $i1++;
                                         }
@@ -386,7 +379,7 @@ $form_type = $row['form_type'];
                         <div class="t_o_disease col-lg-4">
                             <label for="t_o_disease">Type Of Disease</label>
                             <select class="custom-select" id="t_o_disease" name="disease_select" value="<?php echo $row['disease_select']; ?>">
-                                <option value="expert <?php echo $row['disease_select']; ?>"><?php echo $row['disease_select']; ?>Affected by...</option>
+                                <option value=" <?php echo $row['disease_select']; ?>"><?php echo $row['disease_select']; ?>Affected by...</option>
                                 <option value="Injury">Injury</option>
                                 <option value="Maternity">Maternity</option>
                                 <option value="Illness">Illness</option>
@@ -399,7 +392,7 @@ $form_type = $row['form_type'];
                         <div class="t_o_disease col-lg-4">
                             <label for="t_o_disease">Severity Of Disease</label>
                             <select class="custom-select form-control" id="t_o_disease" name="severity_disease" value="<?php echo $row['severity_disease']; ?>">
-                                <option value="expert<?php echo $row['severity_disease']; ?>"><?php echo $row['severity_disease']; ?></option>
+                                <option value="<?php echo $row['severity_disease']; ?>"><?php echo $row['severity_disease']; ?></option>
                                 <option value="Minor">Minor</option>
                                 <option value="Moderate">Moderate</option>
                                 <option value="Major">Major</option>
@@ -418,42 +411,27 @@ $form_type = $row['form_type'];
                                 <label for="r_amount">Requested Amount</label>
                                 <input id="r_amount" type="text" class="form-control" name="request_amount" value="<?php echo $row['request_amount']; ?>">
                          </div> 
-                         <div class="form-group col-lg-4">
-                                <label for="exampleFormControlFile1"> Hospital Report/LOR </label>
-                             <div class="d-flex">
-                                <input type="text" name="hospital_report" id="file-name3" class=" choose-txt form-control" >
-                                <input id="file-upload3" class="file-up" name="hospital_report[]" type="file" multiple>
-                             </div>
-                        </div> 
-                         <div class="form-group col-lg-4">
-                                <label for="exampleFormControlFile1">Pervious Medical Report</label>
-                                <div class="d-flex">
-                               <input type="text" name="previous_medical_report" id="file-name4" class=" choose-txt form-control" >
-                                <input id="file-upload4" class="file-up" name="previous_medical_report[]" type="file" multiple>
-                                </div>
-                             </div> 
-                        </div>
-                         <div class="orphan col-lg-12">
-                            <div class="row orphan_1">
+                         <div class="orphan col-lg-8">
+                              <div class="row orphan_1 orh">
                                 <label for="orphan" class="orphan1">Do you have Insurance scheme?</label>
-                            <div class="custom-control custom-radio" id="in_orphan">
-                                <input type="radio" class="custom-control-input" id="customRadio5" name="insurance_scheme" value="yes" 
-                                <?php if($row['insurance_scheme'] =='yes')
+                                   <div class="custom-control custom-radio" id="in_orphan">
+                                   <input type="radio" class="custom-control-input" id="customRadio5" name="insurance_scheme" value="yes" 
+                                   <?php if($row['insurance_scheme'] =='yes')
                                         {
                                             echo 'checked';
                                         }
                                     ?>
                                 >
-                                <label class="custom-control-label" for="customRadio5">Yes</label>
-                            </div>
-                            <div class="custom-control custom-radio" id="in_orphan">
+                                     <label class="custom-control-label" for="customRadio5">Yes</label>
+                                   </div>
+                                 <div class="custom-control custom-radio" id="in_orphan">
                                 <input type="radio" class="custom-control-input" id="customRadio6" name="insurance_scheme" value="no"
                                 <?php if($row['insurance_scheme'] =='no')
                                         {
                                             echo 'checked';
                                         }
                                     ?>
-                                >
+                              >
                                  <label class="custom-control-label" for="customRadio6">No</label>
                             </div> 
                             </div>
@@ -469,8 +447,94 @@ $form_type = $row['form_type'];
                                 </div> 
                                 </div>
                             </div> 
+                            
                     </div> 
+                        </div>
+                           
+                      <div class="row">
+                      <div class="form-group col-lg-12">
+                                <label for="exampleFormControlFile1"> Hospital Report/LOR </label>
+                             <div class="d-flexx">
+                               <input id="file-upload3" class="file-up" name="hospital_report[]" type="file" multiple>
+                                <input type="text" name="hospital_report" id="file-name3" class=" choose-txt form-control ed" >
+                                 <div class="update_image">
+                                   <?php
+                                    $id=$_GET['id'];
+                                    $sql5 ="select attach_images, id from doc_attachment where img_id ='$id'";
+                                    $result7=mysqli_query($conn,$sql5);
+                                  
+                                    while($result6=mysqli_fetch_assoc($result7)){
+                                        $imgR[] = array("id" => $result6['id'], "attach_images"=> $result6['attach_images']);
+                                    }
+                               
+                                        asort($imgR);
+                                        $i2=0;    
+                                        foreach($imgR as $item) {
 
+                                        $image_id1 = $item['id'];
+                                        //  print_r($image_id);
+                                        $image = $item['attach_images'];
+                                        
+                                    //    echo  $image;
+                                        if (file_exists("../hospital_report/".$image)) {
+                                               $hospital_image = $image;
+
+                                        echo "
+                                        <div class='edit_image'>
+                                        <img src='../hospital_report/".$hospital_image."' >
+                                        <button class='remove_btnnn' data-id=$image_id1></button> 
+                                        </div>";
+                                        //plus up the variable for each loop item
+                                        }
+                                        $i2++;
+                                    }
+                                   
+                                    ?>
+                                   </div>
+                             </div>
+                        </div> 
+                         <div class="form-group col-lg-12">
+                                <label for="exampleFormControlFile1">Pervious Medical Report</label>
+                                <div class="d-flexx">
+                                 <input id="file-upload4" class="file-up" name="previous_medical_report[]" type="file" multiple>
+                                 <input type="text" name="previous_medical_report" id="file-name4" class=" choose-txt form-control ed" >
+                                 <div class="update_image">
+                                   <?php
+                                    $id=$_GET['id'];
+                                    $sql5 ="select attach_images, id from doc_attachment where img_id ='$id'";
+                                    $result8=mysqli_query($conn,$sql5);
+                                  
+                                    while($result9=mysqli_fetch_assoc($result8)){
+                                        $imgRp[] = array("id" => $result9['id'], "attach_images"=> $result9['attach_images']);
+                                    }
+                               
+                                        // asort($imgRp);
+                                        
+                                        foreach($imgRp as $itemp) {
+
+                                        $image_id1 = $itemp['id'];
+                                        //  print_r($image_id);
+                                        $image = $itemp['attach_images'];
+                                        
+                                    //    echo  $image;
+                                        if (file_exists("../previous_medical_report/".$image)) {
+                                               $hospital_image = $image;
+
+                                        echo "
+                                        <div class='edit_image'>
+                                        <img src='../previous_medical_report/".$hospital_image."' >
+                                        <button class='remove_btnnn' data-id=$image_id1></button> 
+                                        </div>";
+                                       
+                                        }
+                                
+                                    }
+                                   
+                                    ?>
+                                   </div>
+                                </div>
+                        </div>
+                      </div>
 
                         <div class="heading2_1">Bank AccountDetails:-</div>
                         <div class="account_details" id="medical_bank">
@@ -497,11 +561,41 @@ $form_type = $row['form_type'];
                                 </div>  
                                 <div class="form-group col-lg-4">
                                     <label for="exampleFormControlFile1">Attachement</label>
-                                    <div class="d-flex">
-                                        <input type="text" name="bank_attachment" id="file-name2" class="choose-txt form-control" >
+                                    <div class="d-flexx">
                                         <input id="file-upload2" class="file-up" name='bank_attachment[]' type="file"  multiple >
-                                    </div>
-                                   </div>
+                                        <input type="text" name="bank_attachment" id="file-name2" class="choose-txt form-control ed" >
+                                     </div>
+                               </div>
+                               <div class="update_image">
+                                        <?php
+                                            $id=$_GET['id'];
+                                            $sqlb ="select attach_images, id from doc_attachment where img_id ='$id'";
+                                            $resultb=mysqli_query($conn,$sqlb);
+                                            // $img=array();
+                                            // $img_id=array();
+                                            while($resultAb=mysqli_fetch_assoc($resultb)){
+                                                $imgb[] = array("id" => $resultAb['id'], "attach_images"=> $resultAb['attach_images']);
+                                            }
+                                                asort($imgb);
+                                                $ib=0;    
+                                                foreach($imgb as $itemb) {
+
+                                                $image_idb= $itemb['id'];
+                                                //  print_r($image_id);
+                                                $imageb = $itemb['attach_images'];
+                                            
+                                                if (file_exists("../bank_attachment/".$imageb)) {
+                                                echo "
+                                                <div class='edit_image'>
+                                                <img src='../bank_attachment/". $imageb."' id='removee'>
+                                                <button class='remove_btnnn' data-id=$image_idb></button> 
+                                                </div>";
+                                            
+                                                }
+                                                $ib++;
+                                                }
+                                            ?>
+                                       </div>
                              </div>
                          </div>
                     </div>
@@ -514,7 +608,7 @@ $form_type = $row['form_type'];
                     <div id="toggle3">
                        <div class="Graduate col-lg-12">
                             <div class="row Graduate">
-                                <label for="Graduate" class="Graduate">Graduate</label>
+                                <label for="Graduate" class="Graduate"> First Graduate</label>
                             <div class="custom-control custom-radio" id="Graduates">
                                 <input type="radio" class="custom-control-input" id="Graduate1" name="graduate" value="yes"
                                 <?php if($row['graduate'] =='yes')
@@ -591,7 +685,7 @@ $form_type = $row['form_type'];
                                         ?>
                                         <tr id='row_0'>
                                     
-                                            <input type="hidden" id="txtfirst" name="student_id" class="form-control input-sm ">
+                                            <input type="hidden" id="txtfirst" name="student_id[]"  value="<?php echo $rows['s_id'];?>" class="form-control input-sm ">
                                             <td><input type="text" id="txtfirst" name="name[]" class="form-control input-sm " value="<?php echo $rows['name'];?>" /></td>
                                             <td><input type="text" id="txtsecond" name="age[]" class="form-control input-sm "value="<?php echo $rows['age'];?>" /></td>
                                             <td><select id="txtthird" name="genders[]" value="<?php echo $rows['genders']  ?>" class="form-control input-sm " >
@@ -669,7 +763,7 @@ $form_type = $row['form_type'];
                         </div>
                         </div>
                        <div class="submit">
-                            <button type="submit" name="submit"  class="btn btn-primary" id="submit">Submit</button>
+                            <button type="update" name="upadte"  class="btn btn-primary" id="update">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -681,41 +775,12 @@ $form_type = $row['form_type'];
     ?>
     
   <script>
-    $(function() {
-    // Multiple images preview in browser
-    var imagesPreview = function(input, placeToInsertImagePreview) {
-
-        if (input.files) {
-            var filesAmount = input.files.length;
-
-            for (i = 0; i < filesAmount; i++) {
-                var reader = new FileReader();
-
-                reader.onload = function(event) {
-                    
-                    $($.parseHTML('<img class="pre_img">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
-                    $($.parseHTML('<div class="edit_image1"><button  class="remove_btnnn"></button></div>')).appendTo(placeToInsertImagePreview);
-                    $(".remove_btnnn").click(function(){
-                     $(this).parent(".pre_img").remove();
-                     });
-                     }
-
-                  reader.readAsDataURL(input.files[i]);
-            }
-        }
-
-    };
-
-    $('#file-upload').on('change', function() {
-        imagesPreview(this, 'div.update_image');
-    });
-})
 
 
 $(".remove_btnnn").click(function(e){
   
     e.preventDefault();
-    $('#removee').remove();
+    $('#removee').hide();
     var id= $(this).data('id');
     alert(id);
     $.ajax({
@@ -726,11 +791,34 @@ $(".remove_btnnn").click(function(e){
         alert(data);
       
     },
-
-
-
 })
+});
+
+$("#update").click(function(e){
+alert("hi");
+e.preventDefault();
+
+var form_data = new FormData(document.getElementById('myform'));
+
+alert(form_data);
+$.ajax({
+    url:"update1.php",
+    data:form_data,
+    type:'POST',
+    processData: false,
+    contentType: false,
+    success:function(data){
+        alert(data);
+        window.location.href= "pending.php";
+    }
 
 
-})
+
+});
+
+});
+
+
+
+
 </script>

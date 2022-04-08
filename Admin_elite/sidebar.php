@@ -1,6 +1,8 @@
 <?php
 session_start();
 ?>
+
+
 <body>
     <!--[if lt IE 8]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -9,7 +11,8 @@ session_start();
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
+                <!-- <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a> -->
+                <h2 class="elite">ELITE</h2>
                 <strong><a href="index.html"><img src="img/logo/logosn.png" alt="" /></a></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
@@ -17,6 +20,15 @@ session_start();
                     <ul class="metismenu" id="menu1">
                         <li class="active">
                            <a title="Landing Page" href="index.php" aria-expanded="false"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg><span class="mini-click-non">Dashboard</span></a>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="fa fa-wpforms formss" aria-hidden="true"></span> <span class="mini-click-non">Forms</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Professors" href="pending.php"><span class="fa fa-clock-o formss" aria-hidden="true"></span><span class="mini-sub-pro">Pending</span></a></li>
+                                <li><a title="Add Professor" href="approved.php"><span class="fa fa-check formss" aria-hidden="true"></span><span class="mini-sub-pro">Approved</span></a></li>
+                                <li><a title="Edit Professor" href="rejected.php"><span class="fa fa fa-ban formss" aria-hidden="true"></span><span class="mini-sub-pro">Rejected</span></a></li>
+                               
+                            </ul>
                         </li>
                          <li>
                             <a title="Landing Page" href="widgets.php" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg><span class="mini-click-non">Widgets</span></a>
@@ -33,15 +45,7 @@ session_start();
                          <li>
                             <a title="Landing Page" href="events.html" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg> <span class="mini-click-non">Others</span></a>
                          </li>
-                        <!-- <li>
-                            <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Professors</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Professors" href="all-professors.html"><span class="mini-sub-pro">All Professors</span></a></li>
-                                <li><a title="Add Professor" href="add-professor.html"><span class="mini-sub-pro">Add Professor</span></a></li>
-                                <li><a title="Edit Professor" href="edit-professor.html"><span class="mini-sub-pro">Edit Professor</span></a></li>
-                                <li><a title="Professor Profile" href="professor-profile.html"><span class="mini-sub-pro">Professor Profile</span></a></li>
-                            </ul>
-                        </li> -->
+                      
                         <!-- <li>
                             <a class="has-arrow" href="all-students.html" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Students</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
@@ -197,7 +201,7 @@ session_start();
                                             <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">
                                             <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                            <li class="log"><i class="fas fa-sign-out-alt" id="logclr"></i><a href="login.php">Logout</a></li>
+                                            <li class="log"><i class="fas fa-sign-out-alt" id="logclr"></i><a href="logout.php">Logout</a></li>
                                             <li class="log"><i class="fa fa-lock"  id="logclr"></i><a href="#">Change Password</a></li>
                                            
                                             </ul>
