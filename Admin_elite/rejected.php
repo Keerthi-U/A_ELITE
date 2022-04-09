@@ -9,13 +9,14 @@ include_once('sidebar.php');
 <?php  
 include_once('db.php');
 
+// $query ="SELECT c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender  ,c.contactnumber,c.created_by,c.approved_status, COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information 
+// p ON c.id = p.student_id GROUP BY c.id 
+// ORDER BY c.ratings DESC;
+//  ;
+// ";
 $query = "SELECT c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender  ,c.contactnumber,c.created_by,c.approved_status, COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information 
-p ON  c.id  = p.student_id WHERE c.approved_status='3' GROUP BY c.id 
-ORDER BY c.ratings DESC;
-
- ;
-";
-
+p ON  c.id  = p.student_id WHERE c.approved_status ='3' GROUP BY c.id 
+ORDER BY c.ratings DESC;";
 $result = mysqli_query($conn,$query);
 ?>
 <style>
@@ -276,7 +277,8 @@ $result = mysqli_query($conn,$query);
     border: none;
     background: #efefef;
     padding: 2px;
-}
+    }
+  
      </style>
 
     <!-- End Left menu area -->
@@ -331,10 +333,10 @@ $result = mysqli_query($conn,$query);
                 <td class="action"><a href="view.php?id=<?php echo $row['id'];?>" class="fa fa-eye fac-icon1"> </a>
                 <a href="./Elite_Update.php?id=<?php echo $row['id'];?>" class="fa fa-pencil fac-icon2"></a>
                 <button class="fa fa-trash-o fac-icon3"  data-id="<?php echo $row['id'];?>"></button>
-              <div class="sel" id="<?php echo $row['id'];?>">
-            <select class="drop-d" id="statuss" name="statuss" value="<?php echo $row['approved_status'];?>">
+             <div class="sel" id="<?php echo $row['id'];?>">
+             <select class="drop-d" id="statuss" name="statuss" value="<?php echo $row['approved_status'];?>">
              <option value="<?php echo $row['approved_status'];?>"><?php  $row['approved_status'];
-             if($row['approved_status'] =='1'){
+             if($row['approved_status'] =='' or '1'){
                  echo "pending";
              }elseif($row['approved_status'] =='2'){
                 echo "approved";
@@ -363,3 +365,40 @@ $result = mysqli_query($conn,$query);
         include_once('footer.php');
         ?>
        
+     <script>
+        //   <!-- normal delete  -->
+            $(".fa-trash-o").click(function(){
+            var del_id =$(this).data('id');
+            alert(del_id);
+            $.ajax({
+                url:"update.php",
+                type:"post",
+                data:{del_id:del_id},
+                success:function(data){
+                   alert(data);
+                },
+            })
+            });
+             
+        
+ 
+
+$('select').on('change', function (e) {
+    var optionSelected = $("option:selected", this);
+    var valueSelected = this.value;
+     var rowid=($(this).parent()[0].id);
+    alert(valueSelected);
+    $.ajax({
+                url:"status.php",
+                type:"post",
+                data:{valueSelected:valueSelected,rowid:rowid},
+                success:function(data){
+                   alert(data);
+                   
+                },
+            })
+});
+     </script>
+
+  
+    

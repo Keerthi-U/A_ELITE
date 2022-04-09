@@ -15,7 +15,7 @@ include_once('db.php');
 //  ;
 // ";
 $query = "SELECT c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender  ,c.contactnumber,c.created_by,c.approved_status, COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information 
-p ON  c.id  = p.student_id WHERE c.approved_status IS NULL GROUP BY c.id 
+p ON  c.id  = p.student_id WHERE c.approved_status ='1'  or  c.approved_status IS NULL  GROUP BY c.id 
 ORDER BY c.ratings DESC;";
 $result = mysqli_query($conn,$query);
 ?>
@@ -329,14 +329,14 @@ $result = mysqli_query($conn,$query);
              
               
            
-                <td><?php if($row['approved_status'] === NULL){ echo 'Pending';}?></td>
+                <td><?php if($row['approved_status'] === NULL or '1'){ echo 'Pending';}?></td>
                 <td class="action"><a href="view.php?id=<?php echo $row['id'];?>" class="fa fa-eye fac-icon1"> </a>
                 <a href="./Elite_Update.php?id=<?php echo $row['id'];?>" class="fa fa-pencil fac-icon2"></a>
                 <button class="fa fa-trash-o fac-icon3"  data-id="<?php echo $row['id'];?>"></button>
              <div class="sel" id="<?php echo $row['id'];?>">
              <select class="drop-d" id="statuss" name="statuss" value="<?php echo $row['approved_status'];?>">
              <option value="<?php echo $row['approved_status'];?>"><?php  $row['approved_status'];
-             if($row['approved_status'] ==''){
+             if($row['approved_status'] =='' or '1'){
                  echo "pending";
              }elseif($row['approved_status'] =='2'){
                 echo "approved";
