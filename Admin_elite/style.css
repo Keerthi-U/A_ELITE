@@ -4973,3 +4973,6 @@ li.log {
 	color:#fff;
 	text-decoration:none;
 }
+.action{
+    display:flex;
+}

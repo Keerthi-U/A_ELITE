@@ -328,15 +328,11 @@ $result = mysqli_query($conn,$query);
               
            
                 <td><?php if($row['approved_status'] === '3'){ echo 'Rejected';}?></td>
-                <td><a href="view.php?id=<?php echo $row['id'];?>" class="fa fa-eye fac-icon1"> </a>
+                <td class="action"><a href="view.php?id=<?php echo $row['id'];?>" class="fa fa-eye fac-icon1"> </a>
                 <a href="./Elite_Update.php?id=<?php echo $row['id'];?>" class="fa fa-pencil fac-icon2"></a>
                 <button class="fa fa-trash-o fac-icon3"  data-id="<?php echo $row['id'];?>"></button>
               <div class="sel" id="<?php echo $row['id'];?>">
-              <select class="drop-d" id="statuss" name="statuss" value="<?php echo $row['approved_status'];?>
-              
-              
-              "
-               >
+            <select class="drop-d" id="statuss" name="statuss" value="<?php echo $row['approved_status'];?>">
              <option value="<?php echo $row['approved_status'];?>"><?php  $row['approved_status'];
              if($row['approved_status'] =='1'){
                  echo "pending";

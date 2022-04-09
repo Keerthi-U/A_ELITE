@@ -9,13 +9,13 @@ include_once('sidebar.php');
 <?php  
 include_once('db.php');
 
-// // $query ="SELECT c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender  ,c.contactnumber,c.created_by,c.approved_status, COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information 
-// // p ON c.id = p.student_id GROUP BY c.id 
-// // ORDER BY c.ratings DESC;
+// $query ="SELECT c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender  ,c.contactnumber,c.created_by,c.approved_status, COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information 
+// p ON c.id = p.student_id GROUP BY c.id 
+// ORDER BY c.ratings DESC;
 //  ;
 // ";
 $query = "SELECT c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender  ,c.contactnumber,c.created_by,c.approved_status, COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information 
-p ON  c.id  = p.student_id WHERE c.approved_status='1' GROUP BY c.id 
+p ON  c.id  = p.student_id WHERE c.approved_status IS NULL GROUP BY c.id 
 ORDER BY c.ratings DESC;";
 $result = mysqli_query($conn,$query);
 ?>
@@ -277,7 +277,8 @@ $result = mysqli_query($conn,$query);
     border: none;
     background: #efefef;
     padding: 2px;
-}
+    }
+  
      </style>
 
     <!-- End Left menu area -->
@@ -329,12 +330,20 @@ $result = mysqli_query($conn,$query);
               
            
                 <td><?php if($row['approved_status'] === NULL){ echo 'Pending';}?></td>
-                <td><a href="view.php?id=<?php echo $row['id'];?>" class="fa fa-eye fac-icon1"> </a>
+                <td class="action"><a href="view.php?id=<?php echo $row['id'];?>" class="fa fa-eye fac-icon1"> </a>
                 <a href="./Elite_Update.php?id=<?php echo $row['id'];?>" class="fa fa-pencil fac-icon2"></a>
                 <button class="fa fa-trash-o fac-icon3"  data-id="<?php echo $row['id'];?>"></button>
              <div class="sel" id="<?php echo $row['id'];?>">
-             <select class="drop-d" id="statuss" name="statuss" value="<?php echo $row['approved_status'];?>" >
-             <option value="<?php echo $row['approved_status'];?>"><?php echo $row['approved_status'];?></option>
+             <select class="drop-d" id="statuss" name="statuss" value="<?php echo $row['approved_status'];?>">
+             <option value="<?php echo $row['approved_status'];?>"><?php  $row['approved_status'];
+             if($row['approved_status'] ==''){
+                 echo "pending";
+             }elseif($row['approved_status'] =='2'){
+                echo "approved";
+             }elseif($row['approved_status'] =='3'){
+                echo "rejected";
+             }
+             ?></option>
                     <option value="1">pending</option>
                     <option value="2">Approve</option>
                     <option value="3">Reject</option>
