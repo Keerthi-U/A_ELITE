@@ -5,6 +5,12 @@ include("header.php");
 <?php
 include("db.php");
 ?>
+<style>
+    .swal-modal {
+    width: 478px;
+    height: 247px;
+    }
+</style>
   <div class="container">
      <div class="main">
       <h1 class="text-center sc-heading">Scholarship Form</h1>

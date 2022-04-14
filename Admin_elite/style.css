@@ -5041,3 +5041,14 @@ div#example_info {
 .fa-newspaper-o.formss {
     font-size: 17px;
 }
+.caretT {
+    color: #933ec5;
+}
+.btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: none;
+}
+.btn:active:focus, .btn:focus {
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}

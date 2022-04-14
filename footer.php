@@ -3,7 +3,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="asset/js/student application.js"></script>
-        <script>
+<script>
 
 // INSERT QUERY 
   
@@ -26,11 +26,14 @@ $('#submit').click(function(e){
         
             //   $('#formdata').html(data);
             swal({ title:"loading",
+                  button:false,
                   icon: "https://www.boasnotas.com/img/loading2.gif",
                   timer: 2000}).then(function(){
                     // alert("test");
-                    swal({ title:"done",
-                      icon: "success"
+                    swal({ title:"Registration successfull",
+                      icon: "success",
+                      button:false,
+                      timer: 2000
 
                     });
                   });

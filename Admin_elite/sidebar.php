@@ -12,9 +12,9 @@ include('header.php');?>
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <!-- <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a> -->
-                <h2 class="elite">ELITE</h2>
-                <strong><a href="index.html"><img src="img/logo/logosn.png" alt="" /></a></strong>
+                <a href="index.html"><img class="main-logo" src="img/logo/lo.png" alt="" width="100px" height="100px"  /></a>
+              
+                <strong><a href="index.html"><img src="img/logo/logoo.png" alt="" /></a></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">

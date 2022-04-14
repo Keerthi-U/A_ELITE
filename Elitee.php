@@ -10,7 +10,12 @@ $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($result);
 $form_type = $row['form_type'];
 ?>
-
+<style>
+    .swal-modal {
+    width: 478px;
+    height: 247px;
+    }
+</style>
   <div class="container">
      <div class="main">
       <h1 class="text-center sc-heading">Scholarship Form</h1>

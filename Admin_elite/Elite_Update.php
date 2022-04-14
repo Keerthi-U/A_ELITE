@@ -159,8 +159,9 @@ input[type=file]:focus, input[type=radio]:focus {
                                             <p><?php echo $_SESSION['first_name']; ?></p>
                                         </div>
                                         <div class="dropdown">
-                                            <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">
-                                            <span class="caret"></span></button>
+                                            <button class="btn caretT dropdown-toggle" type="button" data-toggle="dropdown">
+                                            <!-- <span class="caret"></span> -->
+                                            </button>
                                             <ul class="dropdown-menu">
                                             <li class="log"><i class="fas fa-sign-out-alt" id="logclr"></i><a href="logout.php">Logout</a></li>
                                             <li class="log"><i class="fa fa-lock"  id="logclr"></i><a href="#">Change Password</a></li>
