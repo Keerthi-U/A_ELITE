@@ -284,8 +284,20 @@ $result = mysqli_query($conn,$query);
     }
 
     tr.even {
-        background-color: #b5b2b22e;
+        /* background-color: #b5b2b22e; */
+        background-color: #974591;
+        color: white;
     }   
+    tr.even > td a {
+        color:white !important;
+    }
+    tr.even > td > button {
+        color:white !important;
+    }
+    tr.even > td > .sel > select{
+        color:white !important;
+        background:#974591;
+    }  
      </style>
 
     <!-- End Left menu area -->
