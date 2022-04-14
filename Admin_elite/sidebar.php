@@ -1,9 +1,10 @@
 <?php
-session_start();
-?>
-
-
+if(session_id() == ''){
+    require_once('authentication.php');
+}
+include('header.php');?>
 <body>
+
     <!--[if lt IE 8]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
@@ -22,21 +23,21 @@ session_start();
                            <a title="Landing Page" href="index.php" aria-expanded="false"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg><span class="mini-click-non">Dashboard</span></a>
                         </li>
                         <li>
-                            <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="fa fa-wpforms formss" aria-hidden="true"></span> <span class="mini-click-non">Forms</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Professors" href="pending.php"><span class="fa fa-clock-o formss" aria-hidden="true"></span><span class="mini-sub-pro">Pending</span></a></li>
-                                <li><a title="Add Professor" href="approved.php"><span class="fa fa-check formss" aria-hidden="true"></span><span class="mini-sub-pro">Approved</span></a></li>
-                                <li><a title="Edit Professor" href="rejected.php"><span class="fa fa fa-ban formss" aria-hidden="true"></span><span class="mini-sub-pro">Rejected</span></a></li>
+                            <a class="has-arrow" href="#" aria-expanded="false" id="dropp"><span class="	fa fa-newspaper-o formss" aria-hidden="true"></span> <span class="mini-click-non">Forms</span></a>
+                            <ul class="submenu-angle collapse show " aria-expanded="false">
+                                <li><a title="Pending" href="pending.php"><span class="fa fa-clock-o formss" aria-hidden="true"></span><span class="mini-sub-pro">Pending</span></a></li>
+                                <li><a title="Approved" href="approved.php"><span class="fa fa-check formss" aria-hidden="true"></span><span class="mini-sub-pro">Approved</span></a></li>
+                                <li><a title="Rejected" href="rejected.php"><span class="fa fa fa-ban formss" aria-hidden="true"></span><span class="mini-sub-pro">Rejected</span></a></li>
                                
                             </ul>
                         </li>
                          <li>
-                            <a title="Landing Page" href="widgets.php" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg><span class="mini-click-non">Widgets</span></a>
+                            <a title="Landing Page" href="#" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg><span class="mini-click-non">Payments</span></a>
                          </li>
                          <li>
-                            <a title="Landing Page" href="data-table.php" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-database"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg> <span class="mini-click-non">Data Tables</span></a>
+                            <a title="Landing Page" href="#" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-database"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg> <span class="mini-click-non">Histroy</span></a>
                          </li>
-                         <li>
+                         <!-- <li>
                             <a title="Landing Page" href="list.php" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box"><path d="M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z"></path><polyline points="2.32 6.16 12 11 21.68 6.16"></polyline><line x1="12" y1="22.76" x2="12" y2="11"></line></svg> <span class="mini-click-non">Project</span></a>
                          </li>
                          <li>
@@ -44,7 +45,7 @@ session_start();
                          </li>
                          <li>
                             <a title="Landing Page" href="events.html" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg> <span class="mini-click-non">Others</span></a>
-                         </li>
+                         </li> -->
                       
                         <!-- <li>
                             <a class="has-arrow" href="all-students.html" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Students</span></a>
@@ -171,17 +172,17 @@ session_start();
                                         <div class="menu-switcher-pro">
                                             <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-center status_toggle middle" id="sidebar-toggle"><line x1="18" y1="10" x2="6" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="18" y1="18" x2="6" y2="18"></line></svg>
-												</button>
+											</button>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-0 col-sm-1 col-xs-12 pt">
-                                    <div class="breadcome-heading">
+                                    <!-- <div class="breadcome-heading">
                                        
                                        <form role="search" class="sr-input-func">
                                            <input type="text" placeholder="Search..." class="search-int form-control">
                                            <a href="#"><i class="fa fa-search"></i></a>
                                        </form>
-                                   </div>
+                                   </div> -->
                                    </div>
                                    <div class="col-lg-4 col-xs-offset-3">
                                        <div class="row">
@@ -437,3 +438,34 @@ session_start();
                 </div>
             </div> -->
         </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script>
+        jQuery(function($) {
+            var path = window.location.href; 
+            console.log(path);
+        // because the 'href' property of the DOM element is the absolute path
+        
+            $('ul#menu1 li a').each(function() {
+                
+            if (this.href === path) {
+                //console.log(this.href);
+                $('ul li.active').removeClass('active');
+                $(this).closest('li').addClass('active');
+            }
+        
+            });
+
+  })
+
+//   $('.has-arrow').click(function(){
+//     $(".submenu-angel").addClass("collapse show");
+//     if($(".submenu-angle").hasClass('show')){
+//         alert("test");
+       
+//         }else{
+//            alert("no");
+//         }
+//     });
+
+  
+        </script>

@@ -1,6 +1,11 @@
 <?php
+if(session_id() == ''){
+    session_start();
+}
 include("form_header.php");
+include('header.php');
 ?>
+
 <?php
 include("db.php");
 // error_reporting(0);
@@ -64,8 +69,115 @@ $form_type = $row['form_type'];
             padding-top: 30px;
        padding-left: 16px;
          }
+  .header-top-area {
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0 auto;
+    transition: all 0.3s;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #77aeb7!important;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    padding: 2px 9px 2px 5px!important;
+    font-size: 13px!important;
+    box-shadow: -4px 3px 10px -5px rgb(0 0 0 / 50%);
+}
+input.file-up:after {
+    top: 41px;
+
+    content: "Choose";
+    position: absolute;
+    z-index: 2;
+    color: white;
+    padding: 8px 10px 8.5px 8px;
+    display: block;
+    background-color: #5387ba;
+    width: 85px;
+}
+input[type=file]:focus, input[type=radio]:focus {
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+.ed {
+    position: absolute;
+    top: 41px;
+    left: 95px;
+}
+.main {
+    padding: 15px;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 8%;
+    border: 3px solid lightgray;
+    box-shadow: 2px 15px 20px lightgrey;
+}
 </style>
   <div class="container">
+  <div class="header-advance-area">
+            <div class="header-top-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                            <div class="header-top-wraper">
+                                <div class="row ">
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12 pt">
+                                        <div class="menu-switcher-pro">
+                                            <!-- <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-center status_toggle middle" id="sidebar-toggle"><line x1="18" y1="10" x2="6" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="18" y1="18" x2="6" y2="18"></line></svg>
+											</button> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-0 col-sm-1 col-xs-12 pt">
+                              
+                                   </div>
+                                   <div class="col-lg-4 col-xs-offset-3">
+                                       <div class="row">
+                                           <div class="col-lg-4  pt">
+                                           <div class="bell">
+                                              
+                                         <i class="item fa fa-bell"></i>
+                                       </div> 
+                                   </div> <div class="col-lg-8">
+                                           <div class="single-review-st-text">
+                                        <img src="img/notification/1.jpg" alt="">
+                                        <div class="review-ctn-hf">
+                                           
+                                            <p><?php echo $_SESSION['first_name']; ?></p>
+                                        </div>
+                                        <div class="dropdown">
+                                            <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">
+                                            <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                            <li class="log"><i class="fas fa-sign-out-alt" id="logclr"></i><a href="logout.php">Logout</a></li>
+                                            <li class="log"><i class="fa fa-lock"  id="logclr"></i><a href="#">Change Password</a></li>
+                                           
+                                            </ul>
+                                        </div>
+                                      
+                                    </div>
+                                       </div>
+                                       </div>
+                                     </div>	
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
      <div class="main">
       <h1 class="text-center sc-heading">Scholarship Form</h1>
           <form class="form" action="" name="myform" method="post" id="myform" onsubmit="return medical()" enctype="multipart/form-data">
@@ -257,11 +369,15 @@ $form_type = $row['form_type'];
                      <div class="form-group col-lg-12">
                         <label for="exampleFormControlFile1">Pervious Marksheet</label>
                        
-                        <div class="d-flexx">
-                        <input id="file-upload" class="file-up"  name="previous_marksheet[]"  type="file" multiple >
+                        <div class="d-flex">
                         <input type="text" id="file-name" name="previous_marksheet" class="choose-txt form-control ed" >
+                        <input id="file-upload" class="file-up"  name="previous_marksheet[]"  type="file" multiple >
                        
-                                   <div class="update_image">
+                       
+                                 
+                        </div>
+                     </div>
+                     <div class="update_image">
                                    <?php
                                     $id=$_GET['id'];
                                     $sql1 ="select attach_images, id from doc_attachment where img_id ='$id'";
@@ -293,8 +409,6 @@ $form_type = $row['form_type'];
                                     ?>
                                    </div>
 
-                        </div>
-                     </div>
                      </div>
                  
                       <div class="heading2_1 mt-5">Bank AccountDetails:-</div>
@@ -435,7 +549,21 @@ $form_type = $row['form_type'];
                                  <label class="custom-control-label" for="customRadio6">No</label>
                             </div> 
                             </div>
-                            <div class="gov" id="in_yes">
+                            
+                    </div> 
+                        </div>
+                           
+                    <div class="row">
+                         <div class="form-group col-lg-4">
+                                <label for="exampleFormControlFile1"> Hospital Report/LOR </label>
+                             <div class="d-flexx">
+                               <input id="file-upload3" class="file-up" name="hospital_report[]" type="file" multiple>
+                                <input type="text" name="hospital_report" id="file-name3" class=" choose-txt form-control ed" >
+                                
+                             </div>
+                          </div>
+                          <div class="form-group col-lg-8">
+                          <div class="gov" id="in_yes">
                              <div class="row orphan_1">
                                 <div class="a_expense col-lg-4">
                                     <label for="a_expense">Goverment</label>
@@ -448,16 +576,8 @@ $form_type = $row['form_type'];
                                 </div>
                             </div> 
                             
-                    </div> 
-                        </div>
-                           
-                      <div class="row">
-                      <div class="form-group col-lg-12">
-                                <label for="exampleFormControlFile1"> Hospital Report/LOR </label>
-                             <div class="d-flexx">
-                               <input id="file-upload3" class="file-up" name="hospital_report[]" type="file" multiple>
-                                <input type="text" name="hospital_report" id="file-name3" class=" choose-txt form-control ed" >
-                                 <div class="update_image">
+                          </div>
+                          <div class="update_image">
                                    <?php
                                     $id=$_GET['id'];
                                     $sql5 ="select attach_images, id from doc_attachment where img_id ='$id'";
@@ -490,15 +610,18 @@ $form_type = $row['form_type'];
                                     }
                                    
                                     ?>
-                                   </div>
-                             </div>
-                        </div> 
-                         <div class="form-group col-lg-12">
+                                   </div> 
+                      </div>
+                      <div class="row">
+                            <div class="form-group col-lg-12">
                                 <label for="exampleFormControlFile1">Pervious Medical Report</label>
                                 <div class="d-flexx">
                                  <input id="file-upload4" class="file-up" name="previous_medical_report[]" type="file" multiple>
                                  <input type="text" name="previous_medical_report" id="file-name4" class=" choose-txt form-control ed" >
-                                 <div class="update_image">
+                                
+                                </div>
+                        </div>
+                        <div class="update_image">
                                    <?php
                                     $id=$_GET['id'];
                                     $sql5 ="select attach_images, id from doc_attachment where img_id ='$id'";
@@ -532,8 +655,6 @@ $form_type = $row['form_type'];
                                    
                                     ?>
                                    </div>
-                                </div>
-                        </div>
                       </div>
 
                         <div class="heading2_1">Bank AccountDetails:-</div>
@@ -633,7 +754,7 @@ $form_type = $row['form_type'];
                         <div class="orphan col-lg-12">
                             
                             <div class="row orphan_1">
-                                <label for="orphan" class="orphan">Orphan</label>
+                                <label for="orphan" class="orphan" id="orph">Orphan</label>
                             <div class="custom-control custom-radio" id="orphan">
                                 <input type="radio" class="custom-control-input" id="stu_customRadio3" name="orphan" value="yes"
                                 <?php if($row['orphan'] =='yes')
@@ -777,25 +898,60 @@ $form_type = $row['form_type'];
   <script>
 
 
-$(".remove_btnnn").click(function(e){
+// $(".remove_btnnn").click(function(e){
   
+//     e.preventDefault();
+    
+//     var id= $(this).data('id');
+//     //alert(id);
+//     $.ajax({
+//     url:"update.php",
+//     type:"post",
+//     data:{id:id},
+//     success:function(data){
+//         alert(data);
+      
+//     },
+// })
+// });
+
+
+$(".remove_btnnn").click(function(e){
     e.preventDefault();
-    $('#removee').hide();
-    var id= $(this).data('id');
-    alert(id);
+
+    var d_id= $(this).data('id');
+
+    alert(d_id);
+swal({
+  title: "Are you sure?",
+  text: "Once deleted, you will not be able to recover this imaginary file!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+}).then((willDelete) => {
+  if (willDelete) {
+    $(this).parent('.edit_image').hide();
+
+        
     $.ajax({
     url:"update.php",
     type:"post",
-    data:{id:id},
+    data:{d_id:d_id},
     success:function(data){
-        alert(data);
-      
-    },
-})
+        swal("Poof! Your imaginary file has been deleted!", {
+       icon: "success",
+     }); 
+       },
+    })
+} else {
+    swal("Your imaginary file is safe!");
+  }
+
+  });
 });
 
 $("#update").click(function(e){
-alert("hi");
+//alert("hi");
 e.preventDefault();
 
 var form_data = new FormData(document.getElementById('myform'));

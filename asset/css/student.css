@@ -77,10 +77,14 @@ div#gender {
     margin-top: 1rem;
 }
 div#orphan {
-    margin-left: 1em;
+    /* margin-left: 1em; */
 }
 label.orphan {
-    margin-left: -1.7%;
+    /* margin-left: -1.7%; */
+}
+#orph{
+    margin-right:50px;
+    margin-left: 4px;
 }
 .f_members1 {
     display: flex;

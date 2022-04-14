@@ -26,7 +26,7 @@ $result = mysqli_query($conn,$query);
         padding-top: 52px;
         }
         table {
-        border-spacing: 0 0.85rem !important;
+        border-spacing: 0px 8px !important;
         }
 
         .table .dropdown {
@@ -36,11 +36,11 @@ $result = mysqli_query($conn,$query);
         .table td,
         .table th {
         vertical-align: middle;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
         border: none;
         }
        .table>tbody>tr>td  {
-        padding: 6px;
+        padding: 9px 3px 9px 12px!important;
         font-size: 12px;
         }
         .table thead tr,
@@ -54,19 +54,19 @@ $result = mysqli_query($conn,$query);
         }
 
         .table td {
-        background: #fff;
+        /* background: #fff; */
         }
         .table th {
-        background: #fff;
+        /* background: #fff; */
         }
         .table td:first-child {
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
         }
 
         .table td:last-child {
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
         }
 
         .avatar {
@@ -257,28 +257,35 @@ $result = mysqli_query($conn,$query);
             padding: 7px;
         }
         .fac-icon1,.fac-icon2,.fac-icon3{
-            padding: 3px 6px;
+            padding: 3.8px 6px;
             border: none;
             margin: 1px;
         }
-        .fac-icon1 {
+        /* .fac-icon1 {
         background: #efefef;
         color: black;
         }
         .fac-icon2 {
         background: #efefef;
         color: black;
-        }
+        } */
        .fac-icon3 {
-        background: #efefef;
+        background: unset;
         color: black;
         }
      .drop-d {
-    border: none;
-    background: #efefef;
-    padding: 2px;
+        border: none;
+        background: unset;
+        padding: 2.5px;
     }
   
+    .table-striped>tbody>tr:nth-of-type(odd) {
+      background-color: white;
+    }
+
+    tr.even {
+        background-color: #b5b2b22e;
+    }   
      </style>
 
     <!-- End Left menu area -->
@@ -295,7 +302,7 @@ $result = mysqli_query($conn,$query);
         </div>
         <div class="table-containerr">
           <table class="table table-striped" id="example" >
-            <caption>Bootstrap 3 Table - SPLessons.com</caption>
+            <!-- <caption>Bootstrap 3 Table - SPLessons.com</caption> -->
             <thead>
                 <tr>
                 <th>Id</th>
@@ -319,7 +326,7 @@ $result = mysqli_query($conn,$query);
                 ?>
                 <tr>
                 <td><?php echo ++$counter; ?></td>
-                <td><?php echo $row['form_type'] ?></td>
+                <td><?php echo ($row['form_type'] == '1') ? "Student" : "Medical" ;?></td>
                 <td><?php echo $row['number_of_student'] ?></td>
                 <td><?php echo $row['fullname'] ?></td>
                 <td><?php echo $row['fathername'] ?></td>
@@ -335,18 +342,10 @@ $result = mysqli_query($conn,$query);
                 <button class="fa fa-trash-o fac-icon3"  data-id="<?php echo $row['id'];?>"></button>
              <div class="sel" id="<?php echo $row['id'];?>">
              <select class="drop-d" id="statuss" name="statuss" value="<?php echo $row['approved_status'];?>">
-             <option value="<?php echo $row['approved_status'];?>"><?php  $row['approved_status'];
-             if($row['approved_status'] == '1'){
-                 echo "pending";
-             }elseif($row['approved_status'] =='2'){
-                echo "approved";
-             }elseif($row['approved_status'] =='3'){
-                echo "rejected";
-             }
-             ?></option>
-                    <option value="1">pending</option>
-                    <option value="2">Approve</option>
-                    <option value="3">Reject</option>
+             <option value="<?php echo $row['approved_status'];?>">Choose</option>
+             <option value="1" <?php if( $row['approved_status'] == '1') echo "selected";?>>Pending</option>
+             <option value="2" <?php if( $row['approved_status'] == '2') echo "selected";?>>Approve</option>
+             <option value="3" <?php if( $row['approved_status'] == '3') echo "selected";?>>Reject</option>
                 </select>
              </div>
             
@@ -387,16 +386,36 @@ $('select').on('change', function (e) {
     var optionSelected = $("option:selected", this);
     var valueSelected = this.value;
      var rowid=($(this).parent()[0].id);
-    alert(valueSelected);
-    $.ajax({
+    // alert(valueSelected);
+ swal({
+  title: "Are you sure?",
+  text: "To Change Status of User?",
+  icon: "img/icons8-question-mark-81.png",
+  buttons: true,
+  buttonsColor: '#fff',
+  })
+
+.then((willDelete) => {
+if (willDelete) {
+$.ajax({
                 url:"status.php",
                 type:"post",
                 data:{valueSelected:valueSelected,rowid:rowid},
                 success:function(data){
-                   alert(data);
+                //    alert(data);
+                   swal({ title: data,
+                        text: "You clicked the button!",
+                        icon: "success"}).then(okay => {
+                        if (okay) {
+                            window.location.reload();
+                        }
+                        });
                    
                 },
-            })
+        })
+    }
+  });
+
 });
      </script>
 

@@ -1,14 +1,24 @@
-
-   
-
 <?php
-include_once('header.php');
 include_once('sidebar.php');
+include_once('db.php');
 ?>
 <style>
 
   </style>
+<?php
+$query = mysqli_query($conn,"select * from scholarship_table");
+$count = mysqli_num_rows($query);
 
+$query1 = mysqli_query($conn,"select * from scholarship_table where form_type=1");
+$count1 = mysqli_num_rows($query1);
+
+$query2 = mysqli_query($conn,"select * from scholarship_table where form_type=2");
+$count2 = mysqli_num_rows($query2);
+
+$query3 = mysqli_query($conn,"select * from scholarship_table where approved_status=2");
+$count3 = mysqli_num_rows($query3);
+
+?>
     <!-- Start Welcome area -->
     <div class="all-content-wrapper">
         <div class="container-fluid">
@@ -27,11 +37,11 @@ include_once('sidebar.php');
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="analytics-sparkle-line reso-mg-b-30">
                             <div class="analytics-content">
-                                <h5>Computer Technologies  <i class="fa fa-arrow-right"></i>  </h5>
+                                <h5>Total Scholorship Forms <i class="fa fa-arrow-right"></i>  </h5>
                                 <div class="cout_img">
                                
                                  <img src ="img/dashboard/tracking.png" class="dashB_img">
-                                 <h2 class="counterr">$<span class="counter">5000</span>
+                                 <h2 class="counterr"><span class="counter"><?php echo $count; ?></span>
                                 </h2>
                                 </div>
                                  <span class="tuition-fees">Count</span>
@@ -42,12 +52,12 @@ include_once('sidebar.php');
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="analytics-sparkle-line reso-mg-b-30">
                             <div class="analytics-content">
-                                <h5>Accounting Technologies  <i class="fa fa-arrow-right  ac"></i></h5>
+                                <h5>Student Scholorship Forms <i class="fa fa-arrow-right  ac"></i></h5>
                               
                                 <div class="cout_img">
                                
                                <img src ="img/dashboard/sticky-notes.png" class="dashB_img">
-                               <h2 class="counterr">$<span class="counter">5000</span>
+                               <h2 class="counterr"><span class="counter"><?php echo $count1; ?></span>
                               </h2>
                               </div>
                                <span class="tuition-fees">Count</span>
@@ -57,12 +67,12 @@ include_once('sidebar.php');
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="analytics-sparkle-line reso-mg-b-30 table-mg-t-pro dk-res-t-pro-30">
                             <div class="analytics-content">
-                                <h5>Electrical Engineering<i class="fa fa-arrow-right ac1"></i></h5>
+                                <h5>Mediacal Scholorship Forms <i class="fa fa-arrow-right ac1"></i></h5>
                                
                                 <div class="cout_img">
                                
                                <img src ="img/dashboard/copy-writing.png" class="dashB_img">
-                               <h2 class="counterr">$<span class="counter">5000</span>
+                               <h2 class="counterr"><span class="counter"><?php echo $count2; ?></span>
                               </h2>
                               </div>
                                <span class="tuition-fees">Count</span>
@@ -72,11 +82,11 @@ include_once('sidebar.php');
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="analytics-sparkle-line table-mg-t-pro dk-res-t-pro-30">
                             <div class="analytics-content">
-                                <h5>Chemical Engineering <i class="fa fa-arrow-right ac2"></i></h5>
+                                <h5>Approved Scholorship Forms <i class="fa fa-arrow-right ac2"></i></h5>
                                 <div class="cout_img">
                                
                                <img src ="img/dashboard/abacus1.png" class="dashB_img">
-                               <h2 class="counterr">$<span class="counter">5000</span>
+                               <h2 class="counterr"><span class="counter"><?php echo $count3;?></span>
                               </h2>
                               </div>
                                <span class="tuition-fees">Count</span>

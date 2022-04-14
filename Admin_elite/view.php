@@ -267,7 +267,7 @@ table>tbody>tr>th{
                  <th>Attachement</th>
                  <td>
 
-                 <i class="fa fa-eye btn "  id="bank_att" data-id= <?php echo $row['id'];?> aria-hidden="true">
+                 <i class="fa fa-eye btn1"  id="bank_att" data-id= <?php echo $row['id'];?> aria-hidden="true">
                  <span id="span" style="display:none;">2</span>
                  </i>
                 
@@ -324,14 +324,16 @@ table>tbody>tr>th{
                 <tr>
                  <th>Hospital Report/LOR</th>
                  <td>
-                 <i class="fa fa-eye btn" id="hos_att" data-id= <?php echo $row['id'];?> aria-hidden="true">  
+                 <i class="fa fa-eye btn2" id="hos_att" data-id= <?php echo $row['id'];?> aria-hidden="true">  
+                 <span id="span" style="display:none;">3</span>
                 </td>
                 </tr>
                  <tr>
                  <th>Pervious Medical Report</th>
                  <td> 
-                 <i class="fa fa-eye btn" id="medical_report_att" data-id= <?php echo $row['id'];?> aria-hidden="true">  
-              </td>
+                 <i class="fa fa-eye btn3" id="medical_report_att" data-id= <?php echo $row['id'];?> aria-hidden="true">  
+                 <span id="span" style="display:none;">4</span>
+                </td>
                 </tr>
                  <tr>
                  <th>Do you have Insurance scheme?</th>
@@ -372,11 +374,13 @@ table>tbody>tr>th{
                  <tr>
                  <th>Attachement</th>
                  <td>
-                 <div class="eye">
+                 <i class="fa fa-eye btn4" id="mbank_attachment" data-id= <?php echo $row['id'];?> aria-hidden="true">  
+                 <span id="span" style="display:none;">5</span>
+                 <!-- <div class="eye">
                 <div class="eyelid" id="mbank_attachment" data-id= <?php echo $row['id'];?>>
                     <span></span>
-                </div>
-                <div class="pupil"></div>
+                </div> -->
+                <!-- <div class="pupil"></div> -->
                 </div>    
                  <!-- <i class="fa fa-eye btn"  aria-hidden="true">     -->
                </td>
@@ -499,100 +503,60 @@ table>tbody>tr>th{
 include_once('footer.php');
 ?>
 <script>
+$(document).ready(function(){
+   
     $('#modalclose').click(function(){
-        alert("hi");
-        $("#bank_att").removeClass('active');
+    $("#bank_att,#previouss,#hos_att,#medical_report_att,#mbank_attachment").removeClass('active');
     });
-    $('').click(function(){
-
-    })
-        $(".fa-eye").click(function(){
-            if($("#bank_att").hasClass('active')){
-               var eye_click_id = $("#bank_att #span").text();
-               //alert("faeye"+eye_click_id);
-            }else if($("#previouss").hasClass('active')){
-                var eye_click_id = $("#previouss #span").text();
-                  alert("faeye"+eye_click_id);
+    $('.btn').click(function(){
+    $("#previouss").addClass('active');
+   });
+    $('.btn1').click(function(){
+    $("#bank_att").addClass('active');
+    });
+    $('.btn2').click(function(){
+    $("#hos_att").addClass('active');
+    });
+    $('.btn3').click(function(){
+    $("#medical_report_att").addClass('active');
+    });
+    $('.btn4').click(function(){
+    $("#mbank_attachment").addClass('active');
+    });
+    $(".fa-eye").click(function(){
+        if($("#previouss").hasClass('active')){
+            var eye_click_id = $("#previouss #span").text();
+            }else if($("#bank_att").hasClass('active')){
+            var eye_click_id = $("#bank_att #span").text();
+            //alert("faeye"+eye_click_id);
+            }else if($("#hos_att").hasClass('active')){
+            var eye_click_id = $("#hos_att #span").text();
+            //alert("faeye"+eye_click_id);
+            }else if($("#medical_report_att").hasClass('active')){
+            var eye_click_id = $("#medical_report_att #span").text();
+            // alert("faeye"+eye_click_id);
+            }else if($("#mbank_attachment").hasClass('active')){
+            var eye_click_id = $("#mbank_attachment #span").text();
+            // alert("faeye"+eye_click_id);
             }
-            var eye_id =$(this).data('id');
-            var form_name = "all_attachment";
-            // alert(eye_id);
-            $.ajax({
-                url:"update.php",
-                type:"post",
-                data:{eye_id:eye_id,form_name:form_name,eye_click_id:eye_click_id},
-                success:function(data){
-                   console.log(data);
-                   $(".modal-body").html(data);
-                   $("#myModal").modal('show');                    // window.location = 'new.php' + data;
-                },
-            })
-            });
- 
-        // $("#bank_att").click(function(){
-        //     var eye_id =$(this).data('id');
-        //     var form_name = "bank_attachment";
+        var eye_id =$(this).data('id');
+        var form_name = "all_attachment";
+        // alert(eye_id);
+        $.ajax({
+            url:"update.php",
+            type:"post",
+            data:{eye_id:eye_id,form_name:form_name,eye_click_id:eye_click_id},
+            success:function(data){
+                console.log(data);
+                $(".modal-body").html(data);
+                $("#myModal").modal('show');                    // window.location = 'new.php' + data;
+            },
+        })
+        });
 
-        //     alert(eye_id);
-        //     $.ajax({
-        //         url:"update.php",
-        //         type:"post",
-        //         data:{eye_id:eye_id,form_name:form_name},
-        //         success:function(data){
-        //            console.log(data);
-        //            $(".modal-body").html(data);
-        //            $("#myModal").modal('show');                    // window.location = 'new.php' + data;
-        //         },
-        //     })
-        //    });
 
-        $("#hos_att").click(function(){
-            var eye_id =$(this).data('id');
-            var form_name = "hospital_attachment";
-
-            alert(eye_id);
-            $.ajax({
-                url:"update.php",
-                type:"post",
-                data:{eye_id:eye_id,form_name:form_name},
-                success:function(data){
-                   console.log(data);
-                   $(".modal-body").html(data);
-                   $("#myModal").modal('show');                    // window.location = 'new.php' + data;
-                },
-            })
-           });
-
-           $("#medical_report_att").click(function(){
-            var eye_id =$(this).data('id');
-            var form_name = "previous_medical_report";
-
-            alert(eye_id);
-            $.ajax({
-                url:"update.php",
-                type:"post",
-                data:{eye_id:eye_id,form_name:form_name},
-                success:function(data){
-                   console.log(data);
-                   $(".modal-body").html(data);
-                   $("#myModal").modal('show');                    // window.location = 'new.php' + data;
-                },
-            })
-           });
-           $("#mbank_attachment").click(function(){
-            var eye_id =$(this).data('id');
-            var form_name = "medical_bank_attachment";
-            alert(eye_id);
-            $.ajax({
-                url:"update.php",
-                type:"post",
-                data:{eye_id:eye_id,form_name:form_name},
-                success:function(data){
-                   console.log(data);
-                   $(".modal-body").html(data);
-                   $("#myModal").modal('show');                    // window.location = 'new.php' + data;
-                },
-            })
-           });
+}); 
+  
+       
 
 </script>

@@ -354,6 +354,7 @@ var index = 0;
        $('.wrapper').removeClass('wrapperhide');
         $("#toggle1").show(1000);
         $("#stu_toggle2").show();
+        $("#first_graduate").show();
         $("#md_toggle5").hide();
         }
         else if ($select == '2') {
@@ -362,6 +363,7 @@ var index = 0;
         $("#toggle1").show(1000);
         $("#md_toggle5").show();
         $("#stu_toggle2").hide();
+        $("#first_graduate").hide();
       }
     });
    

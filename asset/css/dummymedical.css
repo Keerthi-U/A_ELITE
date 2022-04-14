@@ -81,10 +81,10 @@ div#gender {
 
 
 div#orphan {
-    margin-left: 1em;
+    /* margin-left: 1em; */
 }
 label.orphan {
-    margin-left: 0.3%;
+    /* margin-left: 0.3%; */
 }
 .f_members1 {
     display: flex;

@@ -335,8 +335,9 @@ include("db.php");
                         <div class="heading3_1 text-light">C.Family Information</div>
                         <div class="heading3_2"><i class="fa-solid fa-chevron-down third text-light"></i></div>
                     </div>
+                   
                     <div id="toggle3">
-                       <div class="Graduate col-lg-12">
+                       <div class="Graduate col-lg-12" id="first_graduate">
                             <div class="row Graduate">
                                 <label for="Graduate" class="Graduate"> First Graduate</label>
                             <div class="custom-control custom-radio" id="Graduates">
@@ -352,7 +353,7 @@ include("db.php");
                         <div class="orphan col-lg-12">
                             
                             <div class="row orphan_1">
-                                <label for="orphan" class="orphan">Orphan</label>
+                                <label for="orphan" class="orphan " id="orph">Orphan</label>
                             <div class="custom-control custom-radio" id="orphan">
                                 <input type="radio" class="custom-control-input" id="stu_customRadio3" name="orphan" value="yes">
                                 <label class="custom-control-label" for="stu_customRadio3">Yes</label>

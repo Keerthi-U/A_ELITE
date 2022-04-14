@@ -66,7 +66,7 @@ include('header.php');
             alert('insert');
             var formdata =new FormData(document.getElementById('myform'));
     
-           alert(formdata);
+           //alert(formdata);
           $.ajax({
           url: 're_insert.php',
           data: formdata,
@@ -74,7 +74,14 @@ include('header.php');
           contentType: false,
           type: 'POST',
           success: function(data){
-              alert(data);
+              //alert(data);
+              swal({ title: data,
+                        text: "You clicked the button!",
+                        icon: "success"}).then(okay => {
+                        if (okay) {
+                            window.location.href="login.php";
+                        }
+                        }); 
              
           }
           });

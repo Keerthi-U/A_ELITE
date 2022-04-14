@@ -134,8 +134,10 @@ if($id > 0){
         $imageTmpName2 = $_FILES['hospital_report']['tmp_name'][$key];
         $imageName2 = $_FILES['hospital_report']['name'][$key];
         $result2 = move_uploaded_file($imageTmpName2,$uploadFolder2.$imageName2);
-     
-        $images_names[] = $imageName2;
+        if($imageName2 != ''){
+          $images_names[] = $imageName2;
+        }
+        //$images_names[] = $imageName2;
         // array_push($images_names,$imageName2);
         }
         $uploadFolder3 = '../previous_medical_report/';
@@ -143,18 +145,21 @@ if($id > 0){
         $imageTmpName3 = $_FILES['previous_medical_report']['tmp_name'][$key];
         $imageName3 = $_FILES['previous_medical_report']['name'][$key];
         $result3 = move_uploaded_file($imageTmpName3,$uploadFolder3.$imageName3);
-     
-        $images_names[] = $imageName3;
+        if($imageName3 != ''){
+          array_push($images_names,$imageName3);
+        }
+       // $images_names[] = $imageName3;
         }
         $uploadFolder4 = '../bank_attachment/';
         foreach ($_FILES['bank_attachment']['tmp_name'] as $key => $image) {
         $imageTmpName4 = $_FILES['bank_attachment']['tmp_name'][$key];
         $imageName4 = $_FILES['bank_attachment']['name'][$key];
         $result4 = move_uploaded_file($imageTmpName4,$uploadFolder4.$imageName4);
-     
-        array_push($images_names,$imageName4);
+        if($imageName4 != ''){
+          array_push($images_names,$imageName4);
         }
         }
+      }
      
       for($i=0; $i<count($images_names);$i++){
   

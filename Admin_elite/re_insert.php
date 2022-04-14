@@ -25,7 +25,7 @@ $msg2='';
 
     $query = "INSERT into `admin_register`( `first_name`,`last_name`, `email`, `password`) VALUES ('$first_name','$last_name','$email','$password')";
     $result = mysqli_query($conn,$query);
-    var_dump($result);
+    //var_dump($result);
     if($result)
 {
     //   header("Location: login.php");
