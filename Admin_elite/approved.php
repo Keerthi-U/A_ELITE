@@ -298,7 +298,7 @@ $result = mysqli_query($conn,$query);
     tr.even > td > .sel > select{
         color:white !important;
         background:#974591;
-    }
+    }  
      </style>
 
     <!-- End Left menu area -->
