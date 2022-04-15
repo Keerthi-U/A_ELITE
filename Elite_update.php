@@ -87,7 +87,7 @@ echo $form_type;
                             </div>  
                              <div class="contact col-lg-4">
                                 <label for="contact">Contact Number</label>
-                                <input id="contact" type="number" class="form-control input-sm" name="contactnumber">
+                                <input id="contact" type="text" class="form-control input-sm" name="contactnumber">
                              </div>
                             <div class="email col-lg-4">
                                 <label for="email">Email</label>
@@ -186,7 +186,7 @@ echo $form_type;
                             <div class="row">
                                <div class="a_number col-lg-4">
                                     <label for="a_number">Account Number</label>
-                                    <input id="a_number" type="number" class="form-control" name="account_no1">
+                                    <input id="a_number" type="text" class="form-control" name="account_no1">
                                 </div>
                                 <div class="n_o_bank col-lg-4">
                                     <label for="n_o_bank">Name Of Bank</label>
@@ -200,7 +200,7 @@ echo $form_type;
                           <div class="row">
                                 <div class="aa_number col-lg-4">
                                     <label for="aa_number">Aadhar Number</label>
-                                    <input id="aa_number" type="number" class="form-control" name="aadhar_number1">
+                                    <input id="aa_number" type="text" class="form-control" name="aadhar_number1">
                                  </div>  
                                  <div class="form-group col-lg-4">
                                     <label for="exampleFormControlFile1">Attachement</label>

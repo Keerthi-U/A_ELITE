@@ -12,13 +12,6 @@ echo $form_type;
 ?>
 
 <style>
-.table_main {
-    margin-top: 31px;
-    /* padding: 25px; */
-    margin: 20px;
-    padding: 17px;
-    background: white;
-}
 table>tbody>tr>th{
     text-align: left;
     padding: 6px;

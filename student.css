@@ -163,3 +163,9 @@ i.fa-solid.fa-chevron-down.third.up{
     -webkit-transform:rotate(180deg);
     transform:rotate(180deg);
 }
+#errordiv:after {
+    content: "\002A";
+    color: red;
+    padding-left: 3px;
+    font-weight: 800;
+}

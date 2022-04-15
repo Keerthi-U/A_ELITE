@@ -5052,3 +5052,26 @@ div#example_info {
     outline: 0px auto -webkit-focus-ring-color;
     outline-offset: 0px;
 }
+/* payment-apge */
+.table_main {
+    margin-top: 31px;
+    /* padding: 25px; */
+    margin: 20px;
+    padding: 17px;
+    background: white;
+}
+#sel_width{
+    width:35%;
+}
+.payment-heading {
+    font-size: 15px;
+    color: #747467;
+    padding: 19px 0px;
+}
+
+.mll{
+    margin-left: -14px;
+}
+.pay_btn-bl {
+    text-align: center;
+}
