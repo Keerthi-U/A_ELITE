@@ -13,7 +13,7 @@ if (isset($_POST['submit']))
  
   
     $password=$_POST['password'];
- echo $query = "SELECT * FROM `admin_register` WHERE   email='".($email)."'";
+    echo $query = "SELECT * FROM `admin_register` WHERE   email='".($email)."'";
     $result = mysqli_query($conn,$query) or die(mysqli_error());
     $row = mysqli_fetch_assoc($result);
     $rows = mysqli_num_rows($result);
@@ -28,9 +28,7 @@ if (isset($_POST['submit']))
      {
         $err = "email/password is incorrect.";
     }
-
-
-        }
+ }
 
 
 ?>
@@ -38,7 +36,7 @@ if (isset($_POST['submit']))
     .err{
         color:red;
     }
-    </style>
+</style>
  <div class="error-pagewrap">
 		<div class="error-page-int">
 			<div class="text-center m-b-md custom-login">

@@ -4,7 +4,7 @@ include_once('header.php');
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <style>
 :root {
-  --blue: #006df0;
+  --blue:#31568b;
   --white: #ffffff;
 }
 body{
@@ -14,7 +14,11 @@ font-family: 'Montserrat', sans-serif;
 }
 .sc-form{
     display:flex;
-    padding-left: 87px;
+    align-items: center;
+    
+    padding-left: 111px;
+
+    /* padding-left: 87px; */
 }
 .nav_content {
     padding-left: 12px;
@@ -43,6 +47,15 @@ font-family: 'Montserrat', sans-serif;
 .navbar{
     display:list-item;
 }
+.navbar-nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    justify-content: space-between;
+    align-items: center;
+}
 .second-item {
     display: flex;
     align-items: center;
@@ -53,7 +66,7 @@ font-family: 'Montserrat', sans-serif;
     -ms-flex-direction: column;
     flex-direction: column;
     padding-left: 0;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .bg-blue{
     background-color:var(--blue);
@@ -66,6 +79,7 @@ font-family: 'Montserrat', sans-serif;
     display: inline-flex;
     column-gap: 0.5rem;
     align-items: center;
+    padding-left: 21px;
 }
 .form_register>p{
     margin-bottom: 0rem;
@@ -128,6 +142,7 @@ form{
 .btn-block {
     display: block;
     width: 45%!important;
+    background-color:var(--blue);
 } 
 .btn-bl {
     display: flex;
@@ -162,6 +177,17 @@ img.key {
     border-radius: 0.2rem;
     text-indent: 10px;
 }
+.second_nav{
+    display:flex;
+    justify-content:right;
+}
+.form_register >p >a {
+    color:white;
+    font-size: 14px;
+}
+.nav_img{
+    width: 17px;
+}
 @media (min-width: 576px){
 .form-inline .form-control {
     display: inline-block;
@@ -175,27 +201,54 @@ img.key {
                 <li class="nav-item sc-form">
                 <a class="nav-link" href="#"><img src="Admin_elite/img/logo/logosn.png"></a>
                 <div class="nav_content">
-                <h4>National Scholarship Portal</h4>
-                <p> Ministry Of Electronics & Information Technology,<br>
-                    Government of India</p>
+                <h4>Elite Scholarship Portal</h4>
+                <!-- <p> Ministry Of Electronics & Information Technology,<br>
+                    Government of India</p> -->
 
                 </div>
                 </li>
                 <li class="nav-item">
+              
                 <!-- <a class="nav-link" href="#"><img src="Admin_elite/img/logo/sch.jpg" class="header_img"></a> -->
                 </li>
-                <li class="nav-item second-item">
-                <a class="nav-link" href="#">Link 3</a>
-                <a class="nav-link" href="#">Link 3</a>
-                <a class="nav-link" href="#">Link 3</a>
-                <a class="nav-link" href="#">Link 3</a>
-                </li>
+                <!-- <li class="nav-item ">
+                      <div class="form_register">
+                        <div class="imd_div">
+                        <img src="Admin_elite/img/logo/login.png">
+                        </div>
+                        <p><a href="login.php">Login to Apply</a></p>
+                       </div>
+                        <div class="form_register ">
+                        <div class="imd_div">
+                        <img src="Admin_elite/img/logo/personal1.png">
+                        </div>
+                        <p><a href="register.php">New User? Register</a></p>
+                        </div>
+                   
+                </li> -->
             </ul>
             </nav>
             <nav class="navbar navbar-expand-sm bg-blue">
+            <ul class="navbar-nav second_nav">
+            <li class="nav-item ">
+                      <div class="form_register">
+                        <div class="imd_div">
+                        <img src="Admin_elite/img/logo/login.png" class="nav_img">
+                        </div>
+                        <p><a href="login.php">Login to Apply</a></p>
+                      </div>
+                        <div class="form_register ">
+                        <div class="imd_div">
+                        <img src="Admin_elite/img/logo/personal1.png" class="nav_img">
+                        </div>
+                        <p><a href="register.php">New User? Register</a></p>
+                        </div>
+                   
+                </li>
+            </ul>
             </nav>
 
-            <div class="schocla">
+            <!-- <div class="schocla">
             <div class="container">
             <div class="second-secont">
                 <div class="row">
@@ -218,7 +271,7 @@ img.key {
                 </div>
             </div>
             </div>
-            </div>
+            </div> -->
 <?php 
 include_once('footer.php');
 ?>

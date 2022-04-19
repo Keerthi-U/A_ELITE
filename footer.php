@@ -78,8 +78,8 @@ $('#submit').click(function(e){
      
     },
     errorPlacement: function(error, element) {
-    if (element.attr("name") == "firstname")
-        error.insertAfter("frequried");
+    if (element.attr("name") == "first_name")
+        error.insertAfter(".frequried");
     else if  (element.attr("name") == "email" )
         error.insertAfter(".erequried");
         else if  (element.attr("name") == "password" )

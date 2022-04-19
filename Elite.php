@@ -1,5 +1,8 @@
 
 <?php
+if(session_id() == ''){
+    require_once('authentication.php');
+}
 include("header.php");
 ?>
 <?php
@@ -14,6 +17,7 @@ include("db.php");
   <div class="container">
      <div class="main">
       <h1 class="text-center sc-heading">Scholarship Form</h1>
+      <?php echo $_SESSION['first_name']; ?> <a href="logout.php" >logout</a>
           <form class="form" action="" name="myform" method="post" id="myform" onsubmit="return medical()" enctype="multipart/form-data">
 
               <div class="form-group row choose-frm">
