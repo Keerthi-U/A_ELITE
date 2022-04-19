@@ -2,7 +2,7 @@
 if(session_id() == ''){
     session_start();
 }
-include("form_header.php");
+
 include('header.php');
 ?>
 

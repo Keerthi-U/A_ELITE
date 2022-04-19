@@ -59,7 +59,7 @@ color: white;
                             </div>
                       
                             <div class="btn-bl">
-                            <button type="submit"  id="submit" class="btn btn-primary btn-block" value="Submit"></button>
+                            <button type="submit"  id="submit" class="btn btn-primary btn-block" value="Submit">Register</button>
                             </div>
                             <div class="sign-up">
                                 Have already In Account <a href="login.php"> Login Here?</a>
@@ -71,32 +71,32 @@ color: white;
             </div>
          </div>
           <script>
-        //   $(document).ready(function(){
-        //   $('#submit').click(function(e){
-        //     e.preventDefault();
-        //     alert('insert');
-        //     var formdata =new FormData(document.getElementById('registration'));
-        //     var form_name = "register";
+          $(document).ready(function(){
+          $('#submit').click(function(e){
+            e.preventDefault();
+            alert('insert');
+            var formdata =new FormData(document.getElementById('registration'));
+            var form_name = "register";
     
-        //    //alert(formdata);
-        //     $.ajax({
-        //     url: 're_insert.php',
-        //     data: formdata,
-        //     processData: false,
-        //     contentType: false,
-        //     type: 'POST',
-        //     success: function(data){
-        //         // alert(data);
-        //         swal({ title: data,
-        //                     text: "You clicked the button!",
-        //                     icon: "success"}).then(okay => {
-        //                     if (okay) {
-        //                         window.location.href="login.php";
-        //                     }
-        //                     }); 
-        //     }
-        //     });
+           //alert(formdata);
+            $.ajax({
+            url: 're_insert.php',
+            data: formdata,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function(data){
+                // alert(data);
+                swal({ title: data,
+                            text: "You clicked the button!",
+                            icon: "success"}).then(okay => {
+                            if (okay) {
+                                window.location.href="login.php";
+                            }
+                            }); 
+            }
+            });
 
-        //     });
-        // });
+            });
+        });
           </script>

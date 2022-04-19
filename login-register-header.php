@@ -233,13 +233,13 @@ img.key {
             <li class="nav-item ">
                       <div class="form_register">
                         <div class="imd_div">
-                        <img src="Admin_elite/img/logo/login.png" class="nav_img">
+                        <img src="Images/login2.png" class="nav_img">
                         </div>
                         <p><a href="login.php">Login to Apply</a></p>
                       </div>
                         <div class="form_register ">
                         <div class="imd_div">
-                        <img src="Admin_elite/img/logo/personal1.png" class="nav_img">
+                        <img src="Images/user2.png" class="nav_img">
                         </div>
                         <p><a href="register.php">New User? Register</a></p>
                         </div>
