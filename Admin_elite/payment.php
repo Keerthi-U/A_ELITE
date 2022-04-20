@@ -112,11 +112,11 @@ include_once('sidebar.php');
                      </select>
                      </div>
                      <div class="form-group col-sm-4" id="neft">
-                     <label for="inputPassword" class=" col-form-label">NEFT/RTGS</label>
+                     <label for="inputPassword" class=" col-form-label">Check Number</label>
                      <input type="text" class="form-control" placeholder="Recommended By">
                      </div>
                      <div class="form-group col-sm-4" id="ref" >
-                     <label for="inputPassword" class=" col-form-label">Referrance Number</label>
+                     <label for="inputPassword" class=" col-form-label">Reference Number</label>
                      <input type="text" class="form-control" placeholder="Recommended By">
                      </div>
                      <div class="form-group col-sm-4" >
@@ -129,7 +129,7 @@ include_once('sidebar.php');
                      </div> -->
                      <div class="col-lg-4" >
                      <label for="inputPassword" class=" col-form-label">Comments</label>
-                     <textarea class="h-100 form-control " rows="1" placeholder="Small textarea"></textarea>
+                     <textarea class="h-100 form-control " rows="3" placeholder="Small textarea"></textarea>
                      </div>
                </div>
                 <div class="pay_btn-bl">

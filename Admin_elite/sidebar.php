@@ -12,9 +12,9 @@ include('header.php');?>
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="img/logo/lo.png" alt="" width="100px" height="100px"  /></a>
+                <a href="index.html"><img class="main-logo" src="img/logo/Elite_logo.svg" alt="" width="100px" height="100px"  /></a>
               
-                <strong><a href="index.html"><img src="img/logo/logoo.png" alt="" /></a></strong>
+                <strong><a href="index.html"><img src="img/logo/logo_icon.svg" alt="" /></a></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
@@ -191,14 +191,19 @@ include('header.php');?>
                                               
                                          <i class="item fa fa-bell"></i>
                                        </div> 
-                                   </div> <div class="col-lg-8">
+                                   </div> <div class="col-lg-7">
                                            <div class="single-review-st-text">
                                         <img src="img/notification/1.jpg" alt="">
                                         <div class="review-ctn-hf">
                                            
                                             <p><?php echo $_SESSION['first_name']; ?></p>
                                         </div>
-                                        <div class="dropdown">
+                                   
+                                      
+                                    </div>
+                                       </div>
+                                       <div class="col-lg-1">
+                                       <div class="dropdown">
                                             <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">
                                             <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
@@ -207,9 +212,7 @@ include('header.php');?>
                                            
                                             </ul>
                                         </div>
-                                      
-                                    </div>
-                                       </div>
+                                        </div>
                                        </div>
                                      </div>	
                                </div>

@@ -4,6 +4,7 @@ if(session_id() == ''){
 }
 
 include('header.php');
+include('form_header.php');
 ?>
 
 <?php
@@ -77,6 +78,7 @@ $form_type = $row['form_type'];
     top: 0;
     margin: 0 auto;
     transition: all 0.3s;
+    box-shadow: 0 1px 15px 0 rgb(181 146 186);
 }
 .form-control {
     display: block;
@@ -121,9 +123,47 @@ input[type=file]:focus, input[type=radio]:focus {
     padding: 15px;
     margin-left: 7%;
     margin-right: 7%;
-    margin-top: 8%;
+    margin-top: 12%;
     border: 3px solid lightgray;
     box-shadow: 2px 15px 20px lightgrey;
+}
+.row{
+    display:flex;
+    align-items:center;
+}
+.row.cll {
+    padding: 0px 37px;
+}
+.dropdown-menu {
+    position: absolute;
+    /* top: 100%; */
+    right: 14px;
+    left: -142px;
+    width: 201px;
+    right: 0;
+    z-index: 1001;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0px solid rgba(0,0,0,.15);
+    border-radius: 0.25rem;
+}
+.dropdown-menu>li>a {
+    display: inline;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
 }
 </style>
   <div class="container">
@@ -133,44 +173,47 @@ input[type=file]:focus, input[type=radio]:focus {
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                             <div class="header-top-wraper">
-                                <div class="row ">
-                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12 pt">
+                                <div class="row cll">
+                                    <div class="col-lg-3 col-md-0 col-sm-1 col-xs-12 pt">
                                         <div class="menu-switcher-pro">
                                             <!-- <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-center status_toggle middle" id="sidebar-toggle"><line x1="18" y1="10" x2="6" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="18" y1="18" x2="6" y2="18"></line></svg>
 											</button> -->
+                                            <img src="img/logo/Elite_logo.svg">
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-0 col-sm-1 col-xs-12 pt">
                               
-                                   </div>
-                                   <div class="col-lg-4 col-xs-offset-3">
+                                   <div class="col-lg-4 col-xs-offset-5">
                                        <div class="row">
                                            <div class="col-lg-4  pt">
                                            <div class="bell">
                                               
                                          <i class="item fa fa-bell"></i>
                                        </div> 
-                                   </div> <div class="col-lg-8">
-                                           <div class="single-review-st-text">
-                                        <img src="img/notification/1.jpg" alt="">
-                                        <div class="review-ctn-hf">
-                                           
-                                            <p><?php echo $_SESSION['first_name']; ?></p>
-                                        </div>
-                                        <div class="dropdown">
-                                            <button class="btn caretT dropdown-toggle" type="button" data-toggle="dropdown">
-                                            <!-- <span class="caret"></span> -->
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                            <li class="log"><i class="fas fa-sign-out-alt" id="logclr"></i><a href="logout.php">Logout</a></li>
-                                            <li class="log"><i class="fa fa-lock"  id="logclr"></i><a href="#">Change Password</a></li>
-                                           
-                                            </ul>
-                                        </div>
+                                   </div> 
+                                   <div class="col-lg-7">
+                                         <div class="single-review-st-text">
+                                                <img src="img/notification/1.jpg" alt="">
+                                                <div class="review-ctn-hf">
+                                                
+                                                    <p><?php echo $_SESSION['first_name']; ?></p>
+                                                </div>
+                                             
                                       
+                                           </div>
                                     </div>
-                                       </div>
+                                    <div class="col-lg-1">
+                                           <div class="dropdown">
+                                                    <button class="btn caretT dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <!-- <span class="caret"></span> -->
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                    <li class="log"><i class="fas fa-sign-out-alt" id="logclr"></i><a href="logout.php">Logout</a></li>
+                                                    <li class="log"><i class="fa fa-lock"  id="logclr"></i><a href="#">Change Password</a></li>
+                                                
+                                                    </ul>
+                                                </div>
+                                    </div>
                                        </div>
                                      </div>	
                                </div>

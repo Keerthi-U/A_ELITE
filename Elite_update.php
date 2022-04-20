@@ -1,6 +1,7 @@
 
 <?php
 include("header.php");
+include("form_header.php");
 ?>
 <?php
 include("db.php");

@@ -25,6 +25,7 @@ if (isset($_POST['submit']))
     }
  }
 ?>
+
   <div class="forms">
             <div class="global-container">
                 <div class="card login-form">

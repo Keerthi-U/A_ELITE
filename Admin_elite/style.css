@@ -42,7 +42,7 @@
 /*----------------------------------------*/
 /*  1. Common
 /*----------------------------------------*/
-html, body {height: 100%; font-family: 'Roboto', sans-serif;font-weight:400;background:#F6F8FA;}
+html, body { font-family: 'Roboto', sans-serif;font-weight:400;background:#F6F8FA;}
 .floatleft {float:left}
 .floatright {float:right}
 .alignleft {float:left;margin-right:15px;margin-bottom: 15px}
@@ -51,7 +51,7 @@ html, body {height: 100%; font-family: 'Roboto', sans-serif;font-weight:400;back
 a:focus {outline:0px solid}
 img {max-width:100%;height:auto}
 .fix {overflow:hidden}
-p {margin:0 0 15px;}
+p {margin:0 0 0px;}
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 10px;
   font-weight:700;
@@ -3994,7 +3994,7 @@ div#sparklinehome canvas {
 .review-ctn-hf p{
 	font-size:14px;
 	color:#303030;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 .single-review-st-hd h2{
 	font-size:18px;
@@ -4006,7 +4006,7 @@ div#sparklinehome canvas {
 	color:#ffb463;
 }
 .review-ctn-hf{
-	margin-top:5px;
+	margin-top:0px;
 }
 .review-item-rating {
     text-align: right;
@@ -4190,7 +4190,7 @@ div#sparklinehome canvas {
 }
 .form-group textarea{
 	width:100%;
-	height:134px;
+	/* height:134px; */
 	padding:10px;
 	border:1px solid #e5e6e7;
 	outline:none;
@@ -4857,7 +4857,7 @@ button.btn.dropdown-toggle {
    .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: -123px;
+    left: -155px;
     width: 176px;
     right: 2px;
     z-index: 1000;
@@ -4893,7 +4893,7 @@ li.log {
     top: 4px;
 }
 .btn .caret {
-    margin-left: 0;
+    margin-left: -12px;
     color: #933ec5;
 }
 
@@ -5023,7 +5023,8 @@ div#example_info {
 
 .single-review-st-text {
     display: flex;
-    justify-content: space-between;
+    align-items:center;
+    /* justify-content: space-between; */
 }
 .dropdown-menu>li:focus, .dropdown-menu>li:hover {
     color: #262626;
@@ -5074,4 +5075,7 @@ div#example_info {
 }
 .pay_btn-bl {
     text-align: center;
+}
+.payment {
+    height: 480px;
 }

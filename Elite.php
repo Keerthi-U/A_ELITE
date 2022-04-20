@@ -9,247 +9,44 @@ include("form_header.php");
 <?php
 include("db.php");
 ?>
-<style>
-    :root {
-  --blue:#933ec5;
-  --white: #ffffff;
-}
-     body {
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    background: #F6F8FA;
-}
-.caret {
-    margin-left: 0;
-    color: #933ec5;
-}
-    .swal-modal {
-    width: 478px;
-    height: 247px;
-    }
-    .nav-item:first{
 
-    }
-    .elite_heade {
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-    -ms-flex-pack: start;
-    justify-content: flex-end;
-    padding:0px;
-}
-.nav-item:nth-child(1) {
-  /* width: 100%; */
-  flex:1;
-}
-.nav-item:nth-child(2) {
-  /* width: 100%; */
-  flex:4;
-}
-.nav-item:nth-child(3) {
-  /* width: 100%; */
-  flex:0;
-}
-.elite_in{
-    width: 100%;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    padding-left: 0;
-    margin-bottom: 0;
-    align-items: center;
-    list-style: none;
-    background-color: white;
-    padding: 4px 10px;
 
-}
-.el{
-    flex:1;
-}
-.single-review-st-text {
-    display: flex;
-}
-.fa.fa-bell {
-    font-size: 24px!important;
-}
-.item {
-    display: inline-block;
-    font-size: 24px;
-    padding-top: 2px;
-    color: #933ec5;
-    animation: 1s bell-vibrate ease-in-out infinite;
-}
-.elit {
-    text-align: right;
-}
-.single-review-st-text img {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-}
-.single-review-st-text {
-    display: flex;
-    /* justify-content: space-between; */
-    coloumn-gap: 9px;
-    column-gap: 16px;
-    align-items: center;
-}
-.review-ctn-hf>p{
-    margin-bottom:0px;
-    color:  var(--blue);
-}
-.dp-menu{
-    position: absolute;
-    top: 100%;
-    left: 20px;
-    width: 176px;
-    right: 2px;
-    z-index: 1000;
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
-    right: 0;
-    display: none;
-    float: left;
-    min-width: 160px;
-    padding: 5px 0;
-    margin: 2px 0 0;
-    font-size: 14px;
-    text-align: left;
-    list-style: none;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ccc;
-    border: none;
-    border-radius: 0px;
-    /* -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%); */
-}
-li.log {
-    display: block;
-    padding: 10px 20px;
-    clear: both;
-    font-weight: 400;
-    line-height: 1.42857143;
-    color: #333;
-    white-space: nowrap;
-}
-#logclr {
-    color:  var(--blue);
-}
-.dp-menu>li>a{
-/* display: block; */
-    padding: 3px 20px;
-    clear: both;
-    font-weight: 400;
-    line-height: 1.42857143;
-    color: #333;
-    white-space: nowrap;
-}
-li.log>a:hover{
-    text-decoration:none;
-}
-.appli_color{
-    color:  var(--blue);
-    margin-bottom:0px;
-}
-.btn:focus {
-    outline: 0px auto -webkit-focus-ring-color;
-    outline-offset: 0px;
-}
-.btn.focus, .btn:focus {
-    outline: 0;
-    box-shadow: none;
-}
-</style>
-<!-- <div class="container">
-  <div class="header-advance-area">
-            <div class="header-top-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                            <div class="header-top-wraper">
-                                <div class="row ">
-                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12 pt">
-                                        <div class="menu-switcher-pro">
-                                            <!-- <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-center status_toggle middle" id="sidebar-toggle"><line x1="18" y1="10" x2="6" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="18" y1="18" x2="6" y2="18"></line></svg>
-											</button> -->
-                                        <!-- </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-0 col-sm-1 col-xs-12 pt">
-                              
-                                   </div>
-                                   <div class="col-lg-4 col-xs-offset-3">
-                                       <div class="row">
-                                           <div class="col-lg-4  pt">
-                                           <div class="bell">
-                                              
-                                         <i class="item fa fa-bell"></i>
-                                       </div> 
-                                   </div> <div class="col-lg-8">
-                                           <div class="single-review-st-text">
-                                        <img src="img/notification/1.jpg" alt="">
-                                        <div class="review-ctn-hf">
-                                           
-                                            <p><?php echo $_SESSION['first_name']; ?></p>
-                                        </div>
-                                        <div class="dropdown">
-                                            <button class="btn caretT dropdown-toggle" type="button" data-toggle="dropdown">
-                                            <!-- <span class="caret"></span> -->
-                                            <!-- </button>
-                                            <ul class="dropdown-menu">
-                                            <li class="log"><i class="fas fa-sign-out-alt" id="logclr"></i><a href="logout.php">Logout</a></li>
-                                            <li class="log"><i class="fa fa-lock"  id="logclr"></i><a href="#">Change Password</a></li>
-                                           
-                                            </ul>
-                                        </div>
-                                      
-                                    </div>
-                                       </div>
-                                       </div>
-                                     </div>	
-                               </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --> 
-            
-<nav class="navbar navbar-expand-sm bg-light elite_heade" >
+       <!-- Header       -->
+<nav class="navbar navbar-expand-sm bg-light elite_heade fixed-top" >
   <ul class="navbar-nav elite_in">
-  <li class="nav-item el">
-  <a class="nav-link" href="#">Link 3</a>
+    <li class="nav-item el">
+         <a class="nav-link" href="#"><img src="Images/Elite_logo.svg"></a>
     </li>
     <li class="nav-item el">
-  <a class="nav-link" href="#"><p class="appli_color">Application Staus</p></a>
+        <a class="nav-link" href="#"> 
+        <button type="button" class="btn btn-primary appli_color" data-toggle="modal" data-target="#myModal">
+        Application Staus
+        </button></a>
     </li>
     <li class="nav-item el">
-    <div class="single-review-st-text">
+        <div class="single-review-st-text">
             <div class="bell">
             <i class="item fa fa-bell"></i>
             </div>
             <img src="Images/1.jpg" alt="">
             <div class="review-ctn-hf">
-                
                 <p><?php echo $_SESSION['first_name']; ?></p>
             </div>
-           
-            
-     </div>
+        </div>
     </li>
     <li class="nav-item el elit">
-    <div class="dropdown open">
-                <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu dp-menu">
-                <li class="log"><i class="fas fa-sign-out-alt" id="logclr"></i><a href="logout.php">Logout</a></li>
-                <li class="log"><i class="fa fa-lock" id="logclr"></i><a href="#">Change Password</a></li>
-                
-                </ul>
-            </div>
-  </li>
- 
-  </ul>
+        <div class="dropdown open">
+            <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu dp-menu">
+            <li class="log"><i class="fas fa-sign-out-alt" id="logclr"></i><a href="logout.php">Logout</a></li>
+            <li class="log"><i class="fa fa-lock" id="logclr"></i><a href="#">Change Password</a></li>
+            </ul>
+        </div>
+    </li>
+ </ul>
 </nav>
+
   <div class="container">
      <div class="main">
       <h1 class="text-center sc-heading">Scholarship Form</h1>
@@ -682,8 +479,8 @@ li.log>a:hover{
             </form>
            </div>
        </div>
-   <?php
+    <?php
     include("footer.php");
     ?>
-       
+
   

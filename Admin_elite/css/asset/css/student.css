@@ -1,7 +1,7 @@
 .student_application{
     padding: 15px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 7%;
+    margin-right: 7%;
     margin-top: 3%;
     border: 3px solid lightgray;
     box-shadow: 2px 15px 20px lightgrey;
@@ -26,7 +26,7 @@
     background-color: #3b6185;
   
     cursor: pointer;
-    padding: 18px;
+    padding: 10px;
     width: 100%;
     font-size: 15px;
     margin-left: 5px;
@@ -44,7 +44,7 @@ div#gender {
     background-color: #3b6185;
   
     cursor: pointer;
-    padding: 18px;
+    padding: 10px;
     width: 100%;
     font-size: 15px;
     margin-left: 5px;
@@ -62,7 +62,7 @@ div#gender {
 .heading3 {
     background-color: #3b6185;
     cursor: pointer;
-    padding: 18px;
+    padding: 10px;
     width: 100%;
     font-size: 15px;
     margin-left: 5px;
@@ -77,17 +77,21 @@ div#gender {
     margin-top: 1rem;
 }
 div#orphan {
-    margin-left: 1em;
+    /* margin-left: 1em; */
 }
 label.orphan {
-    margin-left: -1.7%;
+    /* margin-left: -1.7%; */
+}
+#orph{
+    margin-right:50px;
+    margin-left: 4px;
 }
 .f_members1 {
     display: flex;
     justify-content: space-between;
 }
 select.form-control.input-sm {
-    width: 140px;
+    /* width: 140px; */
 }
 select#txtfirst {
     width: 106px;
@@ -113,16 +117,16 @@ i.fa.fa-plus {
 }
 
 #toggle1{
-    display:none;
+    /* display:none; */
     padding:2rem;
 }
 #toggle2{
-    display:none;
+    /* display:none; */
     padding:2rem;
 }
 #toggle3{
-    display:none;
-    padding:2rem;
+    /* display:none; */
+    padding:2px;
 }
 #o_yes{
     display:none;
@@ -163,10 +167,3 @@ i.fa-solid.fa-chevron-down.third.up{
     -webkit-transform:rotate(180deg);
     transform:rotate(180deg);
 }
-#errordiv:after {
-    content: "\002A";
-    color: red;
-    padding-left: 3px;
-    font-weight: 800;
-}
-

@@ -27,9 +27,17 @@ font-family: 'Montserrat', sans-serif;
     margin-bottom:0px;
 }
 .nav_content>h4{
-    font-size:24px;
-    margin-bottom: 2px;
-    color: var(--blue);
+    font-size: 26px;
+    margin-bottom: 0px;
+    background: -webkit-linear-gradient(#574fa6, #c88cbc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* color: var(--blue); */
+    font-weight: 800;
+    font-family: 'Ms Madi', cursive;
+    /* font-family: 'Updock', cursive; */
+    /* font-family: 'Whisper', cursive; */
+    text-transform: uppercase;
 }
 .nav_content >p{
     font-size: 13.5px;
@@ -188,6 +196,9 @@ img.key {
 .nav_img{
     width: 17px;
 }
+a:hover{
+    text-decoration:none!important;
+}
 @media (min-width: 576px){
 .form-inline .form-control {
     display: inline-block;
@@ -199,9 +210,9 @@ img.key {
             <nav class="navbar navbar-expand-sm bg-light">
             <ul class="navbar-nav">
                 <li class="nav-item sc-form">
-                <a class="nav-link" href="#"><img src="Admin_elite/img/logo/logosn.png"></a>
+                <a class="nav-link" href="#"><img src="Images/Elite_logo.svg"></a>
                 <div class="nav_content">
-                <h4>Elite Scholarship Portal</h4>
+                <h4>Scholarship Portal</h4>
                 <!-- <p> Ministry Of Electronics & Information Technology,<br>
                     Government of India</p> -->
 

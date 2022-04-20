@@ -50,7 +50,7 @@ if (isset($_POST['submit']))
                             <div class="form-group">
                                 <label class="control-label" for="username">Email</label>
                                 <input type="text" title="Please enter you username" required="" value=""  name="email" id="email" class="form-control">
-                                <span class="help-block small">Your unique username</span>
+                                <span class="help-block small">Enter Your Email</span>
                                 <span class="err"><?php echo $err;?></span>
                             </div>
                             <div class="form-group">
