@@ -1,6 +1,6 @@
 // validation  registration
 
-    $(document).ready(function(){
+ 
   $("#registration").validate({
     // Specify validation rules
     rules: {
@@ -43,5 +43,9 @@
 }
   
   });
-});
 
+
+// after google recaptcha submit button
+  function enableBtn(){
+   document.getElementById("button1").disabled = false;
+ }

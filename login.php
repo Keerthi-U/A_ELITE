@@ -7,7 +7,7 @@ if (isset($_POST['submit']))
 {
    $email=$_POST['email'];
    $password=$_POST['password'];
-    echo $query = "SELECT * FROM `registration` WHERE   email='".($email)."'";
+     $query = "SELECT * FROM `registration` WHERE    password='$password' AND email ='$email'";
     $result = mysqli_query($conn,$query) or die(mysqli_error());
     $row = mysqli_fetch_assoc($result);
     $rows = mysqli_num_rows($result);
@@ -30,6 +30,7 @@ if (isset($_POST['submit']))
             <div class="global-container">
                 <div class="card login-form">
                   <div class="card-body cb">
+                
                       <h3 class="card-title text-center"> <img src="Images/key.png" class="key"> Login for Fresh Application</h3>
                        <div class="card-text card_content">
                          <form class="form-horizontal" action="login.php" method="post">
@@ -37,8 +38,10 @@ if (isset($_POST['submit']))
                                 <img src="Images/user.png"  id="log_img" class="col-sm-2 mr-0 ml-0 pr-0 ">
                                 <div class="col-sm-10">
                                 <input type="email" class="form-control form-control-sm" name ="email" id="exampleInputEmail1" Placeholder="Email">
-                                </div>
+                                <span class="errorr"><?php  $err; ?></span>
+                              </div>
                             </div>
+                
                            <div class="form-group row">
                                 <img src="Images/password.png" id="log_img"   class="col-sm-2  mr-0 ml-0 pr-0 ">
                                 <div class="col-sm-10">
@@ -47,12 +50,12 @@ if (isset($_POST['submit']))
                             </div>
                             <div class="capch">
                                 <div class="g-recaptcha"
-                                 data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR">
+                                 data-sitekey="6LeAonobAAAAAH7wmcsQpB-4ffh8e_IV2sXbQV04" data-callback="enableBtn">
                                 </div>
                             </div>
                              
                             <div class="btn-bl">
-                                <input type="submit" name="submit" class="btn btn-primary btn-block" value="Sign in">
+                                <input type="submit" id="button1" name="submit" class="btn btn-primary btn-block" value="Sign in" disabled="disabled" >
                             </div>
                             <div class="sign-up">
                                 <a href="register.php"> New Student ? Register Here</a>

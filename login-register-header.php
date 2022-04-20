@@ -2,6 +2,8 @@
 include_once('header.php');
 ?>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6LeAonobAAAAAH7wmcsQpB-4ffh8e_IV2sXbQV04"></script>
+
 <style>
 :root {
   --blue:#31568b;
@@ -199,6 +201,12 @@ img.key {
 a:hover{
     text-decoration:none!important;
 }
+.btn-primary.disabled, .btn-primary:disabled {
+    color: #fff;
+    background-color: var(--blue); 
+     border-color: #007bff;
+    opacity: 0.5;
+}
 @media (min-width: 576px){
 .form-inline .form-control {
     display: inline-block;
@@ -285,4 +293,5 @@ a:hover{
             </div> -->
 <?php 
 include_once('footer.php');
+include_once('db.php');
 ?>

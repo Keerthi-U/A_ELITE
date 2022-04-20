@@ -2,6 +2,21 @@
 include_once('header.php');
 include_once('sidebar.php');
 ?>
+<?php  
+include_once('db.php');
+$query = "SELECT c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender  ,c.contactnumber,c.created_by,c.approved_status, COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information 
+p ON  c.id  = p.student_id WHERE c.approved_status ='1'  or  c.approved_status IS NULL  GROUP BY c.id 
+ORDER BY c.ratings DESC;";
+$result = mysqli_query($conn,$query);
+while($pending=mysqli_fetch_assoc($result)){
+   
+    $fullname=$pending['fullname'];
+    echo $fullname;
+}
+
+
+
+?>
 <style>
 .form-control {
     display: block;
@@ -60,7 +75,7 @@ include_once('sidebar.php');
                    <input type="date" class="form-control" placeholder="date">
                    </div>
                    <div class="form-group col-sm-8">
-                   <label for="staticEmail"  class="">Select</label>
+                   <label for="staticEmail"  class="">Sudent_id</label>
                     <select class="form-control"  >
                        <option>1</option>
                        <option>2</option>

@@ -332,3 +332,6 @@ i.fa-solid.fa-chevron-down.third.up{
   .eliemodal-title{
       color:var(--bluee);
   }
+  .errorr{
+      color:red;
+  }

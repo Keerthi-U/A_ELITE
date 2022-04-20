@@ -13,7 +13,8 @@ if (isset($_POST['submit']))
  
   
     $password=$_POST['password'];
-    echo $query = "SELECT * FROM `admin_register` WHERE   email='".($email)."'";
+ 
+    $query = "SELECT * FROM `admin_register` WHERE   password='$password' AND email ='$email'";
     $result = mysqli_query($conn,$query) or die(mysqli_error());
     $row = mysqli_fetch_assoc($result);
     $rows = mysqli_num_rows($result);
