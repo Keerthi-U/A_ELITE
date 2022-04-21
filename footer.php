@@ -43,6 +43,23 @@ $('#submit').click(function(e){
           });
 
 </script>
+<script>
+        $(document).ready(function(){
+            $("#flip").on('change',function(){
+              select_id = $(this).val();
+                alert(select_id)
+                $.ajax({
+                  url:"sequence.php",
+                  type:"post",
+                  data:{select_id:select_id},
+                  success:function(data){
+                   
+                    $("#application_id").val(data);
+                  }
+                })
+            })
+        })
+    </script>
          <!-- The Application Status Modal -->
   <div class="modal" id="myModal">
     <div class="modal-dialog">
