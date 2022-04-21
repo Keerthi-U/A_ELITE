@@ -32,9 +32,18 @@ include("db.php");
             <div class="review-ctn-hf">
                 <p><?php echo $_SESSION['first_name']; ?></p>
             </div>
+            <div class="dropdown open">
+            <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu dp-menu">
+            <li class="log"><i class="fas fa-sign-out-alt" id="logclr"></i><a href="logout.php">Logout</a></li>
+            <li class="log"><i class="fa fa-lock" id="logclr"></i><a href="#">Change Password</a></li>
+            </ul>
         </div>
+        </div>
+      
     </li>
-    <li class="nav-item el elit">
+    <!-- <li class="nav-item el elit">
         <div class="dropdown open">
             <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
             <span class="caret"></span></button>
@@ -43,7 +52,7 @@ include("db.php");
             <li class="log"><i class="fa fa-lock" id="logclr"></i><a href="#">Change Password</a></li>
             </ul>
         </div>
-    </li>
+    </li> -->
  </ul>
 </nav>
 

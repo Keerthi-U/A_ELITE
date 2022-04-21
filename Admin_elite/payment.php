@@ -8,13 +8,6 @@ $query = "SELECT c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender  ,c
 p ON  c.id  = p.student_id WHERE c.approved_status ='1'  or  c.approved_status IS NULL  GROUP BY c.id 
 ORDER BY c.ratings DESC;";
 $result = mysqli_query($conn,$query);
-while($pending=mysqli_fetch_assoc($result)){
-   
-    $fullname=$pending['fullname'];
-    echo $fullname;
-}
-
-
 
 ?>
 <style>

@@ -199,11 +199,11 @@ i.fa-solid.fa-chevron-down.third.up{
      }
     .el:nth-child(1) {
         /* width: 100%; */
-        flex:1;
+        flex:4;
     }
     .el:nth-child(2) {
         /* width: 100%; */
-        flex:4;
+        flex:1;
     }
     .el:nth-child(3) {
         /* width: 100%; */
@@ -260,7 +260,6 @@ i.fa-solid.fa-chevron-down.third.up{
   .dp-menu{
       position: absolute!important;
       top: 100%!important;
-      left: 20px!important;
       width: 188px!important;
       right: 2px!important;
       z-index: 1000!important;
@@ -332,6 +331,7 @@ i.fa-solid.fa-chevron-down.third.up{
   .eliemodal-title{
       color:var(--bluee);
   }
-  .errorr{
+  .err{
       color:red;
+      margin-left: 39px;
   }

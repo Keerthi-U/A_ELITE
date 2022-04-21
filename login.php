@@ -34,12 +34,12 @@ if (isset($_POST['submit']))
                       <h3 class="card-title text-center"> <img src="Images/key.png" class="key"> Login for Fresh Application</h3>
                        <div class="card-text card_content">
                          <form class="form-horizontal" action="login.php" method="post">
-                           <div class="form-group row ">
+                          <span class="err"><?php if (isset($err)) echo $err; ?></span>
+                              <div class="form-group row ">
                                 <img src="Images/user.png"  id="log_img" class="col-sm-2 mr-0 ml-0 pr-0 ">
                                 <div class="col-sm-10">
                                 <input type="email" class="form-control form-control-sm" name ="email" id="exampleInputEmail1" Placeholder="Email">
-                                <span class="errorr"><?php  $err; ?></span>
-                              </div>
+                               </div>
                             </div>
                 
                            <div class="form-group row">
