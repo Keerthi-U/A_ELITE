@@ -14,15 +14,23 @@ padding: 17px;
 font-size: 20px;
 color: white;
 }
-.error{
-    color: red;
-    }
-    #errordiv:after {
-    content: "\002A";
-    color: red;
-    padding-left: 3px;
-    font-weight: 800;
+
+#errordiv:after {
+content: "\002A";
+color: red;
+padding-left: 3px;
+font-weight: 800;
 }
+input.error{
+    border:1px dotted red!important;
+}
+.error {
+    color: red;
+    margin-bottom: 0;
+}
+/* .form-group {
+    margin-bottom: 0rem;
+} */
 </style>
   <div class="forms">
             <div class="global-container">
@@ -38,7 +46,7 @@ color: white;
                                 </div>
                                 <div class="form-group col-sm-6"> 
                                 <label for="first-name"> Last Name</label>
-                                    <input type="text" class="form-control form-control-sm" name="last_name" id="exampleInputEmail1" Placeholder="Last Name">
+                                    <input type="text" class="form-control form-control-sm" name="last_name" id="lastname" Placeholder="Last Name">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -54,7 +62,7 @@ color: white;
                                 </div>
                                 <div class="form-group col-sm-6"> 
                                 <label for="first-name"> Confrim Password</label>
-                                    <input type="text" class="form-control form-control-sm" name="cpassword" id="exampleInputEmail1" Placeholder="Confrim Password">
+                                    <input type="text" class="form-control form-control-sm" name="cpassword" id="cpassword" id="exampleInputEmail1" Placeholder="Confrim Password">
                                 </div>
                             </div>
                       
@@ -71,32 +79,71 @@ color: white;
             </div>
          </div>
           <script>
-          $(document).ready(function(){
-          $('#submit').click(function(e){
-            e.preventDefault();
-            alert('insert');
-            var formdata =new FormData(document.getElementById('registration'));
-            var form_name = "register";
-    
-           //alert(formdata);
-            $.ajax({
+$(document).ready(function () {
+
+$('#registration').validate({ // initialize the plugin
+    rules: {
+      first_name:{
+        required: true,
+       
+      },
+      lastname: "required",
+      email: {
+        required: true,
+        email: true
+      },      
+      password: {
+        required: true,
+        minlength: 5,
+      }
+    },
+    messages: {
+      first_name: {
+      required: "Enter first name",
+     },      
+     password: {
+      required: "Enter password name",
+     },     
+    email: {
+      required:  "Enter email name",
+      email: "Please enter a valid email address.",
+     },
+     
+    },
+    submitHandler: function (form) {
+        // comment out AJAX for demo
+        
+        $.ajax({
+           
+            type: 'post',
             url: 're_insert.php',
-            data: formdata,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            success: function(data){
-                // alert(data);
-                swal({ title: data,
-                            text: "You clicked the button!",
-                            icon: "success"}).then(okay => {
+            data: $(form).serialize(),
+            success: function (responseData) {
+
+                  swal({ title:responseData,
+                  button:true,
+                  icon: "success",
+                  timer: 2000}).then(okay => {
                             if (okay) {
                                 window.location.href="login.php";
                             }
                             }); 
+            },
+            error: function (responseData) {
+                console.log('Ajax request not recieved!');
             }
-            });
-
-            });
         });
+        // resets fields
+        $('input#first_name').val("");
+        $('input#last_name').val("");
+        $('input#email').val("");
+        $('input#password').val("");
+        $('input#cpassword').val("");
+        
+        // alert('form submitted via ajax');
+        return false; // blocks redirect after submission via ajax
+    }
+});
+
+});
           </script>

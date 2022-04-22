@@ -7,6 +7,13 @@ if (isset($_POST['submit']))
 {
    $email=$_POST['email'];
    $password=$_POST['password'];
+   if(empty($email)) {
+     $err ="email is requried";
+   
+   }else if(empty($password)){
+    $err ="password is requried";
+   }
+    else{
      $query = "SELECT * FROM `registration` WHERE    password='$password' AND email ='$email'";
     $result = mysqli_query($conn,$query) or die(mysqli_error());
     $row = mysqli_fetch_assoc($result);
@@ -23,6 +30,7 @@ if (isset($_POST['submit']))
      {
         $err = "email/password is incorrect.";
     }
+  }
  }
 ?>
 

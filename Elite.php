@@ -12,21 +12,23 @@ include("db.php");
 
 
        <!-- Header       -->
-<nav class="navbar navbar-expand-sm bg-light elite_heade fixed-top" >
+       <nav class="navbar navbar-expand-sm bg-light elite_heade fixed-top" >
   <ul class="navbar-nav elite_in">
     <li class="nav-item el">
          <a class="nav-link" href="#"><img src="Images/Elite_logo.svg"></a>
     </li>
-    <li class="nav-item el">
+    <!-- <li class="nav-item el">
         <a class="nav-link" href="#"> 
-        <button type="button" class="btn btn-primary appli_color" data-toggle="modal" data-target="#myModal">
-        Application Staus
-        </button></a>
-    </li>
+    
+    </li> -->
     <li class="nav-item el">
+
         <div class="single-review-st-text">
+           <button type="button" class="btn btn-primary appli_color" data-toggle="modal" data-target="#myModal">
+           Application Staus
+           </button>
             <div class="bell">
-            <i class="item fa fa-bell"></i>
+            <!-- <i class="item fa fa-bell"></i> -->
             </div>
             <img src="Images/1.jpg" alt="">
             <div class="review-ctn-hf">
@@ -43,16 +45,7 @@ include("db.php");
         </div>
       
     </li>
-    <!-- <li class="nav-item el elit">
-        <div class="dropdown open">
-            <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu dp-menu">
-            <li class="log"><i class="fas fa-sign-out-alt" id="logclr"></i><a href="logout.php">Logout</a></li>
-            <li class="log"><i class="fa fa-lock" id="logclr"></i><a href="#">Change Password</a></li>
-            </ul>
-        </div>
-    </li> -->
+
  </ul>
 </nav>
 

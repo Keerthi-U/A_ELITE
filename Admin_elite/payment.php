@@ -12,7 +12,7 @@ $result = mysqli_query($conn,$query);
 ?>
 <style>
 .form-control {
-    display: block;
+    /* display: block;
     width: 100%;
     height: 38px;
     padding: 6px 12px;
@@ -25,7 +25,7 @@ $result = mysqli_query($conn,$query);
     background-image: none;
     /* border: 1px solid #ccc; */
     /* border:unset; */
-    border-radius: 4px;
+    /* border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
     box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
     -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
@@ -33,7 +33,22 @@ $result = mysqli_query($conn,$query);
     -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s; */ */
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border: 1px solid #b06adb!important;
+    color: #495057;
+    font-size: 13px;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    box-shadow: -4px 3px 10px -5px rgb(0 0 0 / 50%);
 }
 #ref,#neft{
     display:none;
@@ -44,7 +59,14 @@ $result = mysqli_query($conn,$query);
     /* padding: 25px; */
     margin: 20px;
     padding: 17px;
-    background: #f1f1f1;
+    background: white;
+}
+.pay_label{
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #775799;
 }
 </style>
      <div class="all-content-wrapper">
@@ -64,11 +86,11 @@ $result = mysqli_query($conn,$query);
             <div class="form-group row" >
                
                <div class="form-group col-sm-4" >
-                   <label for="inputPassword" class=" ">Date</label>
+                   <label for="inputPassword" class=" pay_label">Date</label>
                    <input type="date" class="form-control" placeholder="date">
                    </div>
                    <div class="form-group col-sm-8">
-                   <label for="staticEmail"  class="">Sudent_id</label>
+                   <label for="staticEmail"  class="pay_label">Select Applicant</label>
                     <select class="form-control"  >
                        <option>1</option>
                        <option>2</option>
@@ -80,15 +102,15 @@ $result = mysqli_query($conn,$query);
                 <!-- <h3 class="payment-heading">Bank AccountDetails:-</h3> -->
                 <div class="form-group row mll" >
                    <div class="form-group col-sm-4">
-                   <label for="inputPassword" >Account Number</label>
+                   <label for="inputPassword" class=" pay_label" >Account Number</label>
                    <input type="text" class="form-control" id="inputPassword" placeholder="Account Number">
                    </div>
                    <div class="form-group col-sm-4">
-                   <label for="inputPassword" >Name Of Bank</label>
+                   <label for="inputPassword" class=" pay_label">Name Of Bank</label>
                    <input type="text" class="form-control" id="inputPassword" placeholder="Name Of Bank">
                    </div>
                    <div class="form-group col-sm-4">
-                   <label for="inputPassword">IFSC Code</label>
+                   <label for="inputPassword" class=" pay_label">IFSC Code</label>
                    <input type="text" class="form-control" id="inputPassword" placeholder="IFSC Code">
                    </div>
                </div>
@@ -104,11 +126,11 @@ $result = mysqli_query($conn,$query);
                </div> -->
                 <div class="form-group row" >
                    <div class="form-group col-sm-4" >
-                   <label for="inputPassword" class="">Amount</label>
+                   <label for="inputPassword" class=" pay_label">Amount</label>
                    <input type="text" class="form-control"  placeholder="Amount">
                    </div>
                     <div class="form-group col-sm-4" >
-                    <label for="staticEmail" class="col-form-label">Payment Mode</label>
+                    <label for="staticEmail" class=" pay_label">Payment Mode</label>
                     <select class="form-control"  id="sel_pay">
                        <option  value="0">Select Payment mode</option>
                        <option  value="1">NEFT/RTGS</option>
@@ -120,15 +142,15 @@ $result = mysqli_query($conn,$query);
                      </select>
                      </div>
                      <div class="form-group col-sm-4" id="neft">
-                     <label for="inputPassword" class=" col-form-label">Check Number</label>
+                     <label for="inputPassword" class=" pay_label">Check Number</label>
                      <input type="text" class="form-control" placeholder="Recommended By">
                      </div>
                      <div class="form-group col-sm-4" id="ref" >
-                     <label for="inputPassword" class=" col-form-label">Reference Number</label>
+                     <label for="inputPassword" class=" pay_label">Reference Number</label>
                      <input type="text" class="form-control" placeholder="Recommended By">
                      </div>
                      <div class="form-group col-sm-4" >
-                     <label for="inputPassword" class=" col-form-label">Recommended By</label>
+                     <label for="inputPassword" class=" pay_label">Recommended By</label>
                      <input type="text" class="form-control" placeholder="Recommended By">
                      </div>
                      <!-- <div class="form-group col-sm-4" >
@@ -136,7 +158,7 @@ $result = mysqli_query($conn,$query);
                      <input type="text" class="form-control" placeholder="Recommended By">
                      </div> -->
                      <div class="col-lg-4" >
-                     <label for="inputPassword" class=" col-form-label">Comments</label>
+                     <label for="inputPassword" class=" pay_label">Comments</label>
                      <textarea class="h-100 form-control " rows="3" placeholder="Small textarea"></textarea>
                      </div>
                </div>
