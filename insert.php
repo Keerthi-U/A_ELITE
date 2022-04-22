@@ -9,7 +9,9 @@ include('db.php');
   //     var_dump($selected);
 // $id=$_POST['id'];
  $form_type = $_POST['form_type'];
+
  $fullname = $_POST['fullname'];
+ $application_id = $_POST['application_id'];
 //  echo"$fullname";
 $dob = $_POST['dob'];
 $gender = $_POST['gender'];
@@ -80,7 +82,7 @@ $updated_at=  $created_on   = date('Y-m-d H:i:s');
 // $created_by = $_SESSION["logged_user"];
 
 $images_names = array();
-echo $query = "INSERT into `scholarship_table`( `form_type`, `fullname`, `dob`,`gender`,`disablity`,`type_of_disability`,`fathername`, `mothername`, `contactnumber`, `address`, `email`, `city`, `district`, `state`,`pincode`,`school_name`, `reg_no`, `department`, `school_address`, `mark_percentage`, `term_semester`, `academic_year`, `scholarship_select`, `phone_no`, `student_email`, `account_no`, `bank_name`, `ifsc_code`, `aadhar_number`, `hospital_name`, `disease_select`, `disease_name`, `severity_disease`, `admission_date`, `approximate_expense`, `request_amount`,`insurance_scheme`,`government`,`private`,`graduate`,`orphan`, `guardian_name`, `created_at`, `updated_at`) VALUES ('$form_type','$fullname','$dob','$gender','$disablity','$type_of_disability','$fathername','$mothername','$contactnumber','$address','$email','$city','$district','$state','$pincode','$school_name','$reg_no','$department','$school_address','$mark_percentage','$term_semester','$academic_year','$scholarship_select','$phone_no','$student_email','$account_no','$bank_name','$ifsc_code','$aadhar_number','$hospital_name','$disease_select','$disease_name','$severity_disease','$admission_date','$approximate_expense','$request_amount','$insurance_scheme','$government','$private','$graduate','$orphan','$guardian_name','$created_at','$updated_at')";
+echo $query = "INSERT into `scholarship_table`( `form_type`, `fullname`,`application_id`, `dob`,`gender`,`disablity`,`type_of_disability`,`fathername`, `mothername`, `contactnumber`, `address`, `email`, `city`, `district`, `state`,`pincode`,`school_name`, `reg_no`, `department`, `school_address`, `mark_percentage`, `term_semester`, `academic_year`, `scholarship_select`, `phone_no`, `student_email`, `account_no`, `bank_name`, `ifsc_code`, `aadhar_number`, `hospital_name`, `disease_select`, `disease_name`, `severity_disease`, `admission_date`, `approximate_expense`, `request_amount`,`insurance_scheme`,`government`,`private`,`graduate`,`orphan`, `guardian_name`, `created_at`, `updated_at`) VALUES ('$form_type','$fullname','$application_id','$dob','$gender','$disablity','$type_of_disability','$fathername','$mothername','$contactnumber','$address','$email','$city','$district','$state','$pincode','$school_name','$reg_no','$department','$school_address','$mark_percentage','$term_semester','$academic_year','$scholarship_select','$phone_no','$student_email','$account_no','$bank_name','$ifsc_code','$aadhar_number','$hospital_name','$disease_select','$disease_name','$severity_disease','$admission_date','$approximate_expense','$request_amount','$insurance_scheme','$government','$private','$graduate','$orphan','$guardian_name','$created_at','$updated_at')";
 $result = mysqli_query($conn,$query);
 $lastid = mysqli_insert_id($conn); 
 echo "last id : ".$lastid; 
@@ -210,6 +212,14 @@ if($lastid > 0){
       
           echo $sql="UPDATE  `scholarship_table` set ratings='$c' WHERE id ='$lastid'";
           $total = mysqli_query($conn,$sql);
+
+          //select previous id
+          $query_prev = mysqli_query($conn,"select * from application_no where id = '$form_type' ");
+          $res_prev = mysqli_fetch_assoc($query_prev);
+          $last_app_id = $res_prev['application_number'] + 1 ;
+          $sql_id="UPDATE  `application_no` set application_number='$last_app_id' where id = '$form_type'";
+          $total = mysqli_query($conn,$sql_id);
+
  }
           
  if(isset($_POST['valueSelected'])){

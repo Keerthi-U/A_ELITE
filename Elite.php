@@ -73,12 +73,19 @@ include("db.php");
                         <div class="heading1_2"><i class="fa-solid fa-chevron-down first text-light"></i></div>
                     </div>
                     <div id="toggle1">
-                        <div class="row">
+                        <div class="row"> 
+                        <div class="fullname col-lg-4">
+                        <label for="fullname" class="text-dark">Application id</label>
+                            <input id="application_id" type="text" class="form-control" name="application_id" value="" readonly>
+                               
+                              
+                         </div>   
                          <div class="fullname col-lg-4">
                             <input id="id" type="hidden" class="form-control" name="">
+                          
                                 <label for="fullname" class="text-dark">Full Name</label>
                                 <input id="fullname" type="text" class="form-control" name="fullname">
-                            </div>  
+                         </div>  
                             <div class="dob col-md-12 col-lg-4 col-xl-4">
                                 <label for="d_o_admission">Date Of Birth</label>
                                 <input id="d_o_admission" type="date" class="form-control date" name="dob"  placeholder="Select date...">
@@ -96,8 +103,7 @@ include("db.php");
                                 </div>
                                 </div>
                             </div>  
-                        </div>
-                         <div class="row">
+                       
                          <div class="gender col-lg-4">
                                 <label for="gender">Disability</label>
                                 <div class="row">
@@ -481,8 +487,10 @@ include("db.php");
             </form>
            </div>
        </div>
+      
     <?php
     include("footer.php");
     ?>
+ 
 
   
