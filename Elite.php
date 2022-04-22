@@ -90,7 +90,7 @@ label#insurance_scheme-error {
       <div class="wrapper wrapperhide " id="wrapper" >
       <div class="heading1" id="t1">
           <div class="heading1_1 text-light">A.Generals Information</div>
-          <div class="heading1_2"><i class="fa-solid fa-chevron-down first text-light"></i></div>
+          <div class="heading1_2"><i class="first text-light"></i></div>
           <div class="error"></div>
       </div>
       <div id="toggle1">
@@ -184,7 +184,7 @@ label#insurance_scheme-error {
       <div class="stu_toggle2" id="stu_toggle2">
       <div class="heading2" id="t2">
           <div class="heading2_2 text-light">B.Student Details</div>
-          <div class="heading2_3"><i class="fa-solid fa-chevron-down second text-light"></i></div>
+          <div class="heading2_3"><i class=" second text-light"></i></div>
       </div>
       <div id="toggle2">
         <div class="row">
@@ -283,7 +283,7 @@ label#insurance_scheme-error {
      <div id="md_toggle5">
         <div class="heading2 mt-4" id="t5">
           <div class="heading2_2">B.Medical Details</div>
-          <div class="heading2_3"><i class="fa-solid fa-chevron-down fith"></i></div>
+          <div class="heading2_3"><i class=" fith"></i></div>
         </div>
     <div id="toggle5">
         <div class="row">
