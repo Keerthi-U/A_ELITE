@@ -68,6 +68,33 @@ $result = mysqli_query($conn,$query);
     font-weight: 600;
     color: #775799;
 }
+button.btn.btn-primary.btn-block1 {
+    /* background-color: #7262b0;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 12px; */
+    width: 140px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  color: white;
+  background-color: #7262b0;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+.btn-block1:hover{
+    background-color: transparent!important;
+    color: #675bb3!important;
+    font-weight: 600;
+    border: 1px solid!important;
+}
 </style>
      <div class="all-content-wrapper">
         <div class="container-fluid">
