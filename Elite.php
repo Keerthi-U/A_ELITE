@@ -4,6 +4,7 @@ if(session_id() == ''){
 }
 include("header.php");
 include("form_header.php");
+include("db.php");
 ?>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
@@ -65,7 +66,7 @@ label#insurance_scheme-error {
     </li>
   <li class="nav-item el">
     <div class="single-review-st-text">
-           <button type="button" class="btn btn-primary appli_color" data-toggle="modal" data-target="#myModal">
+           <button type="button" id="application_status"  class="btn btn-primary appli_color" data-toggle="modal" data-target="#myModal">
            Application Staus
            </button>
             <div class="bell">
@@ -675,5 +676,51 @@ $(document).ready(function() {
             // do stuff if form is not valid
         }
     });
+
+
+    $("#flip").on('change',function(){
+              select_id = $(this).val();
+              form_name = "sequence_no";
+                alert(select_id)
+                $.ajax({
+                  url:"sequence.php",
+                  type:"post",
+                  data:{select_id:select_id,form_name:form_name},
+                  success:function(data){
+                   
+                    $("#application_id").val(data);
+                  }
+                })
+            })
+
+
+            $("#application_status").on('click',function(e){
+              e.preventDefault();
+              id = '<?php echo $_SESSION['id'] ;?>';
+              form_name = "application_status";
+
+              //alert(id);
+              $.ajax({
+                url:"sequence.php",
+                type:"post",
+                data:{id:id,form_name:form_name},
+                success:function(data){
+                  
+                  $(".modal-body").html(data);
+                  $('#myModal').modal("toggle");
+                }
+              })
+
+            })
+
+
+
+
+
+
+
+
+
 });
           </script>
+          
