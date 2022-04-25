@@ -12,7 +12,7 @@ include('header.php');
 			<div class="content-error">
 				<div class="hpanel">
                     <div class="panel-body">
-                        <form form action="" method="post" id="myform">
+                        <form  action="" method="post" id="myform">
                             <div class="row">
                                 <div class="form-group col-lg-6">
                                     <label>First Name</label>
