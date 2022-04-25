@@ -56,11 +56,7 @@ $records = mysqli_query($conn,$query);
     color: #775799;
 }
 button.btn.btn-primary.btn-block1 {
-    /* background-color: #7262b0;
-    border: none;
-    padding: 8px 24px;
-    border-radius: 12px; */
-    width: 140px;
+  width: 140px;
   height: 45px;
   font-family: 'Roboto', sans-serif;
   font-size: 13px;
@@ -81,6 +77,10 @@ button.btn.btn-primary.btn-block1 {
     color: #675bb3!important;
     font-weight: 600;
     border: 1px solid!important;
+}
+.swal-modal {
+    width: 478px;
+    height: 237px;
 }
 </style>
      <div class="all-content-wrapper">
