@@ -1,8 +1,5 @@
 <?php
-
-
 include('db.php');
-
 $msg='';
 $msg1='';
 $msg2='';
@@ -39,7 +36,5 @@ $msg2='';
 echo $msg;
 echo $msg1;
 echo $msg2;
-  
-
 }
 ?>
