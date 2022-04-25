@@ -20,9 +20,11 @@ if (isset($_POST['submit']))
     $rows = mysqli_num_rows($result);
     if($rows==1)
     {
-     echo $first_name = $row['first_name'];
-     
-     $_SESSION['first_name']=$first_name;
+      echo $first_name = $row['first_name'];
+      echo $id = $row['id'];
+      
+      $_SESSION['first_name']=$first_name;
+      $_SESSION['id']=$id;
      header("Location:Elite.php");
     //  exit();
      }
