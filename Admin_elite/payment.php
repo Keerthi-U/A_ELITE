@@ -7,9 +7,21 @@ include_once('db.php');
 $query = "SELECT c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender  ,c.contactnumber,c.created_by,c.approved_status, COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information 
 p ON  c.id  = p.student_id WHERE c.approved_status ='1'  or  c.approved_status IS NULL  GROUP BY c.id 
 ORDER BY c.ratings DESC;";
-$result = mysqli_query($conn,$query);
+$records = mysqli_query($conn,$query);
+// while($data = mysqli_fetch_array($records)) 
+// { 
+?> 
+<div class="dd">
+<!-- <?php echo $data['id']; ?>
+ <?php echo $data['fullname']; ?>
+ <?php echo $data['form_type']; ?> -->
+</div>
 
+	 
+<?php 
+// } 
 ?>
+
 <style>
 .form-control {
     /* display: block;
@@ -116,15 +128,21 @@ button.btn.btn-primary.btn-block1 {
                    <label for="inputPassword" class=" pay_label">Date</label>
                    <input type="date" class="form-control" placeholder="date">
                    </div>
+                 
                    <div class="form-group col-sm-8">
                    <label for="staticEmail"  class="pay_label">Select Applicant</label>
                     <select class="form-control"  >
-                       <option>1</option>
-                       <option>2</option>
-                       <option>3</option>
-                       <option>4</option>
+                    <?php
+                   while($data=mysqli_fetch_array($records))
+                   {
+                   ?>
+                      <option value=" <?php echo $data['fullname']; ?>"><?php echo $data['fullname']; ?></option>
+                       <?php
+                       }
+                    ?>
                     </select>
                     </div>
+                
                 </div>
                 <!-- <h3 class="payment-heading">Bank AccountDetails:-</h3> -->
                 <div class="form-group row mll" >

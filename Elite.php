@@ -34,7 +34,30 @@ label#insurance_scheme-error {
     left: 17px;
     bottom: -22px;
 }
-    </style>
+.dropdown-menu{
+    position: absolute;
+    top: 100%;
+    left: -138px!important;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0px;
+    margin: 1.125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 0.25rem;
+}
+.swal-modal {
+      width: 478px;
+      height: 247px;
+      }
+ </style>
 <nav class="navbar navbar-expand-sm bg-light elite_heade fixed-top" >
   <ul class="navbar-nav elite_in">
     <li class="nav-item el">
@@ -46,7 +69,7 @@ label#insurance_scheme-error {
            Application Staus
            </button>
             <div class="bell">
-            <i class="item fa fa-bell"></i>
+            <!-- <i class="item fa fa-bell"></i> -->
             </div>
             <img src="Images/1.jpg" alt="">
             <div class="review-ctn-hf">

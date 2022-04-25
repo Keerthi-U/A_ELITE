@@ -99,13 +99,12 @@ $form_type = $row['form_type'];
     box-shadow: -4px 3px 10px -5px rgb(0 0 0 / 50%);
 }
 input.file-up:after {
-    top: 41px;
-
+    top: 44px;
     content: "Choose";
     position: absolute;
     z-index: 2;
     color: white;
-    padding: 8px 10px 8.5px 8px;
+    padding: 5px 10px 5px 8px;
     display: block;
     background-color: #5387ba;
     width: 85px;
@@ -114,9 +113,9 @@ input[type=file]:focus, input[type=radio]:focus {
     outline: 0px auto -webkit-focus-ring-color;
     outline-offset: -2px;
 }
-.ed {
+    .ed {
     position: absolute;
-    top: 41px;
+    top: 44px;
     left: 95px;
 }
 .main {
@@ -198,9 +197,7 @@ input[type=file]:focus, input[type=radio]:focus {
                                                 
                                                     <p><?php echo $_SESSION['first_name']; ?></p>
                                                 </div>
-                                             
-                                      
-                                           </div>
+                                         </div>
                                     </div>
                                     <div class="col-lg-1">
                                            <div class="dropdown">
@@ -479,14 +476,10 @@ input[type=file]:focus, input[type=radio]:focus {
                                  <div class="form-group col-lg-4">
                                     <label for="exampleFormControlFile1">Attachement</label>
                                     <div class="d-flex">
-                                    <input type="text" name="bank_attachment" id="file-name1" class=" choose-txt form-control" >
                                     <input id="file-upload1" class="file-up" name="bank_attachment1[]" type="file" multiple>
-
-                                    
+                                    <input type="text" name="bank_attachment" id="file-name1" class=" choose-txt form-control" >
                                     </div>
-
-
-                                  </div>
+                                    </div>
                                   <div class="update_image">
                                     <?php
                                     $id=$_GET['id'];
