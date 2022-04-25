@@ -10,18 +10,18 @@ include_once('db.php');
 if (isset($_POST['submit']))
 {
    $email=$_POST['email'];
- 
-  
     $password=$_POST['password'];
  
-    $query = "SELECT * FROM `admin_register` WHERE   password='$password' AND email ='$email'";
+    $query = "SELECT * FROM `registration` WHERE  `email` ='$email' AND `password`='$password' and `user_type` = '1' ";
     $result = mysqli_query($conn,$query) or die(mysqli_error());
     $row = mysqli_fetch_assoc($result);
     $rows = mysqli_num_rows($result);
    if($rows==1)
     {
      $first_name = $row['first_name'];
+     $user_id = $row['id'];
      $_SESSION['first_name']=$first_name;
+     $_SESSION['user_id']=$user_id;
      header("Location: index.php");
      //exit();
      }

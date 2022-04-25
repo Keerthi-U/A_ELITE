@@ -104,7 +104,7 @@ button.btn.btn-primary.btn-block1 {
                  
                 <div class="form-group col-sm-8">
                    <label for="staticEmail"  class="pay_label">Select Applicant</label>
-                    <select class="form-control" id="application_select" name="approved_select">
+                    <select class="form-control" id="application_select" name="applicant_id">
                         <option>Select Applicant</option>
                        <?php
                         while($data=mysqli_fetch_array($records))
