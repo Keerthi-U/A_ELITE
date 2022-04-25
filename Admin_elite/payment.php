@@ -4,9 +4,9 @@ include_once('sidebar.php');
 ?>
 <?php  
 include_once('db.php');
-$query = "SELECT c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender  ,c.contactnumber,c.created_by,c.approved_status, COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information 
-p ON  c.id  = p.student_id WHERE c.approved_status ='1'  or  c.approved_status IS NULL  GROUP BY c.id 
-ORDER BY c.ratings DESC;";
+$query = "SELECT c.application_id,c.id,c.ratings,c.fullname,c.form_type,c.fathername,c.gender ,c.contactnumber,c.created_by,c.approved_status,COUNT(p.student_id) AS number_of_student FROM scholarship_table c LEFT JOIN family_information 
+p ON  c.id  = p.student_id WHERE c.approved_status ='2' GROUP BY c.id 
+ORDER BY c.ratings DESC";
 $records = mysqli_query($conn,$query);
 // while($data = mysqli_fetch_array($records)) 
 // { 
@@ -135,8 +135,10 @@ button.btn.btn-primary.btn-block1 {
                     <?php
                    while($data=mysqli_fetch_array($records))
                    {
+                    $applicant_name = $data['fullname'].' - '.$data['application_id'];
                    ?>
-                      <option value=" <?php echo $data['fullname']; ?>"><?php echo $data['fullname']; ?></option>
+
+                      <option value=" <?php echo $data['fullname']; ?>"><?php echo $applicant_name; ?></option>
                        <?php
                        }
                     ?>

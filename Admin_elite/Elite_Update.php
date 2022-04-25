@@ -227,9 +227,12 @@ input[type=file]:focus, input[type=radio]:focus {
                         <label for="inputEmail3" class=" choose_form  col-sm-4 col-form-label">Choose form Type</label>
                         <div class="col-sm-8">
                         <select id="flip" name="form_type" value="<?php echo $row['form_type']; ?>" class="form-control">
-                             <option selected = 'selected' value="<?php echo $row['form_type']; ?>"><?php echo $row['form_type']; ?></option>  
-                            <option value="1">Student Form</option>
-                            <option value="2">Medical Form</option>
+                            <option <?php if($row['form_type'] == "1"){
+                                echo "selected";
+                            };?> value="<?php echo $row['form_type'];?>">Student Form</option>
+                            <option <?php if($row['form_type'] == "2"){
+                                echo "selected";
+                            };?> value="<?php echo $row['form_type'];?>">Medical Form</option>
                             <option value="3">Third Form</option>
                             <option value="4">Fourth Form</option>
                             </select>
