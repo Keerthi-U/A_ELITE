@@ -96,9 +96,10 @@ label#insurance_scheme-error {
       <h1 class="text-center sc-heading">Scholarship Form</h1>
                     
  <form action="#" name="myform" id="myform" enctype="multipart/form-data">
-                     
+ <input type="text" value="<?php  echo $_SESSION['id'];?>" name="user_id" class="" >      
 
 <div class="form-group row choose-frm">
+
           <label for="inputEmail3" class=" choose_form  col-sm-4 col-form-label">Choose form Type</label>
           <div class="col-sm-8">
           <select id="flip" name="form_type" class="form-control">
