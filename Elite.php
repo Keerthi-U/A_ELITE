@@ -658,9 +658,9 @@ $(document).ready(function() {
           contentType: false,
           type: 'POST',
           success: function(data){
-                  swal({ title:"loading",
+                  swal({ 
                   button:false,
-                  icon: "https://www.boasnotas.com/img/loading2.gif",
+                  icon: "Images/gif.gif",
                   timer: 2000}).then(function(){
                     // alert("test");
                     swal({ title:"Registration successfull",
@@ -713,15 +713,6 @@ $(document).ready(function() {
               })
 
             })
-
-
-
-
-
-
-
-
-
 });
           </script>
           
