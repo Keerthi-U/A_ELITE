@@ -9,6 +9,8 @@
          $email=$_POST['email'];
          $password=$_POST['password'];
          $cpassword=$_POST['cpassword'];
+         $user_type='2';
+         $status='1';
          $cpassword;
          $select = mysqli_query($conn, "SELECT `first_name`,`last_name` FROM `registration` WHERE `email` = '".$_POST['email']."'") or exit(mysqli_error($conn));
          if(mysqli_num_rows($select)) {
@@ -18,7 +20,7 @@
           elseif($password != $cpassword){
           echo  "passwords doesn't match";
           }else{
-         $query = "INSERT into `registration`( `first_name`,`last_name`, `email`, `password`) VALUES ('$first_name','$last_name','$email','$password')";
+         $query = "INSERT into `registration`( `first_name`,`last_name`, `email`, `password`,`user_type`,`status`) VALUES ('$first_name','$last_name','$email','$password','$user_type','$status')";
          $result = mysqli_query($conn,$query);
          //var_dump($result);
          if($result)
