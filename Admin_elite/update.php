@@ -6,7 +6,10 @@ $form_name = $_POST["form_name"];
 // echo $eye_id;
 if (isset($_POST['d_id'])) {
     $d_id =$_POST['d_id'];
-   //  // echo $id;
+    $but_val=$_POST['but_val'];
+
+    echo $id;
+   echo  $but_val;
    //  echo $query = "DELETE FROM doc_attachment WHERE id IN ($d_id)";
    //  mysqli_query($conn,$query);
    //  echo "Image Deleted";
@@ -17,15 +20,34 @@ if (isset($_POST['d_id'])) {
       while ($delete = mysqli_fetch_array($result)) {
           $image = $delete['attach_images'];
 
-          if($file= "../previous_marksheet/".$image){
-           unlink($file);
+          if($but_val == '1')
+          {
+          $file1= "../previous_marksheet/".$image;
+          unlink($file1);
           }
-          if($file1= "../bank_attachment/".$image){
-            unlink($file1);
+          else if($but_val == '2'){
+          $file2= "../bank_attachment/".$image;
+          unlink($file2);
           }
+          else if($but_val == '3'){
+          $file3= "../hospital_report/".$image;
+          unlink($file3);
+          }
+          else if($but_val == '4'){
+          $file4= "../previous_medical_report/".$image;
+          unlink($file4);
+          }
+          else if($but_val == '5'){
+          $file5= "../bank_attachment/".$image;
+          unlink($file5);
+          }else{
+            echo "no image";
+          }
+         
 
           // $path1 ="../previous_marksheet/".$image;
           // $path2="../bank_attachment/".$image;
+          // $path = 
           // if (file_exists($path1) && file_exists($path2)) {
           //   unlink($path1);
           //   unlink($path2);

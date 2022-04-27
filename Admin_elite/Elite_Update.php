@@ -443,8 +443,9 @@ input[type=file]:focus, input[type=radio]:focus {
                                         if (file_exists("../previous_marksheet/".$image)) {
                                         echo "
                                         <div class='edit_image'>
-                                        <img src='../previous_marksheet/". $image."' >
-                                        <button class='remove_btnnn' data-id=$image_id1></button> 
+                                        <img src='../previous_marksheet/". $image."'>
+                                        
+                                        <button class='remove_btnnn' data-id=$image_id1 value='1'></button> 
                                         </div>";
                                         //plus up the variable for each loop item
                                         }
@@ -505,7 +506,7 @@ input[type=file]:focus, input[type=radio]:focus {
                                         echo "
                                         <div class='edit_image'>
                                         <img src='../bank_attachment/". $image1."' id='removee'>
-                                        <button class='remove_btnnn' data-id=$image_id2></button> 
+                                        <button class='remove_btnnn' data-id=$image_id2 value='2'></button> 
                                         </div>";
                                        
                                         }
@@ -642,7 +643,7 @@ input[type=file]:focus, input[type=radio]:focus {
                                         echo "
                                         <div class='edit_image'>
                                         <img src='../hospital_report/".$hospital_image."' >
-                                        <button class='remove_btnnn' data-id=$image_id1></button> 
+                                        <button class='remove_btnnn' data-id=$image_id1 value='3'></button> 
                                         </div>";
                                         //plus up the variable for each loop item
                                         }
@@ -686,7 +687,7 @@ input[type=file]:focus, input[type=radio]:focus {
                                         echo "
                                         <div class='edit_image'>
                                         <img src='../previous_medical_report/".$hospital_image."' >
-                                        <button class='remove_btnnn' data-id=$image_id1></button> 
+                                        <button class='remove_btnnn' data-id=$image_id1 value='4'></button> 
                                         </div>";
                                        
                                         }
@@ -749,7 +750,7 @@ input[type=file]:focus, input[type=radio]:focus {
                                                 echo "
                                                 <div class='edit_image'>
                                                 <img src='../bank_attachment/". $imageb."' id='removee'>
-                                                <button class='remove_btnnn' data-id=$image_idb></button> 
+                                                <button class='remove_btnnn' data-id=$image_idb value='5'></button> 
                                                 </div>";
                                             
                                                 }
@@ -960,9 +961,12 @@ $(".remove_btnnn").click(function(e){
     e.preventDefault();
 
     var d_id= $(this).data('id');
-
     alert(d_id);
-swal({
+    var but_val= $(this).val();
+    alert(but_val);
+    // var par_id=($(this).parent()[0].id);
+    // alert(par_id);
+   swal({
   title: "Are you sure?",
   text: "Once deleted, you will not be able to recover this imaginary file!",
   icon: "warning",
@@ -976,7 +980,7 @@ swal({
     $.ajax({
     url:"update.php",
     type:"post",
-    data:{d_id:d_id},
+    data:{d_id:d_id,but_val:but_val},
     success:function(data){
         swal("Poof! Your imaginary file has been deleted!", {
        icon: "success",
