@@ -6,10 +6,39 @@ $form_name = $_POST["form_name"];
 // echo $eye_id;
 if (isset($_POST['d_id'])) {
     $d_id =$_POST['d_id'];
-    // echo $id;
-    echo $query = "DELETE FROM doc_attachment WHERE id IN ($d_id)";
-    mysqli_query($conn,$query);
-    echo "Image Deleted";
+   //  // echo $id;
+   //  echo $query = "DELETE FROM doc_attachment WHERE id IN ($d_id)";
+   //  mysqli_query($conn,$query);
+   //  echo "Image Deleted";
+   if($d_id != "") {
+    echo  $query = "SELECT * FROM doc_attachment WHERE id='".$d_id."'";
+      $result = mysqli_query($conn,$query);
+
+      while ($delete = mysqli_fetch_array($result)) {
+          $image = $delete['attach_images'];
+
+          if($file= "../previous_marksheet/".$image){
+           unlink($file);
+          }
+          if($file1= "../bank_attachment/".$image){
+            unlink($file1);
+          }
+
+          // $path1 ="../previous_marksheet/".$image;
+          // $path2="../bank_attachment/".$image;
+          // if (file_exists($path1) && file_exists($path2)) {
+          //   unlink($path1);
+          //   unlink($path2);
+            
+          //  }
+          // else {
+          //   echo 'FILE NOT FOUND';
+          // }
+      }
+
+      $query1 = "DELETE FROM doc_attachment WHERE id IN ($d_id)";
+      $result1 = mysqli_query($conn,$query1);
+  }
     
 }
 if (isset($_POST['del_id'])) {

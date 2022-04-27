@@ -41,6 +41,7 @@ $records = mysqli_query($conn,$query);
     margin: 20px;
     padding: 17px;
     background: white;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
 }
 .pay_label{
     display: inline-block;

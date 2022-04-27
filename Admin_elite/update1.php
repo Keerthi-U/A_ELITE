@@ -126,7 +126,6 @@ if($id > 0){
        
       
         print_r($images_names);
-
         }
         }else{
         $uploadFolder2 = '../hospital_report/';

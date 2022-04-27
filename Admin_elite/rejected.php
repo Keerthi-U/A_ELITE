@@ -193,6 +193,7 @@ $result = mysqli_query($conn,$query);
 
         table.dataTable {
         margin-top: 12px !important;
+        box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
         }
 
         .icon > .bx {

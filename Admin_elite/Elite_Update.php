@@ -924,7 +924,7 @@ input[type=file]:focus, input[type=radio]:focus {
                         </div>
                         </div>
                        <div class="submit">
-                            <button type="update" name="upadte"  class="btn btn-primary" id="update">Submit</button>
+                            <button type="update" name="upadte"  class="btn btn-primary" id="update">Update</button>
                         </div>
                     </div>
                 </div>

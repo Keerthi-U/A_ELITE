@@ -154,6 +154,7 @@ body {}
     transition: all 0.3s;
 	z-index:999;
 	height:100%;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
 }
 .mini-navbar .all-content-wrapper {
     margin-left: 80px;
@@ -4731,6 +4732,7 @@ div#sparklinehome canvas {
 }
 .header-top-area {
     background: white;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
 }
 button#sidebarCollapse {
     color: blue;
@@ -4909,6 +4911,11 @@ li.log {
 .analytics-sparkle-line{
     padding: 15px;
     background: #fff;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
+}
+.analytics-sparkle-line:hover{
+    -webkit-box-shadow: 0 0 30px 0 rgb(0 0 0 / 15%);
+    box-shadow: 0 0 30px 0 rgb(0 0 0 / 15%);
 }
 .fa-arrow-right:before {
     content: "\f061";

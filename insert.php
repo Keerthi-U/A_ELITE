@@ -40,7 +40,7 @@ $school_address=$_POST['school_address'];
 $mark_percentage=$_POST['mark_percentage'];
 $term_semester=$_POST['term_semester'];
 $academic_year=$_POST['academic_year'];
-$scholarship_select=$_POST['scholarship_select'];
+$scholarship_category=$_POST['scholarship_category'];
 $phone_no=$_POST['phone_no'];
 $student_email=$_POST['student_email'];
 if($form_type == '1'){
@@ -82,18 +82,22 @@ $updated_at=  $created_on   = date('Y-m-d H:i:s');
 // $created_by = $_SESSION["logged_user"];
 
 $images_names = array();
-echo $query = "INSERT into `scholarship_table`( `form_type`, `fullname`,`application_id`, `dob`,`gender`,`disablity`,`type_of_disability`,`fathername`, `mothername`, `contactnumber`, `address`, `email`, `city`, `district`, `state`,`pincode`,`school_name`, `reg_no`, `department`, `school_address`, `mark_percentage`, `term_semester`, `academic_year`, `scholarship_select`, `phone_no`, `student_email`, `account_no`, `bank_name`, `ifsc_code`, `aadhar_number`, `hospital_name`, `disease_select`, `disease_name`, `severity_disease`, `admission_date`, `approximate_expense`, `request_amount`,`insurance_scheme`,`government`,`private`,`graduate`,`orphan`, `guardian_name`,`created_by`, `created_at`, `updated_at`) VALUES ('$form_type','$fullname','$application_id','$dob','$gender','$disablity','$type_of_disability','$fathername','$mothername','$contactnumber','$address','$email','$city','$district','$state','$pincode','$school_name','$reg_no','$department','$school_address','$mark_percentage','$term_semester','$academic_year','$scholarship_select','$phone_no','$student_email','$account_no','$bank_name','$ifsc_code','$aadhar_number','$hospital_name','$disease_select','$disease_name','$severity_disease','$admission_date','$approximate_expense','$request_amount','$insurance_scheme','$government','$private','$graduate','$orphan','$guardian_name','$created_by','$created_at','$updated_at')";
+echo $query = "INSERT into `scholarship_table`( `form_type`, `fullname`,`application_id`, `dob`,`gender`,`disablity`,`type_of_disability`,`fathername`, `mothername`, `contactnumber`, `address`, `email`, `city`, `district`, `state`,`pincode`,`school_name`, `reg_no`, `department`, `school_address`, `mark_percentage`, `term_semester`, `academic_year`, `scholarship_category`, `phone_no`, `student_email`, `account_no`, `bank_name`, `ifsc_code`, `aadhar_number`, `hospital_name`, `disease_select`, `disease_name`, `severity_disease`, `admission_date`, `approximate_expense`, `request_amount`,`insurance_scheme`,`government`,`private`,`graduate`,`orphan`, `guardian_name`,`created_by`, `created_at`, `updated_at`) VALUES ('$form_type','$fullname','$application_id','$dob','$gender','$disablity','$type_of_disability','$fathername','$mothername','$contactnumber','$address','$email','$city','$district','$state','$pincode','$school_name','$reg_no','$department','$school_address','$mark_percentage','$term_semester','$academic_year','$scholarship_category','$phone_no','$student_email','$account_no','$bank_name','$ifsc_code','$aadhar_number','$hospital_name','$disease_select','$disease_name','$severity_disease','$admission_date','$approximate_expense','$request_amount','$insurance_scheme','$government','$private','$graduate','$orphan','$guardian_name','$created_by','$created_at','$updated_at')";
 $result = mysqli_query($conn,$query);
 $lastid = mysqli_insert_id($conn); 
 echo "last id : ".$lastid; 
 if($lastid > 0){
-
+ 
+  
        if($form_type == '1'){
         $uploadFolder = 'previous_marksheet/';
         foreach ($_FILES['previous_marksheet']['tmp_name'] as $key => $image) {
         $imageTmpName = $_FILES['previous_marksheet']['tmp_name'][$key];
         $imageName = $_FILES['previous_marksheet']['name'][$key];
+        $extension=end(explode(".", $imageName));
+        $imageName=time().uniqid(rand()).".".$extension;
         $result = move_uploaded_file($imageTmpName,$uploadFolder.$imageName);
+        
         echo $imageName;
         $images_names[] = $imageName;
        }
@@ -101,6 +105,8 @@ if($lastid > 0){
         foreach ($_FILES['bank_attachment1']['tmp_name'] as $key => $image) {
         $imageTmpName1 = $_FILES['bank_attachment1']['tmp_name'][$key];
         $imageName1 = $_FILES['bank_attachment1']['name'][$key];
+        $extension1=end(explode(".", $imageName1));
+        $imageName1=time().uniqid(rand()).".".$extension1;
         $result1 = move_uploaded_file($imageTmpName1,$uploadFolder1.$imageName1);
      
         array_push($images_names,$imageName1);
@@ -111,6 +117,8 @@ if($lastid > 0){
         foreach ($_FILES['hospital_report']['tmp_name'] as $key => $image) {
         $imageTmpName2 = $_FILES['hospital_report']['tmp_name'][$key];
         $imageName2 = $_FILES['hospital_report']['name'][$key];
+        $extension2=end(explode(".", $imageName2));
+        $imageName2=time().uniqid(rand()).".".$extension2;
         $result2 = move_uploaded_file($imageTmpName2,$uploadFolder2.$imageName2);
      
         $images_names[] = $imageName2;
@@ -120,6 +128,8 @@ if($lastid > 0){
         foreach ($_FILES['previous_medical_report']['tmp_name'] as $key => $image) {
         $imageTmpName3 = $_FILES['previous_medical_report']['tmp_name'][$key];
         $imageName3 = $_FILES['previous_medical_report']['name'][$key];
+        $extension3=end(explode(".", $imageName3));
+        $imageName3=time().uniqid(rand()).".".$extension3;
         $result3 = move_uploaded_file($imageTmpName3,$uploadFolder3.$imageName3);
      
         $images_names[] = $imageName3;
@@ -128,6 +138,8 @@ if($lastid > 0){
         foreach ($_FILES['bank_attachment']['tmp_name'] as $key => $image) {
         $imageTmpName4 = $_FILES['bank_attachment']['tmp_name'][$key];
         $imageName4 = $_FILES['bank_attachment']['name'][$key];
+        $extension4=end(explode(".", $imageName4));
+        $imageName4=time().uniqid(rand()).".".$extension4;
         $result4 = move_uploaded_file($imageTmpName4,$uploadFolder4.$imageName4);
      
         array_push($images_names,$imageName4);

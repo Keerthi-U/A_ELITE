@@ -254,9 +254,9 @@ label#insurance_scheme-error {
               </div>
            </div>
            <div class="t_o_disease col-lg-4">
-              <label for="scholarship_select">Scholarship category</label>
+              <label for="scholarship_category">Scholarship category</label>
              
-              <select id="scholarship" name="scholarship_select" class="form-control">
+              <select id="scholarship" name="scholarship_category" class="form-control">
               <option value="">Scholarship...</option>  
               <option value="1">Premetric</option>
               <option value="2">Post metric</option>
@@ -576,7 +576,7 @@ $(document).ready(function() {
       type_of_disability:{
         required: true,
      },
-     scholarship_select:{
+     scholarship_category:{
         required: true,
      },
      disablity:{
@@ -609,7 +609,7 @@ $(document).ready(function() {
       required: "Enter password name",
      }, 
      
-     scholarship_select: {
+     scholarship_category: {
         required: "Please Select Form Type",
      },
      form_type:{
