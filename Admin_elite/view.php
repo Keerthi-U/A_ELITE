@@ -205,7 +205,7 @@ table>tbody>tr>th{
                 <tr>
                  <th>Pervious Marksheet</th>
                  <td>
-                 <i class="fa fa-eye btn" id="previouss" data-id= <?php echo $row['id'];?> aria-hidden="true"> 
+                 <i class="fa fa-eye btn0" id="previouss" data-id= <?php echo $row['id'];?> aria-hidden="true"> 
                  <span id="span" style="display:none;">1</span> 
                 </td>
                 </tr>
@@ -501,7 +501,7 @@ $(document).ready(function(){
     $('#modalclose').click(function(){
     $("#bank_att,#previouss,#hos_att,#medical_report_att,#mbank_attachment").removeClass('active');
     });
-    $('.btn').click(function(){
+    $('.btn0').click(function(){
     $("#previouss").addClass('active');
    });
     $('.btn1').click(function(){

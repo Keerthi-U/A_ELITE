@@ -391,10 +391,15 @@ input[type=file]:focus, input[type=radio]:focus {
                                 </div> 
                                 <div class="t_o_disease col-lg-6">
                                     <label for="t_o_disease">Scholarship category</label>
-                                    <select class="custom-select" id="t_o_disease" name="scholarship_select" value="<?php echo $row['scholarship_select'];?>"> 
-                                    <option value="<?php echo $row['scholarship_select'];?>"><?php echo $row['scholarship_select'];?></option>
-                                    <option value="Premetric">Premetric</option>
-                                    <option value="Post metric">Post metric</option>
+                                   <select class="custom-select" id="t_o_disease" name="scholarship_category" value="<?php echo $row['scholarship_category'];?>"> 
+                                               <option value="<?php echo $row['scholarship_category'];?>">
+                                                <?php  if($row['scholarship_category'] == '1'){
+                                                echo "Premetric";
+                                                }elseif($row['scholarship_category'] == '2'){
+                                                echo "Post metric";
+                                              } ?></option>
+                                               <option value="1">Premetric</option>
+                                               <option value="2">Post metric</option>
                                     </select>
                                 </div> 
                             </div>
@@ -850,11 +855,11 @@ input[type=file]:focus, input[type=radio]:focus {
                                             <input type="hidden" id="txtfirst" name="student_id[]"  value="<?php echo $rows['s_id'];?>" class="form-control input-sm ">
                                             <td><input type="text" id="txtfirst" name="name[]" class="form-control input-sm " value="<?php echo $rows['name'];?>" /></td>
                                             <td><input type="text" id="txtsecond" name="age[]" class="form-control input-sm "value="<?php echo $rows['age'];?>" /></td>
-                                            <td><select id="txtthird" name="genders[]" value="<?php echo $rows['genders']  ?>" class="form-control input-sm " >
-                                                <option value="">
+                                            <td><select id="txtthird" name="genders[]" value="<?php echo $rows['genders'];?>" class="form-control input-sm " >
+                                                <option value="<?php echo $rows['genders'];?>">
                                                 <?php  if($rows['genders'] == '1'){
                                                 echo "Male";
-                                                }else{
+                                                }elseif($rows['genders'] == '2'){
                                                 echo "Female";
                                               } ?></option>
                                                 <option value="1">Male</option>
@@ -862,16 +867,15 @@ input[type=file]:focus, input[type=radio]:focus {
                                                 </select>
                                             </td>
                                             <td><select id="txtfourth" name="relation[]" class="form-control input-sm "  value="<?php echo $rows['relation']  ?>">
-                                                <option value=""
-                                                ><?php 
-                                                    $rows['relation']; 
+                                                <option value="<?php echo $rows['relation'];?>">
+                                                <?php 
                                                     if($rows['relation'] == '1'){
                                                         echo "Father";
                                                     }elseif($rows['relation'] == '2'){
                                                         echo "Mother";
                                                     }elseif($rows['relation'] == '3'){
                                                         echo "Sister";
-                                                    }else{
+                                                    }elseif($rows['relation'] == '4'){
                                                         echo "Brother";
                                                     }
                                                 ?></option>
@@ -881,15 +885,15 @@ input[type=file]:focus, input[type=radio]:focus {
                                                     <option value="4">Brother</option>
                                                 </select>
                                             </td>
-                                                    <td><select id="txtfifth"  name="martial_status[]" class="form-control input-sm m" >
-                                                        <option value=""><?php  $rows['martial_status'];
+                                                    <td><select id="txtfifth"  name="martial_status[]" class="form-control input-sm m"   value="<?php echo  $rows['martial_status'];?>">
+                                                        <option value="<?php  echo $rows['martial_status'];?>"><?php 
                                                     if($rows['martial_status'] == '1'){
                                                         echo "Married";
                                                     }elseif($rows['martial_status'] == '2'){
                                                         echo "Unmarried";
                                                     }elseif($rows['martial_status'] == '3'){
                                                         echo "Widow/Widowar";
-                                                    }else{
+                                                    }elseif($rows['martial_status'] == '4'){
                                                         echo "Single Parent";
                                                     }
                                                ?></option>

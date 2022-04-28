@@ -95,21 +95,21 @@ if($lastid > 0){
         $imageTmpName = $_FILES['previous_marksheet']['tmp_name'][$key];
         $imageName = $_FILES['previous_marksheet']['name'][$key];
         $extension=end(explode(".", $imageName));
-        $imageName=time().uniqid(rand()).".".$extension;
-        $result = move_uploaded_file($imageTmpName,$uploadFolder.$imageName);
+        $newimage=time().uniqid(rand()).".".$extension;
+        $result = move_uploaded_file($imageTmpName,$uploadFolder.$newimage);
         
         echo $imageName;
-        $images_names[] = $imageName;
+        $images_names[] = $newimage;
        }
         $uploadFolder1 = 'bank_attachment/';
         foreach ($_FILES['bank_attachment1']['tmp_name'] as $key => $image) {
         $imageTmpName1 = $_FILES['bank_attachment1']['tmp_name'][$key];
         $imageName1 = $_FILES['bank_attachment1']['name'][$key];
         $extension1=end(explode(".", $imageName1));
-        $imageName1=time().uniqid(rand()).".".$extension1;
-        $result1 = move_uploaded_file($imageTmpName1,$uploadFolder1.$imageName1);
+        $newimage1=time().uniqid(rand()).".".$extension1;
+        $result1 = move_uploaded_file($imageTmpName1,$uploadFolder1.$newimage1);
      
-        array_push($images_names,$imageName1);
+        array_push($images_names,$newimage1);
         // $images_names[] = $imageName1;
         }
         }else{
@@ -118,10 +118,10 @@ if($lastid > 0){
         $imageTmpName2 = $_FILES['hospital_report']['tmp_name'][$key];
         $imageName2 = $_FILES['hospital_report']['name'][$key];
         $extension2=end(explode(".", $imageName2));
-        $imageName2=time().uniqid(rand()).".".$extension2;
-        $result2 = move_uploaded_file($imageTmpName2,$uploadFolder2.$imageName2);
+        $newimage2=time().uniqid(rand()).".".$extension2;
+        $result2 = move_uploaded_file($imageTmpName2,$uploadFolder2.$newimage2);
      
-        $images_names[] = $imageName2;
+        $images_names[] = $newimage2;
         // array_push($images_names,$imageName2);
         }
         $uploadFolder3 = 'previous_medical_report/';
@@ -129,20 +129,20 @@ if($lastid > 0){
         $imageTmpName3 = $_FILES['previous_medical_report']['tmp_name'][$key];
         $imageName3 = $_FILES['previous_medical_report']['name'][$key];
         $extension3=end(explode(".", $imageName3));
-        $imageName3=time().uniqid(rand()).".".$extension3;
-        $result3 = move_uploaded_file($imageTmpName3,$uploadFolder3.$imageName3);
+        $newimage3=time().uniqid(rand()).".".$extension3;
+        $result3 = move_uploaded_file($imageTmpName3,$uploadFolder3.$newimage3);
      
-        $images_names[] = $imageName3;
+        $images_names[] = $newimage3;
         }
         $uploadFolder4 = 'bank_attachment/';
         foreach ($_FILES['bank_attachment']['tmp_name'] as $key => $image) {
         $imageTmpName4 = $_FILES['bank_attachment']['tmp_name'][$key];
         $imageName4 = $_FILES['bank_attachment']['name'][$key];
         $extension4=end(explode(".", $imageName4));
-        $imageName4=time().uniqid(rand()).".".$extension4;
-        $result4 = move_uploaded_file($imageTmpName4,$uploadFolder4.$imageName4);
+        $newimage4=time().uniqid(rand()).".".$extension4;
+        $result4 = move_uploaded_file($imageTmpName4,$uploadFolder4.$newimage4);
      
-        array_push($images_names,$imageName4);
+        array_push($images_names,$newimage4);
         }
         }
      

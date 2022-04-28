@@ -25,7 +25,7 @@ $school_address=$_POST['school_address'];
 $mark_percentage=$_POST['mark_percentage'];
 $term_semester=$_POST['term_semester'];
 $academic_year=$_POST['academic_year'];
-$scholarship_select=$_POST['scholarship_select'];
+$scholarship_category=$_POST['scholarship_category'];
 $phone_no=$_POST['phone_no'];
 $student_email=$_POST['student_email'];
 if($form_type == '1'){
@@ -77,7 +77,7 @@ echo $update_sql="UPDATE scholarship_table SET
  `mark_percentage`='$mark_percentage',
  `term_semester`='$term_semester',
  `academic_year`='$academic_year',
- `scholarship_select`='$scholarship_select',
+ `scholarship_category`='$scholarship_category',
  `phone_no`='$phone_no',
  `student_email`='$student_email',
  `account_no`='$account_no',
@@ -109,19 +109,23 @@ if($id > 0){
         foreach ($_FILES['previous_marksheet']['tmp_name'] as $key => $image) {
         $imageTmpName = $_FILES['previous_marksheet']['tmp_name'][$key];
         $imageName = $_FILES['previous_marksheet']['name'][$key];
-        $result = move_uploaded_file($imageTmpName,$uploadFolder.$imageName);
-        // echo $imageName;
-        if($imageName != ''){
-          $images_names[] = $imageName;
+        $extension=end(explode(".", $imageName));
+        $newimage=time().uniqid(rand()).".".$extension;
+        $result = move_uploaded_file($imageTmpName,$uploadFolder.$newimage);
+     
+        if($newimage != ''){
+          $images_names[] = $newimage;
         }
         }
         $uploadFolder1 = '../bank_attachment/';
         foreach ($_FILES['bank_attachment1']['tmp_name'] as $key => $image) {
         $imageTmpName1 = $_FILES['bank_attachment1']['tmp_name'][$key];
         $imageName1 = $_FILES['bank_attachment1']['name'][$key];
-        $result1 = move_uploaded_file($imageTmpName1,$uploadFolder1.$imageName1);
-        if($imageName1 != ''){
-          array_push($images_names,$imageName1);
+        $extension1=end(explode(".", $imageName1));
+        $newimage1=time().uniqid(rand()).".".$extension1;
+        $result1 = move_uploaded_file($imageTmpName1,$uploadFolder1.$newimage1);
+        if($newimage1 != ''){
+          array_push($images_names,$newimage1);
         }
        
       
@@ -132,9 +136,11 @@ if($id > 0){
         foreach ($_FILES['hospital_report']['tmp_name'] as $key => $image) {
         $imageTmpName2 = $_FILES['hospital_report']['tmp_name'][$key];
         $imageName2 = $_FILES['hospital_report']['name'][$key];
-        $result2 = move_uploaded_file($imageTmpName2,$uploadFolder2.$imageName2);
-        if($imageName2 != ''){
-          $images_names[] = $imageName2;
+        $extension2=end(explode(".", $imageName2));
+        $newimage2=time().uniqid(rand()).".".$extension2;
+        $result2 = move_uploaded_file($imageTmpName2,$uploadFolder2.$newimage2);
+        if($newimage2 != ''){
+          $images_names[] = $newimage2;
         }
         //$images_names[] = $imageName2;
         // array_push($images_names,$imageName2);
@@ -143,9 +149,11 @@ if($id > 0){
         foreach ($_FILES['previous_medical_report']['tmp_name'] as $key => $image) {
         $imageTmpName3 = $_FILES['previous_medical_report']['tmp_name'][$key];
         $imageName3 = $_FILES['previous_medical_report']['name'][$key];
-        $result3 = move_uploaded_file($imageTmpName3,$uploadFolder3.$imageName3);
-        if($imageName3 != ''){
-          array_push($images_names,$imageName3);
+        $extension3=end(explode(".", $imageName3));
+        $newimage3=time().uniqid(rand()).".".$extension3;
+        $result3 = move_uploaded_file($imageTmpName3,$uploadFolder3.$newimage3);
+        if($newimage3 != ''){
+          array_push($images_names,$newimage3);
         }
        // $images_names[] = $imageName3;
         }
@@ -153,9 +161,11 @@ if($id > 0){
         foreach ($_FILES['bank_attachment']['tmp_name'] as $key => $image) {
         $imageTmpName4 = $_FILES['bank_attachment']['tmp_name'][$key];
         $imageName4 = $_FILES['bank_attachment']['name'][$key];
-        $result4 = move_uploaded_file($imageTmpName4,$uploadFolder4.$imageName4);
-        if($imageName4 != ''){
-          array_push($images_names,$imageName4);
+        $extension4=end(explode(".", $imageName4));
+        $newimage4=time().uniqid(rand()).".".$extension4;
+        $result4 = move_uploaded_file($imageTmpName4,$uploadFolder4.$newimage4);
+        if($newimage4 != ''){
+          array_push($images_names,$newimage4);
         }
         }
       }

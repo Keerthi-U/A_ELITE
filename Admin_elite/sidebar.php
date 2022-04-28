@@ -3,6 +3,17 @@ if(session_id() == ''){
     require_once('authentication.php');
 }
 include('header.php');?>
+<style>
+    .header-advance-area {
+    position: absolute;
+    height: 100vh;
+    display: flex;
+    left: 50%;
+    justify-content: center;
+    z-index: 99999;
+    align-items: center;
+}
+    </style>
 <body>
 
     <!--[if lt IE 8]>
@@ -157,6 +168,7 @@ include('header.php');?>
                         </li> -->
                     </ul>
                 </nav>
+              
             </div>
         </nav>
     </div>
@@ -220,7 +232,11 @@ include('header.php');?>
                         </div>
                     </div>
                 </div>
+               
             </div>
+            <div class="form-data-saving" ><img src="img/logo/ajax_loader.gif" /></div>
+</div>
+      
             <!-- Mobile Menu start -->
             <!-- <div class="mobile-menu-area">
                 <div class="container">
@@ -440,6 +456,7 @@ include('header.php');?>
                     </div>
                 </div>
             </div> -->
+             
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script>

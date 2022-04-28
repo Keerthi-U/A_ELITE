@@ -3702,6 +3702,7 @@ div#sparklinehome canvas {
 }
 #sidebar {
     background: #fff;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
 }
 #sidebar .sidebar-header {
     background: #fff;
