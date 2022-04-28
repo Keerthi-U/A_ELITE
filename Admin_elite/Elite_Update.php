@@ -855,53 +855,28 @@ input[type=file]:focus, input[type=radio]:focus {
                                             <input type="hidden" id="txtfirst" name="student_id[]"  value="<?php echo $rows['s_id'];?>" class="form-control input-sm ">
                                             <td><input type="text" id="txtfirst" name="name[]" class="form-control input-sm " value="<?php echo $rows['name'];?>" /></td>
                                             <td><input type="text" id="txtsecond" name="age[]" class="form-control input-sm "value="<?php echo $rows['age'];?>" /></td>
-                                            <td><select id="txtthird" name="genders[]" value="<?php echo $rows['genders'];?>" class="form-control input-sm " >
-                                                <option value="<?php echo $rows['genders'];?>">
-                                                <?php  if($rows['genders'] == '1'){
-                                                echo "Male";
-                                                }elseif($rows['genders'] == '2'){
-                                                echo "Female";
-                                              } ?></option>
-                                                <option value="1">Male</option>
-                                                <option value="2">Female</option>
-                                                </select>
+                                            <td><select id="txtthird" name="genders[]"  class="form-control input-sm " >
+                                              <?php
+                                                   $gen=$rows['genders']
+                                              ?>
+                                            <option value="1" <?php echo $gen == '1' ? 'selected' : ''; ?> >Male</option>
+                                            <option value="2" <?php echo $gen == '2' ? 'selected' : ''; ?> >Female</option>
+                                           </select>
                                             </td>
                                             <td><select id="txtfourth" name="relation[]" class="form-control input-sm "  value="<?php echo $rows['relation']  ?>">
-                                                <option value="<?php echo $rows['relation'];?>">
-                                                <?php 
-                                                    if($rows['relation'] == '1'){
-                                                        echo "Father";
-                                                    }elseif($rows['relation'] == '2'){
-                                                        echo "Mother";
-                                                    }elseif($rows['relation'] == '3'){
-                                                        echo "Sister";
-                                                    }elseif($rows['relation'] == '4'){
-                                                        echo "Brother";
-                                                    }
-                                                ?></option>
-                                                <option value="1">Father</option>
-                                                    <option value="2">Mother</option>
-                                                    <option value="3">Sister</option>
-                                                    <option value="4">Brother</option>
-                                                </select>
-                                            </td>
-                                                    <td><select id="txtfifth"  name="martial_status[]" class="form-control input-sm m"   value="<?php echo  $rows['martial_status'];?>">
-                                                        <option value="<?php  echo $rows['martial_status'];?>"><?php 
-                                                    if($rows['martial_status'] == '1'){
-                                                        echo "Married";
-                                                    }elseif($rows['martial_status'] == '2'){
-                                                        echo "Unmarried";
-                                                    }elseif($rows['martial_status'] == '3'){
-                                                        echo "Widow/Widowar";
-                                                    }elseif($rows['martial_status'] == '4'){
-                                                        echo "Single Parent";
-                                                    }
-                                               ?></option>
-                                                <option value="1">Married</option>
-                                                <option value="2">Unmarried</option>
-                                                <option value="3">Widow/Widowar</option>
-                                                <option value="4">Single Parent</option>
-                                            </select></td>
+                                               <?php $relation=$rows['relation'];?>
+                                                <option value="1" <?php echo $relation =='1' ? 'selected' : '';?> > Father </option>
+                                                <option value="2" <?php echo $relation =='2' ? 'selected' : '';?> > Mother </option>
+                                                <option value="3" <?php echo $relation =='3' ? 'selected' : '';?> > Sister </option>
+                                                <option value="4" <?php echo $relation =='4' ? 'selected' : '';?> > Brother </option>
+                                              </select></td>
+                                                <td><select id="txtfifth"  name="martial_status[]" class="form-control input-sm m"   value="<?php echo  $rows['martial_status'];?>">
+                                                      <?php   $martial_status= $rows['martial_status'];?>
+                                                <option value="1" <?php echo $martial_status =='1' ? 'selected' : '';?> > Married </option>
+                                                <option value="2" <?php echo $martial_status =='2' ? 'selected' : '';?> > Unmarried </option>
+                                                <option value="3" <?php echo $martial_status =='3' ? 'selected' : '';?> > Widow/Widowar </option>
+                                                <option value="4" <?php echo $martial_status =='4' ? 'selected' : '';?> > Single Parent </option>
+                                             </select></td>
                                             <td><input type="text" id="txtsix" class="form-control t" name="qualification[]" value="<?php echo $rows['qualification']  ?>" /></td>
                                             <td><input type="text" id="txtseven" class="form-control "  name="occupation[]" value="<?php echo $rows['occupation']  ?>" oninput="calculate('row_0')"/></td>
                                             <td><input type="text" id="txteight" class="form-control t" name="annual_income[]" value="<?php echo $rows['annual_income']  ?>" /></td>
